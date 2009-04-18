@@ -1,0 +1,3 @@
+rb_memerror:
+ruby_xmalloc:
+  - int: 'Allocation Size'

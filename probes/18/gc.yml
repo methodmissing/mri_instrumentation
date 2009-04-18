@@ -1,0 +1,80 @@
+rb_memerror:
+ruby_xmalloc:
+  - int: 'Allocation Size'  
+ruby_xcalloc:
+  - int: 'Number' 
+  - int: 'Allocation Size'
+ruby_xrealloc:
+  - pointer: 'Address'
+  - int: 'Allocation Size'   
+ruby_xfree:  
+  - pointer: 'Address'
+rb_gc_enable:
+rb_gc_disable:      
+add_heap:
+rb_gc_register_address:
+  - pointer: 'Address'    
+rb_gc_unregister_address:
+  - pointer: 'Address'
+rb_during_gc:
+rb_newobj:
+rb_data_object_alloc:
+  - 
+  -
+  -
+  -  
+stack_end_address:
+  - pointer: 'Address'  
+stack_grow_direction:
+  - pointer: 'Address'        
+ruby_stack_length:
+  - pointer: 'Address'  
+ruby_stack_check:    
+rb_source_filename:
+  - char: 'Filename'
+mark_source_filename:
+  - char: 'Filename'
+sweep_source_filename:
+  - char: 'Key'    
+  - char: 'Value'
+gc_mark_all:
+gc_mark_rest:
+is_pointer_to_heap:
+  - pointer: 'Address'              
+rb_gc_mark_locations:
+  - pointer: 'Start'
+  - pointer: 'End'             
+rb_mark_tbl:
+  - pointer: 'Symbol Table'  
+rb_mark_set:
+  - pointer: 'Symbol Table'  
+rb_mark_hash:
+  - pointer: 'Symbol Table'  
+rb_gc_mark_maybe:
+rb_gc_mark:
+  -
+gc_mark_children:
+  -
+  - int: 'Level' 
+add_freelist:
+  - pointer: 'Address'      
+finalize_list:
+  - pointer: 'Address'      
+free_unused_heaps:                
+gc_sweep:
+
+rb_gc_force_recycle:
+  -                    
+obj_free:
+  -     
+rb_gc_mark_frame:
+  - pointer: 'Frame'
+garbage_collect:
+rb_gc:
+rb_gc_start:       
+rb_gc_finalize_deferred: 
+id2ref:  
+  -
+  - 
+rb_obj_id:
+  -                                                                                             
