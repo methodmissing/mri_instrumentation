@@ -2,11 +2,13 @@ module Mri
   module Instrumentation
     module Test
       
-      PATH = File.dirname( __FILE__ ).freeze unless const_defined?(:PATH)
+      unless const_defined?(:PATH)
+        PATH = File.dirname( __FILE__ ).freeze 
       
-      LIB = File.join( PATH, '..', 'lib', 'instrumentation' ).freeze unless const_defined?(:LIB)
+        LIB = File.join( PATH, '..', 'lib', 'instrumentation' ).freeze
        
-      FIXTURES = File.join( PATH, 'fixtures' ).freeze unless const_defined?(:FIXTURES) 
+        FIXTURES = File.join( PATH, 'fixtures' ).freeze
+      end
       
       def self.setup
         require 'test/unit'
