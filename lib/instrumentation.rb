@@ -14,7 +14,6 @@ module Mri
     autoload :Probe, 'mri/instrumentation/probe'
     autoload :Argument, 'mri/instrumentation/argument'
     autoload :ProbeCollection, 'mri/instrumentation/probe_collection'
-    autoload :Runner, 'mri/instrumentation/runner'
     
     module Strategy
 
@@ -23,6 +22,12 @@ module Mri
       autoload :Calltime, 'mri/instrumentation/strategy/calltime'      
       
     end
+    
+    module Runner
+      
+      autoload :Base, 'mri/instrumentation/runner/base'
+      
+    end    
     
     # Setup all probe definitions from a given path
     #
@@ -34,13 +39,15 @@ module Mri
     # Infer all available probes
     #
     def self.probes( path = PROBES )
-      @probes ||= definitions( path ).map{|p| p.probes }.flatten
+      @probes ||= {}
+      @probes[path] ||= definitions( path ).map{|p| p.probes }.flatten
     end  
     
     # Infer all probe groups from a given path
     #
     def self.groups( path = PROBES )
-      @groups ||= definitions( path ).map{|p| p.group }
+      @groups ||= {}
+      @groups[path] ||= definitions( path ).map{|p| p.group }
     end  
     
   end  

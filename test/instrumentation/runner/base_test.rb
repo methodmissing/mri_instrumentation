@@ -1,10 +1,10 @@
-require File.join( File.dirname( __FILE__ ), '..', 'helper' )
+require File.join( File.dirname( __FILE__ ), '..', '..', 'helper' )
 
-class RunnerTest < Test::Unit::TestCase
+class BaseRunnerTest < Test::Unit::TestCase
   
   def setup
     @probe = Mri::Instrumentation::Test.probe
-    @runner = Mri::Instrumentation::Runner.new
+    @runner = Mri::Instrumentation::Runner::Base.new
   end
   
   test "should be able to have a process identifier set" do
@@ -23,7 +23,7 @@ class RunnerTest < Test::Unit::TestCase
   
   test "should be able to yield instrumentation probes from a given group signature" do
     @runner.probes :gc
-    assert_equal 3, @runner.probes.size
+    assert_equal 43, @runner.probes.size
   end
 
   test "should be able to yield instrumentation probes from a given group of probe signatures" do
