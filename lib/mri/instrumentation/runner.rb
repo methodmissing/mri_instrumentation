@@ -76,8 +76,10 @@ module Mri
         # Generates a dtrace script / stream
         #
         def generate
-          Tempfile.open do |file|
-            file << 'probes'
+          Tempfile.open( 'mri_instrumentation' ) do |file|
+            file << d_stream()
+            file.flush
+            puts IO.read( file.path )
             %x[ sudo dtrace -s #{file.path} #{yield}]
           end
         end
@@ -137,6 +139,10 @@ module Mri
         def strategy_const( strategy )
           strategy.to_s.gsub( /\/(.?)/ ) { "::#{$1.upcase}" }.gsub( /(?:^|_)(.)/ ) { $1.upcase }
         end  
+        
+        def d_stream
+          Mri::Instrumentation::Strategy::Builder.new( self.strategy, self.probes ).to_s
+        end
         
     end
   end

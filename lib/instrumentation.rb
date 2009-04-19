@@ -1,6 +1,7 @@
 $:.unshift( File.dirname(__FILE__), '..' )
 
 require 'yaml'
+require 'tempfile'
 
 module Mri
   module Instrumentation
@@ -15,7 +16,8 @@ module Mri
     autoload :Runner, 'mri/instrumentation/runner'
     
     module Strategy
-      
+
+      autoload :Builder, 'mri/instrumentation/strategy/builder'            
       autoload :Base, 'mri/instrumentation/strategy/base'      
       autoload :Calltime, 'mri/instrumentation/strategy/calltime'      
       

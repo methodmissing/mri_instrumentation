@@ -13,14 +13,14 @@ module Mri
       # Format helper for D's printf
       #
       def to_format
-        @format ||= TYPES[self.type].last  
+        @format ||= TYPES[self.type.to_sym].last  
       end      
 
       # Massage into a format D can easily work with.
       # Standardized on everything being a string, for the time being.
       #
       def massage
-        @massage ||= TYPES[self.type].first % to_arg  
+        @massage ||= TYPES[self.type.to_sym].first % to_arg  
       end      
       
       # String representation as description

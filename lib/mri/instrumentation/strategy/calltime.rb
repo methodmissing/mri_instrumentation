@@ -4,7 +4,7 @@ module Mri
       class Calltime < Base
         
         def setup( contents = '' )
-          super %[ printf("Tracing... Hit Ctrl-C to end.\\n"); ]          
+          super %[ printf("Tracing... Hit Ctrl-C to end.\\n");\n ]          
         end
         
         def entry( contents = '' )

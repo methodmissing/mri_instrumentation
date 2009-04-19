@@ -12,21 +12,21 @@ module Mri
         def header
           %[ #!/usr/sbin/dtrace -Zs 
 
-             #pragma D option quiet ]
+             #pragma D option quiet\n ]
         end
         
         def setup( contents = '' )
           %[ dtrace:::BEGIN
               { 
           	    #{contents}
-              } ]
+              }\n ]
         end
         
         def entry( contents = '' )
           %[ #{function_entry}
           {
           	#{contents}
-          } ]
+          }\n ]
         end
         
         def predicate
@@ -38,14 +38,14 @@ module Mri
              #{predicate}
           {
           	#{contents}
-          } ]
+          }\n ]
         end  
         
         def report( contents = '' )
           %[ dtrace:::END
               {
                 #{contents}
-              } ]
+              }\n ]
         end
         
         def method_missing( method, *args, &block )

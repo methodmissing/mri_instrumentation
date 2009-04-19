@@ -31,4 +31,11 @@ class RunnerTest < Test::Unit::TestCase
     assert_equal 1, @runner.probes.size
   end
    
+  test "should be able to run it's strategy" do
+    @runner.probes :gc
+    @runner.command "ruby -e 'puts(1)'"
+    @runner.strategy :calltime  
+    @runner.run!
+  end 
+   
 end  
