@@ -8,6 +8,8 @@ module Mri
         LIB = File.join( PATH, '..', 'lib', 'instrumentation' ).freeze
        
         FIXTURES = File.join( PATH, 'fixtures' ).freeze
+        
+        PROBES = File.join( FIXTURES, 'probes' ).freeze        
       end
       
       def self.setup
