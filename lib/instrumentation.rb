@@ -13,6 +13,7 @@ module Mri
     autoload :Definition, 'mri/instrumentation/definition'        
     autoload :Probe, 'mri/instrumentation/probe'
     autoload :Argument, 'mri/instrumentation/argument'
+    autoload :ProbeCollection, 'mri/instrumentation/probe_collection'
     autoload :Runner, 'mri/instrumentation/runner'
     
     module Strategy

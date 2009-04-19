@@ -19,7 +19,8 @@ module Mri
       end
       
       def self.arguments
-        [ Mri::Instrumentation::Argument.new( :pointer, 'Address', 0 ),
+        [ Mri::Instrumentation::Argument.probe,
+          Mri::Instrumentation::Argument.new( :pointer, 'Address', 0 ),
           Mri::Instrumentation::Argument.new( :int, 'Allocation Size', 1 ) ]
       end
       

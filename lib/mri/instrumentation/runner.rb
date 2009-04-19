@@ -79,7 +79,6 @@ module Mri
           Tempfile.open( 'mri_instrumentation' ) do |file|
             file << d_stream()
             file.flush
-            puts IO.read( file.path )
             %x[ sudo dtrace -s #{file.path} #{yield}]
           end
         end
@@ -140,6 +139,8 @@ module Mri
           strategy.to_s.gsub( /\/(.?)/ ) { "::#{$1.upcase}" }.gsub( /(?:^|_)(.)/ ) { $1.upcase }
         end  
         
+        # Build the D stream
+        #
         def d_stream
           Mri::Instrumentation::Strategy::Builder.new( self.strategy, self.probes ).to_s
         end

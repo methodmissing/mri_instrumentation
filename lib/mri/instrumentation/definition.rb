@@ -47,7 +47,7 @@ module Mri
         # Setup arguments for a single probe
         #
         def setup_arguments( arguments )
-          (arguments || []).map do |argument|
+          arguments_with_probe( arguments ).map do |argument|
             setup_argument( arguments, argument )
           end  
         end  
@@ -55,7 +55,15 @@ module Mri
         # Setup a single argument
         #
         def setup_argument( arguments, argument )
-          Mri::Instrumentation::Argument.new( argument.keys.first, argument.values.first, arguments.index(argument) )
+          if argument.is_a?( Mri::Instrumentation::Argument )
+            argument
+          else  
+            Mri::Instrumentation::Argument.new( argument.keys.first, argument.values.first, arguments.index(argument) )
+          end
+        end
+       
+        def arguments_with_probe( arguments )
+          ( arguments || [] ) << Mri::Instrumentation::Argument.probe
         end
        
     end

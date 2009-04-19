@@ -2,13 +2,24 @@ module Mri
   module Instrumentation
     class Argument < Struct.new(:type, :description, :order)
       
+      class << self
+        
+        # Yields the default probe argument
+        #
+        def probe
+          @@probe ||= new( :probe, 'Probe', -1 )
+        end
+        
+      end
+      
       # Represents a probe argument.Initial support for pointers, strings 
       # and integers.
       #
       
       TYPES = { :char => ['copyinstr( %s )', '%s'],
                 :pointer => ['%s', '%#p'],
-                :int => ['stringof( %s )', '%s'] }
+                :int => ['stringof( %s )', '%s'],
+                :probe => ['%s', '%s'] }
       
       # Format helper for D's printf
       #
@@ -32,7 +43,7 @@ module Mri
       # Function variable
       #
       def to_var
-        @to_var ||= "this->#{to_arg}"
+        @to_var ||= probe? ? "this->type" : "this->#{to_arg}"
       end
       
       # Function variable assignment
@@ -44,7 +55,13 @@ module Mri
       # Argument representation.
       #
       def to_arg
-        @arg ||= "arg#{self.order.to_s}"
+        @arg ||= probe? ? 'probefunc' : "arg#{self.order.to_s}"
+      end
+      
+      # Are we the first ( probe type ) argument ?
+      #
+      def probe?
+        self.order == -1
       end
       
     end

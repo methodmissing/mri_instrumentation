@@ -13,15 +13,7 @@ class ProbeTest < Test::Unit::TestCase
   test "should be able to calculate it's argument size" do
     assert_equal 3, @probe.argument_size
   end
-  
-  test "should be able to yield a report header" do
-    assert_equal '"Probe", "Address", "Allocation Size"', @probe.report_header
-  end
-  
-  test "should be able to yield a header format" do
-    assert_equal '%-10s %-10s %-10s %8s', @probe.header_format
-  end
-  
+
   test "should be able to yield an entry function name" do
     assert_equal 'pid$target::ruby_xrealloc:entry', @probe.function_entry
   end
@@ -35,7 +27,7 @@ class ProbeTest < Test::Unit::TestCase
   end
   
   test "should be able to assign it's arguments from within a function def" do
-    assert_equal "this->arg0 = arg0;\nthis->arg1 = stringof( arg1 );", @probe.assign_arguments
+    assert_equal "this->type = probefunc;\nthis->arg0 = arg0;\nthis->arg1 = stringof( arg1 );", @probe.assign_arguments
   end
   
 end  

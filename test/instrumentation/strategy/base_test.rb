@@ -17,7 +17,7 @@ class BaseStrategyTest < Test::Unit::TestCase
   
   test "should be able to yield a setup function" do
     assert_match /BEGIN/, @strategy.setup
-    assert_match /test/, @strategy.setup('test')
+    assert_match /test/, @strategy.setup( 'test')
   end
   
   test "should be able to yield a function entry definition" do
@@ -32,7 +32,7 @@ class BaseStrategyTest < Test::Unit::TestCase
 
   test "should be able to yield a reporting function" do
     assert_match /END/, @strategy.report
-    assert_match /test/, @strategy.report('test')
+    assert_match /test/, @strategy.report( 'test')
   end 
   
 end  

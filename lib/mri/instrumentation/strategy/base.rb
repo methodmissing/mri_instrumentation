@@ -3,25 +3,34 @@ module Mri
     module Strategy
       class Base
         
-        attr_reader :probe
+        attr_reader :probe,
+                    :probes_collection
         
-        def initialize( probe )
+        def initialize( probe, probes_collection = [] )
           @probe = probe
+          @probes_collection = probes_collection
         end
         
+        # Script header.
+        # Override for type declarations etc.
+        #
         def header
           %[ #!/usr/sbin/dtrace -Zs 
 
              #pragma D option quiet\n ]
         end
         
-        def setup( contents = '' )
+        # Any strategy specific setup eg. runtime variables
+        #
+        def setup( contents = '')
           %[ dtrace:::BEGIN
               { 
           	    #{contents}
               }\n ]
         end
         
+        # Probe entry definition
+        #
         def entry( contents = '' )
           %[ #{function_entry}
           {
@@ -29,10 +38,14 @@ module Mri
           }\n ]
         end
         
+        # Any predicate conditions
+        #
         def predicate
           ''
         end
         
+        # Probe return definition
+        #
         def return( contents = '' )
           %[ #{function_return}
              #{predicate}
@@ -41,6 +54,8 @@ module Mri
           }\n ]
         end  
         
+        # Report results
+        #
         def report( contents = '' )
           %[ dtrace:::END
               {
@@ -49,7 +64,11 @@ module Mri
         end
         
         def method_missing( method, *args, &block )
-          @probe.send( method, *args, &block )
+          if @probe.respond_to?(method)
+            @probe.send( method, *args, &block )
+          else
+            @probes_collection.send( method, *args, &block )
+          end    
         end  
         
       end  

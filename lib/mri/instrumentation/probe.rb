@@ -8,30 +8,12 @@ module Mri
         self.name
       end
       
-      # Argument size is arguments + 1, to accomodate the probe type
+      # Argument size
       #
       def argument_size
-        @argument_size ||= self.arguments.size + 1
+        @argument_size ||= self.arguments.size
       end
-      
-      # Header for reporting
-      #
-      def report_header
-        @header ||= ['"Probe"'].concat( self.arguments.map{|a| "\"#{a.to_s}\"" } ).join( ", " )
-      end
-
-      # Sprintf formatting for the header
-      #
-      def header_format
-        @header_format ||= ( format << '%8s' ).join(' ')
-      end
-      
-      # Sprintf formatting for the report
-      #
-      def report_format
-        @report_format ||= ( format << '%@8d' ).join(' ')
-      end
-      
+            
       # Entry declaration
       #
       def function_entry
@@ -47,7 +29,7 @@ module Mri
       # Yields a list of arguments for associative D arrays
       #
       def arguments_list
-        "this->type, #{iterate_arguments( :to_var, ', ' )}"
+        iterate_arguments( :to_var, ', ' )
       end
       
       # Assign massaged values to the arguments
@@ -62,12 +44,6 @@ module Mri
         #
         def with_pid( scope )
           "pid$target::#{self.name}:#{scope}"
-        end
-      
-        # Format as all strings.
-        #
-        def format
-          ['%-10s'] * argument_size
         end
         
         # Iterate and join arguments

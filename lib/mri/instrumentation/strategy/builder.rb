@@ -9,18 +9,22 @@ module Mri
                       
         def initialize( strategy, probes )
           @strategy = strategy
-          @probes = probes
+          @probes = Mri::Instrumentation::ProbeCollection.new( probes )
           @buffer = ''
-          @root = @strategy.new( probes.first )
+          @root = @strategy.new( probes.first, @probes )
           build()
         end               
         
+        # Script as string representation
+        #
         def to_s
           @buffer
         end   
         
         private
         
+          # Build the D script
+          #
           def build
             @buffer << @root.header
             @buffer << @root.setup
@@ -28,6 +32,8 @@ module Mri
             @buffer << @root.report
           end
           
+          # Build the entry and return function definitions for each probe
+          #
           def build_each
             @probes.each do |probe|
               strategy_instance = strategy.new( probe )

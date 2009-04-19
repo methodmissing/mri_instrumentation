@@ -22,7 +22,6 @@ module Mri
                    this->elapsed_excl = this->elapsed_incl - self->exclude[self->depth];
                 	 self->#{name}[self->depth] = 0;
                 	 self->exclude[self->depth] = 0;
-                	 this->type = probefunc;
                 	 #{assign_arguments}
                 	 @num[#{arguments_list}] = count();
                 	 @num["-", "total", "-"] = count();
