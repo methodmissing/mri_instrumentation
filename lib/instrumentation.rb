@@ -24,7 +24,8 @@ module Mri
     # Setup all probe definitions from a given path
     #
     def self.definitions( path = PROBES )
-      @definitions ||= Dir["#{path}/*.yml"].map{|p| Mri::Instrumentation::Definition.new( p ) }
+      @definitions ||= {}
+      @definitions[path] ||= Dir["#{path}/*.yml"].map{|p| Mri::Instrumentation::Definition.new( p ) }
     end
     
     # Infer all probe groups from a given path
