@@ -23,7 +23,7 @@ class RunnerTest < Test::Unit::TestCase
   
   test "should be able to yield instrumentation probes from a given group signature" do
     @runner.probes :gc
-    assert_equal 2, @runner.probes.size
+    assert_equal 3, @runner.probes.size
   end
 
   test "should be able to yield instrumentation probes from a given group of probe signatures" do
@@ -32,7 +32,7 @@ class RunnerTest < Test::Unit::TestCase
   end
    
   test "should be able to run it's strategy" do
-    @runner.probes :gc
+    @runner.probes :rb_newobj
     @runner.command "ruby #{Mri::Instrumentation::Test::TARGET}"
     @runner.strategy :calltime  
     @runner.run!

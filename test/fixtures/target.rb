@@ -1,11 +1,11 @@
 class Target
   
-  def intitialize( runs )
+  def initialize( runs )
     @runs = runs
   end
   
   def run!
-    runs.times do
+    @runs.times do
       Time.now
     end  
   end

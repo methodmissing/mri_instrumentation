@@ -15,8 +15,8 @@ class DefinitionTest < Test::Unit::TestCase
   end
   
   test "should be able to setup it's probes" do
-    assert_equal 2, @definition.probes.size
-    assert_equal %w(rb_memerror ruby_xmalloc), @definition.probes.map{|p| p.name }
+    assert_equal 3, @definition.probes.size
+    assert_equal %w(rb_memerror rb_newobj ruby_xmalloc), @definition.probes.map{|p| p.name }
   end
   
 end  

@@ -11,7 +11,7 @@ class InstrumentationTest < Test::Unit::TestCase
   end
   
   test "should be able to infer all probes from a given definition path" do
-    assert_equal 2, Mri::Instrumentation.probes( Mri::Instrumentation::Test::PROBES ).size
+    assert_equal 3, Mri::Instrumentation.probes( Mri::Instrumentation::Test::PROBES ).size
   end  
   
 end  

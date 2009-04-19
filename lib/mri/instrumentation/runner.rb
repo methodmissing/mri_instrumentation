@@ -80,7 +80,6 @@ module Mri
             file << d_stream()
             file.flush
             cmd = "sudo dtrace -s #{file.path} #{yield}"
-            puts cmd
             %x[#{cmd}]
           end
         end

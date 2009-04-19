@@ -24,10 +24,8 @@ module Mri
                 	 self->exclude[self->depth] = 0;
                 	 #{assign_arguments}
                 	 @num[#{arguments_list}] = count();
-                	 @num["-", "total", "-"] = count();
                 	 @types_incl[#{arguments_list}] = sum(this->elapsed_incl);
                 	 @types_excl[#{arguments_list}] = sum(this->elapsed_excl);
-                	 @types_excl["-", "total", "-"] = sum(this->elapsed_excl);
 
                 	 self->depth--;
                 	 self->exclude[self->depth] += this->elapsed_incl; ]
@@ -37,11 +35,6 @@ module Mri
           super %[ printf("\\nCount,\\n");
                    printf("   #{header_format}\\n", #{report_header}, "COUNT");
               	   printa("   #{report_format}\\n", @num);
-
-              	   normalize(@types, 1000);
-              	   printf("\\nElapsed times (us),\\n");
-              	   printf("   #{header_format}\\n", #{report_header}, "TOTAL");
-              	   printa("   #{report_format}\\n", @types);
 
               	   normalize(@types_excl, 1000);
               	   printf("\\nExclusive function elapsed times (us),\\n");
