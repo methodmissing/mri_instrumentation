@@ -33,7 +33,7 @@ class RunnerTest < Test::Unit::TestCase
    
   test "should be able to run it's strategy" do
     @runner.probes :gc
-    @runner.command "ruby -e 'puts(1)'"
+    @runner.command "ruby #{Mri::Instrumentation::Test::TARGET}"
     @runner.strategy :calltime  
     @runner.run!
   end 

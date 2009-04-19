@@ -79,7 +79,9 @@ module Mri
           Tempfile.open( 'mri_instrumentation' ) do |file|
             file << d_stream()
             file.flush
-            %x[ sudo dtrace -s #{file.path} #{yield}]
+            cmd = "sudo dtrace -s #{file.path} #{yield}"
+            puts cmd
+            %x[#{cmd}]
           end
         end
        
@@ -98,7 +100,7 @@ module Mri
         # Run the given command
         #
         def run_command
-          "-c \"#{@command}\""
+          "-c '#{@command}'"
         end
         
         # Convert given probe signatures to probe instances
@@ -152,7 +154,7 @@ end
 =begin
   Mri::Instrumentation::Runner.new do 
     probes :gc
-    command 'ruby -vv'
+    command 'ruby -v'
     strategy :calltime
   end  
 =end  

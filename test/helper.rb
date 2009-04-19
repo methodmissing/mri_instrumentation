@@ -10,6 +10,8 @@ module Mri
         FIXTURES = File.join( PATH, 'fixtures' ).freeze
         
         PROBES = File.join( FIXTURES, 'probes' ).freeze        
+       
+        TARGET = File.join( FIXTURES, 'target.rb' )
       end
       
       def self.setup
