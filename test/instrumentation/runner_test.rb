@@ -37,5 +37,13 @@ class RunnerTest < Test::Unit::TestCase
     @runner.strategy :calltime  
     @runner.run!
   end 
+  
+  test "should be able to store it's result when run" do
+    @runner.probes :rb_newobj
+    @runner.command "ruby #{Mri::Instrumentation::Test::TARGET}"
+    @runner.strategy :calltime  
+    @runner.run!
+    assert_match /rb_newobj/, @runner.result
+  end
    
 end  

@@ -2,7 +2,8 @@ module Mri
   module Instrumentation
     class Runner
       
-      attr_reader :run_with
+      attr_reader :run_with,
+                  :result
       
       def initialize( &block )
         @probes = []
@@ -80,7 +81,7 @@ module Mri
             file << d_stream()
             file.flush
             cmd = "sudo dtrace -s #{file.path} #{yield}"
-            puts %x[#{cmd}]
+            @result = %x[#{cmd}]
           end
         end
        
