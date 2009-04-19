@@ -28,6 +28,12 @@ module Mri
       @definitions[path] ||= Dir["#{path}/*.yml"].map{|p| Mri::Instrumentation::Definition.new( p ) }
     end
     
+    # Infer all available probes
+    #
+    def self.probes( path = PROBES )
+      @probes ||= definitions( path ).map{|p| p.probes }.flatten
+    end  
+    
     # Infer all probe groups from a given path
     #
     def self.groups( path = PROBES )

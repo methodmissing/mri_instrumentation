@@ -18,7 +18,17 @@ class RunnerTest < Test::Unit::TestCase
   end  
   
   test "should default to a calltime strategy" do
-    assert_equal :calltime, @runner.strategy
+    assert_equal Mri::Instrumentation::Strategy::Calltime, @runner.strategy
   end
   
+  test "should be able to yield instrumentation probes from a given group signature" do
+    @runner.probes :gc
+    assert_equal 2, @runner.probes.size
+  end
+
+  test "should be able to yield instrumentation probes from a given group of probe signatures" do
+    @runner.probes :rb_memerror
+    assert_equal 1, @runner.probes.size
+  end
+   
 end  

@@ -8,6 +8,10 @@ class InstrumentationTest < Test::Unit::TestCase
   
   test "should be able to infer groups from a given probe definition path" do
     assert_equal [:gc], Mri::Instrumentation.groups( Mri::Instrumentation::Test::PROBES )
+  end
+  
+  test "should be able to infer all probes from a given definition path" do
+    assert_equal 2, Mri::Instrumentation.probes( Mri::Instrumentation::Test::PROBES ).size
   end  
   
 end  
