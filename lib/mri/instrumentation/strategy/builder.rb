@@ -36,7 +36,7 @@ module Mri
           #
           def build_each
             @probes.each do |probe|
-              strategy_instance = strategy.new( probe )
+              strategy_instance = strategy.new( probe, @probes )
               @buffer << strategy_instance.entry
               @buffer << strategy_instance.return
             end  

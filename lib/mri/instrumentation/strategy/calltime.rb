@@ -23,9 +23,9 @@ module Mri
                 	 self->#{name}[self->depth] = 0;
                 	 self->exclude[self->depth] = 0;
                 	 #{assign_arguments}
-                	 @num[#{arguments_list}] = count();
-                	 @types_incl[#{arguments_list}] = sum(this->elapsed_incl);
-                	 @types_excl[#{arguments_list}] = sum(this->elapsed_excl);
+                	 @num[#{arguments_list( arguments_size )}] = count();
+                	 @types_incl[#{arguments_list( arguments_size )}] = sum(this->elapsed_incl);
+                	 @types_excl[#{arguments_list( arguments_size )}] = sum(this->elapsed_excl);
 
                 	 self->depth--;
                 	 self->exclude[self->depth] += this->elapsed_incl; ]

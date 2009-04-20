@@ -13,6 +13,8 @@ module Mri
           configure!( arguments )          
         end          
         
+        # Setup a base runner and configure with the given command line options
+        #
         def run!
           runner = Mri::Instrumentation::Runner::Base.new( true )
           runner.pid @configuration[:pid] if pid?
@@ -23,11 +25,15 @@ module Mri
         end
         
         private
-        
+          
+          # Should we attach to a PID
+          #
           def pid?
             @configuration[:pid].to_i != 0
           end
         
+          # Configure with the given arguments
+          #
           def configure!( arguments )
             arguments.options do |o|
               o.set_summary_indent('  ')

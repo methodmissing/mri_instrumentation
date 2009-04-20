@@ -4,8 +4,8 @@ module Mri
  
       # Find the largest argument count across all probes
       #
-      def argument_size
-        @argument_size ||= self.max{|a,b| a.argument_size <=> b.argument_size }.argument_size
+      def arguments_size
+        @arguments_size ||= self.max{|a,b| a.argument_size <=> b.argument_size }.argument_size
       end
       
       # Columns header for the report
@@ -31,17 +31,17 @@ module Mri
         # Arguments for the report header
         #
         def header_arguments
-          if argument_size == 1
+          if arguments_size == 1
             [nil]
           else    
-            (0..(argument_size-1)).to_a.map{|a| "\"arg#{a.to_s}\"" }
+            (0..(arguments_size-2)).to_a.map{|a| "\"arg#{a.to_s}\"" }
           end
         end
       
         # Format string helper
         #
         def format
-          ['%-10s'] * argument_size
+          ['%-10s'] * arguments_size
         end
       
     end  

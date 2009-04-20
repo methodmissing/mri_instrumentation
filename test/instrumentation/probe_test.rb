@@ -24,6 +24,8 @@ class ProbeTest < Test::Unit::TestCase
   
   test "should be able to yield an arguments list" do
     assert_equal 'this->type, this->arg0, this->arg1', @probe.arguments_list
+    assert_equal "this->type, this->arg0, this->arg1, \"\", \"\"", @probe.arguments_list( 5 )
+    assert_equal "this->type, this->arg0, this->arg1, \"\"", @probe.arguments_list( 4 )
   end
   
   test "should be able to assign it's arguments from within a function def" do
