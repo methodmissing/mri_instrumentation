@@ -6,8 +6,9 @@ module Mri
         attr_reader :run_with,
                     :result
       
-        def initialize( &block )
+        def initialize( replace = false, &block )
           @probes = []
+          @replace = replace
           instance_eval( &block ) if block_given?
         end
       
@@ -82,8 +83,14 @@ module Mri
               file << d_stream()
               file.flush
               cmd = "sudo dtrace -s #{file.path} #{yield}"
-              @result = %x[#{cmd}]
+              @result = replace? ? exec( cmd ) : %x[#{cmd}]
             end
+          end
+          
+          # Should we replace the current process ?
+          #
+          def replace?
+            @replace
           end
        
           # Are we running a command ?
@@ -151,12 +158,4 @@ module Mri
       end  
     end
   end
-end
-
-=begin
-  Mri::Instrumentation::Runner::Base.new do 
-    probes :gc
-    command 'ruby -v'
-    strategy :calltime
-  end  
-=end  
+end 

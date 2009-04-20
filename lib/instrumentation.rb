@@ -2,6 +2,7 @@ $:.unshift( File.dirname(__FILE__), '..' )
 
 require 'yaml'
 require 'tempfile'
+require 'optparse'
 
 module Mri
   module Instrumentation
@@ -26,6 +27,8 @@ module Mri
     module Runner
       
       autoload :Base, 'mri/instrumentation/runner/base'
+      autoload :Inline, 'mri/instrumentation/runner/inline'
+      autoload :Command, 'mri/instrumentation/runner/command'      
       
     end    
     
