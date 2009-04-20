@@ -17,7 +17,8 @@ module Mri
         def header
           %[ #!/usr/sbin/dtrace -Zs 
 
-             #pragma D option quiet\n ]
+             #pragma D option quiet\n
+             #pragma D option dynvarsize=64m\n ]
         end
         
         # Any strategy specific setup eg. runtime variables

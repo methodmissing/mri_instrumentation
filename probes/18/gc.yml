@@ -1,4 +1,22 @@
 rb_memerror:
-  return: void    
+  return: void
 rb_newobj:      
-ruby_stack_check:    
+ruby_stack_check: 
+ruby_xmalloc:
+  return: void        
+ruby_xcalloc:
+  return: void        
+ruby_xrealloc:
+  return: void        
+ruby_xfree:
+  return: void        
+rb_gc_enable:
+rb_gc_disable:
+rb_gc_register_address:
+  return: void                   
+rb_gc_unregister_address:
+  return: void  
+rb_global_variable:
+  return: void  
+add_heap:
+  return: void          

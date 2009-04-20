@@ -10,7 +10,10 @@ module Mri
         def entry( contents = '' )
           super %[ self->depth++;
             	     self->exclude[self->depth] = 0;
+            	     #{assign_arguments}
+            	     @num[#{arguments_list( arguments_size )}] = count();
             	     self->#{name}[self->depth] = timestamp; ]
+            	     
         end
         
         def predicate
@@ -23,7 +26,6 @@ module Mri
                 	 self->#{name}[self->depth] = 0;
                 	 self->exclude[self->depth] = 0;
                 	 #{assign_arguments}
-                	 @num[#{arguments_list( arguments_size )}] = count();
                 	 @types_incl[#{arguments_list( arguments_size )}] = sum(this->elapsed_incl);
                 	 @types_excl[#{arguments_list( arguments_size )}] = sum(this->elapsed_excl);
 
