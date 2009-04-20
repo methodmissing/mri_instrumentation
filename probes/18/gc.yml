@@ -1,2 +1,4 @@
-rb_newobj:
-ruby_stack_check:   
+rb_memerror:
+  return: void    
+rb_newobj:      
+ruby_stack_check:    

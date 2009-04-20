@@ -1,11 +1,17 @@
 module Mri
   module Instrumentation
-    class Probe < Struct.new( :group, :name, :arguments )
+    class Probe < Struct.new( :group, :name, :arguments, :return )
       
       # String representation as name
       #
       def to_s
         self.name
+      end
+      
+      # True if no explicit return type
+      # 
+      def void?
+        @void ||= self.return == 'void'
       end
       
       # Argument size

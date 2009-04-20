@@ -10,6 +10,10 @@ class ProbeTest < Test::Unit::TestCase
     assert_equal 'ruby_xrealloc', @probe.to_s
   end
   
+  test "should be able to determine if it has no return" do
+    assert !@probe.void?
+  end
+  
   test "should be able to calculate it's argument size" do
     assert_equal 3, @probe.argument_size
   end

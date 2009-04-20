@@ -1,4 +1,5 @@
 rb_memerror:
 ruby_xmalloc:
-  - int: 'Allocation Size'
+  args: 
+    - int: 'Allocation Size'
 rb_newobj:  

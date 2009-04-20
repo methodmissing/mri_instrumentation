@@ -38,7 +38,7 @@ module Mri
             @probes.each do |probe|
               strategy_instance = strategy.new( probe, @probes )
               @buffer << strategy_instance.entry
-              @buffer << strategy_instance.return
+              @buffer << strategy_instance.return unless strategy_instance.void?
             end  
           end  
         
