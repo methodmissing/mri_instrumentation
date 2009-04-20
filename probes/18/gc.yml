@@ -1,4 +1,2 @@
-rb_gc_enable:
-rb_gc_disable:        
-rb_during_gc:
-rb_newobj:     
+rb_newobj:
+ruby_stack_check:   

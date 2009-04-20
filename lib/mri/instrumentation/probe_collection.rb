@@ -17,13 +17,13 @@ module Mri
       # Sprintf formatting for the header
       #
       def header_format
-        @header_format ||= ( format <<  '%8s' ).join(' ')
+        @header_format ||= ( format <<  '%20s' ).join(' ')
       end
       
       # Sprintf formatting for the report
       #
       def report_format
-        @report_format ||= ( format << '%@8d' ).join(' ')
+        @report_format ||= ( format << '%@20d' ).join(' ')
       end      
       
       private
@@ -41,7 +41,7 @@ module Mri
         # Format string helper
         #
         def format
-          ['%-10s'] * arguments_size
+          ['%-24s'] * arguments_size
         end
       
     end  

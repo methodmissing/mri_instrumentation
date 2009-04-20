@@ -16,11 +16,11 @@ class ProbeCollectionTest < Test::Unit::TestCase
   end
   
   test "should be able to yield a header format" do
-    assert_equal "%-10s %-10s %8s", @probe_collection.header_format
+    assert_equal "%-24s %-24s %20s", @probe_collection.header_format
   end
   
   test "should be able to yield a report format" do
-    assert_equal "%-10s %-10s %@8d", @probe_collection.report_format
+    assert_equal "%-24s %-24s %@20d", @probe_collection.report_format
   end  
   
 end  
