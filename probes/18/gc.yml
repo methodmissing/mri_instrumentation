@@ -1,7 +1,5 @@
 rb_memerror:
   return: void
-rb_newobj:      
-ruby_stack_check: 
 ruby_xmalloc:
   return: void        
 ruby_xcalloc:
@@ -19,4 +17,18 @@ rb_gc_unregister_address:
 rb_global_variable:
   return: void  
 add_heap:
-  return: void          
+  return: void
+rb_newobj:      
+rb_during_gc:
+rb_data_object_alloc:
+stack_end_address: 
+ruby_stack_check:  
+rb_source_filename:
+  args: 
+    - char: 'Filename'                    
+#mark_source_filename:                 
+#  return: void
+sweep_source_filename:
+  args:
+   - char: 'Key'
+   - char: 'Value'      
