@@ -24,7 +24,7 @@ h2. Installation
 	cd mri_instrumentation
 	ruby bin/instrument --help
 </code>
-</pre>	_
+</pre>
 
 h2. Probe definitions:
 
