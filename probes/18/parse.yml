@@ -1,0 +1,7 @@
+yycompile:
+lex_getline:
+rb_compile_string:
+rb_compile_cstr:
+rb_compile_file:                    
+newtok:
+tokadd:    
