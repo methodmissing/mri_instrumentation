@@ -65,10 +65,10 @@ module Mri
         end
         
         def method_missing( method, *args, &block )
-          if @probe.respond_to?(method)
-            @probe.send( method, *args, &block )
-          else
+          if @probes_collection.respond_to?(method)
             @probes_collection.send( method, *args, &block )
+          else
+            @probe.send( method, *args, &block )
           end    
         end  
         

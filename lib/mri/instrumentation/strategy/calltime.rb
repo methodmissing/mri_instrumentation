@@ -37,17 +37,26 @@ module Mri
           super %[ printf("\\nCount,\\n");
                    printf("   #{header_format}\\n", #{report_header}, "COUNT");
               	   printa("   #{report_format}\\n", @num);
-
-              	   normalize(@types_excl, 1000);
-              	   printf("\\nExclusive function elapsed times (us),\\n");
-              	   printf("   #{header_format}\\n", #{report_header}, "TOTAL");
-              	   printa("   #{report_format}\\n", @types_excl);
-
-              	   normalize(@types_incl, 1000);
-              	   printf("\\nInclusive function elapsed times (us),\\n");
-              	   printf("   #{header_format}\\n", #{report_header}, "TOTAL");
-              	   printa("   #{report_format}\\n", @types_incl); ]  
+                   #{exclusive_and_inclusive} ]  
         end  
+        
+        private
+        
+          def exclusive_and_inclusive
+            if void?
+              ''
+            else  
+              %[ normalize(@types_excl, 1000);
+          	     printf("\\nExclusive function elapsed times (us),\\n");
+          	     printf("   #{header_format}\\n", #{report_header}, "TOTAL");
+          	     printa("   #{report_format}\\n", @types_excl);
+
+          	     normalize(@types_incl, 1000);
+          	     printf("\\nInclusive function elapsed times (us),\\n");
+          	     printf("   #{header_format}\\n", #{report_header}, "TOTAL");
+          	     printa("   #{report_format}\\n", @types_incl); ]
+            end
+          end  
         
       end  
     end

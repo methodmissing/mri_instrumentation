@@ -1,34 +1,38 @@
-rb_memerror:
-  return: void
 ruby_xmalloc:
-  return: void        
 ruby_xcalloc:
-  return: void        
 ruby_xrealloc:
-  return: void        
 ruby_xfree:
-  return: void        
 rb_gc_enable:
 rb_gc_disable:
 rb_gc_register_address:
-  return: void                   
 rb_gc_unregister_address:
-  return: void  
 rb_global_variable:
-  return: void  
 add_heap:
-  return: void
 rb_newobj:      
 rb_during_gc:
 rb_data_object_alloc:
 stack_end_address: 
-ruby_stack_check:  
+ruby_stack_check: 
 rb_source_filename:
-  args: 
-    - char: 'Filename'                    
-#mark_source_filename:                 
-#  return: void
-sweep_source_filename:
-  args:
-   - char: 'Key'
-   - char: 'Value'      
+mark_source_filename:    
+sweep_source_filename:  
+mark_locations_array:    
+rb_gc_mark_locations:
+mark_entry:    
+mark_tbl:    
+rb_mark_tbl: 
+mark_keyvalue:   
+mark_hash:   
+rb_mark_hash:
+rb_gc_mark_maybe:  
+gc_mark: 
+rb_gc_mark:
+rb_gc_mark_frame:  
+gc_mark_children:
+finalize_list:    
+free_unused_heaps:    
+rb_gc_force_recycle:        
+garbage_collect:                       
+rb_gc:
+rb_gc_start:
+ruby_set_stack_size:        

@@ -26,6 +26,12 @@ module Mri
         @report_format ||= ( format << '%@20d' ).join(' ')
       end      
       
+      # Is all of the returns void ?
+      #        
+      def void?
+        @void ||= self.all?{|p| p.void? }
+      end
+      
       private
       
         # Arguments for the report header

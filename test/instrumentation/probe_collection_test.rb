@@ -23,4 +23,8 @@ class ProbeCollectionTest < Test::Unit::TestCase
     assert_equal "%-24s %-24s %@20d", @probe_collection.report_format
   end  
   
+  test "should be able to determine if all probes has a void return type" do
+    assert !@probe_collection.void?
+  end
+  
 end  

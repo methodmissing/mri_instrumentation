@@ -3,6 +3,7 @@ module Mri
     module Runner
       class Inline < Base
         
+        
                 
       end
     end
