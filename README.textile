@@ -1,0 +1,276 @@
+h1. MRI Instrumentation
+
+There's a lot of black magic and speculation as to the inner workings of the Ruby VM.This is an experiment with MRI internals that :
+
+* is supported on OS X Leopard, Solaris and any other dtrace enabled environment
+* is unobtrusive - use whichever Ruby 18 version you already have installed
+* expects probe definitions to be structured as YAML for possible porting to other dynamic tracing frameworks
+
+h2. How the dtrace PID provider works
+
+A set of C level probes is spawned for the lifetime of a given command or existing process.When the process dies, the probe's is unset.You don't have to recompile or relink - it just works.
+
+h2. Why bother ?
+
+A dtrace environment is available to most ruby developers, offers fast dynamic runtime instrumentation and the D language is well suited for presenting data through different visual strategies.
+
+This package is primarily aimed at framework style development where deep instrumentation may yield significant insight into potential performance hotspots.
+
+h2. Installation
+
+<pre>
+<code>
+	git clone git://github.com/methodmissing/mri_instrumentation.git
+	cd mri_instrumentation
+	ruby bin/instrument --help
+</code>
+</pre>	_
+
+h2. Probe definitions:
+
+Through YAML everyone can be a C buff :
+
+<pre>
+<code>
+	rb_clear_cache: 
+	rb_clear_cache_by_id:
+	rb_clear_cache_by_class:
+</code>
+</pre>
+
+Probes can also define arguments and expected return values :
+
+<pre>
+<code>
+	rb_clear_cache_by_id:
+      args:
+        - int: 'Id'
+      return: void
+</code>
+</pre>
+
+Although support's built in for coersion etc. I've found working with void returns and pointer arguments to be somewhat problematic, hence the barebones argumentless definitions.It'll be fixed real soon.
+
+h1. Usage examples
+
+Early days, but one of the following instrumentation modes is supported :
+
+* attach to a running PID
+* run / spawn a new ruby process
+
+Various different profiling strategies would be supported, but we're shipping with a conservative calltime strategy in this initial release.Expect execution flow, stack traces on error conditions etc. as potential future options.
+
+<pre>
+<code>
+	213-138-231-176:mri_instrumentation lourens$ ruby bin/instrument --help
+	Usage: instrument [OPTIONS] probe1 probe2 probe3
+	MRI instrumentation with the dtrace pid provider
+	  -pid=[val]                       The process identifier (PID) to attach to
+	                                   Default: 0
+	  -cmd=[val]                       The command to run
+	                                   Default: 
+	  -strategy=[val]                  The desired profiling strategy
+	                                   Default: calltime
+	  -h, --help                       Show this help message.
+</code>
+</pre>	
+
+h2. MRI's internal method cache
+
+<pre>
+<code>
+	213-138-231-176:mri_instrumentation lourens$ ruby bin/instrument -c /Users/lourens/projects/superbreak_app/script/console cache
+	./bin/../lib/mri/instrumentation/runner/base.rb:86: warning: Insecure world writable dir /Users/lourens in PATH, mode 040753
+	Loading development environment (Rails 2.3.2)
+	/Users/lourens/projects/superbreak_app/vendor/rails/railties/lib/commands/console.rb:45: warning: Insecure world writable dir /Users/lourens in PATH, mode 040753
+	Tracing... Hit Ctrl-C to end.
+	>> exit
+
+	Count,
+	   Probe                                   COUNT
+	   rb_clear_cache                             43
+	   rb_clear_cache_by_class                    89
+	   rb_clear_cache_by_id                     3266
+
+	Exclusive function elapsed times (us),
+	   Probe                                   TOTAL
+	   rb_clear_cache                            258
+	   rb_clear_cache_by_class                   691
+	   rb_clear_cache_by_id                    15553
+
+	Inclusive function elapsed times (us),
+	   Probe                                   TOTAL
+	   rb_clear_cache                            258
+	   rb_clear_cache_by_class                   691
+	   rb_clear_cache_by_id                    15553	
+</code>
+</pre>	
+
+h2. What blocks have been up to
+
+<pre>
+<code>
+	213-138-231-176:mri_instrumentation lourens$ ruby bin/instrument -c /Users/lourens/projects/superbreak_app/script/console block
+	./bin/../lib/mri/instrumentation/runner/base.rb:86: warning: Insecure world writable dir /Users/lourens in PATH, mode 040753
+	Loading development environment (Rails 2.3.2)
+	/Users/lourens/projects/superbreak_app/vendor/rails/railties/lib/commands/console.rb:45: warning: Insecure world writable dir /Users/lourens in PATH, mode 040753
+	Tracing... Hit Ctrl-C to end.
+	>> exit
+
+	Count,
+	   Probe                                   COUNT
+	   yield_under                                 1
+	   yield_under_i                               1
+	   blk_copy_prev                              11
+	   blk_free                                   12
+	   blk_dup                                    20
+	   blk_mark                                   58
+	   block_pass                                 62
+	   rb_yield                                  862
+	   rb_need_block                             882
+	   rb_yield_0                                882
+	   rb_block_given_p                         1641
+
+	Exclusive function elapsed times (us),
+	   Probe                                   TOTAL
+	   yield_under_i                              17
+	   yield_under                                26
+	   blk_copy_prev                              70
+	   blk_free                                   73
+	   blk_dup                                   102
+	   blk_mark                                  635
+	   block_pass                               1187
+	   rb_block_given_p                         6320
+	   rb_yield                                15681
+	   rb_need_block                           18327
+	   rb_yield_0                              36787
+
+	Inclusive function elapsed times (us),
+	   Probe                                   TOTAL
+	   yield_under_i                              57
+	   blk_copy_prev                              70
+	   blk_free                                   73
+	   yield_under                                83
+	   blk_dup                                   102
+	   blk_mark                                  718
+	   block_pass                               1639
+	   rb_block_given_p                         6320
+	   rb_need_block                           21705
+	   rb_yield_0                              87886
+	   rb_yield                                98256
+</code>
+</pre>	
+
+h1. Garbage Collection
+
+<pre>
+<code>
+	213-138-231-176:mri_instrumentation lourens$ ruby bin/instrument -c /Users/lourens/projects/superbreak_app/script/console gc
+	./bin/../lib/mri/instrumentation/runner/base.rb:86: warning: Insecure world writable dir /Users/lourens in PATH, mode 040753
+	Tracing... Hit Ctrl-C to end.
+	Loading development environment (Rails 2.3.2)
+	/Users/lourens/projects/superbreak_app/vendor/rails/railties/lib/commands/console.rb:45: warning: Insecure world writable dir /Users/lourens in PATH, mode 040753
+	>> exit
+
+	Count,
+	   Probe                                   COUNT
+	   rb_gc_unregister_address                    1
+	   add_heap                                    4
+	   free_unused_heaps                           4
+	   garbage_collect                             4
+	   rb_gc_mark_locations                        5
+	   mark_locations_array                        9
+	   rb_mark_tbl                                 9
+	   rb_global_variable                         22
+	   mark_hash                                  23
+	   rb_gc_register_address                     23
+	   sweep_source_filename                      91
+	   rb_data_object_alloc                      114
+	   rb_source_filename                        129
+	   rb_gc_mark_frame                          163
+	   rb_gc_mark_maybe                          222
+	   rb_gc_mark                                575
+	   ruby_stack_check                          601
+	   stack_end_address                         605
+	   mark_keyvalue                             891
+	   ruby_xcalloc                             1361
+	   ruby_xfree                               1596
+	   ruby_xrealloc                            3053
+	   mark_tbl                                 3701
+	   rb_gc_force_recycle                      6158
+	   mark_entry                              15342
+	   ruby_xmalloc                            45903
+	   gc_mark_children                        53783
+	   gc_mark                                 74469
+	   mark_source_filename                    93431
+	   rb_newobj                               96586
+
+	Exclusive function elapsed times (us),
+	   Probe                                   TOTAL
+	   rb_gc_unregister_address                    4
+	   free_unused_heaps                          19
+	   rb_gc_mark_locations                       23
+	   rb_mark_tbl                                34
+	   rb_global_variable                         91
+	   mark_locations_array                      136
+	   sweep_source_filename                     308
+	   rb_gc_register_address                    407
+	   rb_gc_mark_frame                          608
+	   rb_gc_mark_maybe                          710
+	   rb_gc_mark                               2003
+	   rb_data_object_alloc                     2015
+	   rb_source_filename                       2050
+	   stack_end_address                        2457
+	   add_heap                                 2805
+	   ruby_xfree                               6334
+	   ruby_xrealloc                           11883
+	   ruby_stack_check                        12954
+	   mark_hash                               14022
+	   rb_gc_force_recycle                     21856
+	   ruby_xcalloc                            23749
+	   mark_keyvalue                           44226
+	   ruby_xmalloc                           173719
+	   mark_tbl                               199721
+	   gc_mark                                277730
+	   mark_source_filename                   332414
+	   rb_newobj                              341314
+	   mark_entry                             393127
+	   gc_mark_children                      3122918
+
+	Inclusive function elapsed times (us),
+	   Probe                                   TOTAL
+	   rb_gc_unregister_address                    4
+	   free_unused_heaps                          19
+	   rb_gc_mark_locations                       23
+	   rb_mark_tbl                                34
+	   rb_global_variable                         91
+	   sweep_source_filename                     308
+	   rb_gc_register_address                    489
+	   mark_locations_array                      500
+	   rb_gc_mark_frame                          608
+	   rb_gc_mark_maybe                          710
+	   rb_gc_mark                               2003
+	   rb_data_object_alloc                     2437
+	   rb_source_filename                       2456
+	   stack_end_address                        2457
+	   add_heap                                 2805
+	   ruby_xfree                               6334
+	   ruby_xrealloc                           11883
+	   ruby_stack_check                        15396
+	   rb_gc_force_recycle                     21856
+	   ruby_xcalloc                            28800
+	   mark_keyvalue                           92162
+	   mark_hash                              106184
+	   ruby_xmalloc                           173719
+	   gc_mark                                291686
+	   mark_source_filename                   332414
+	   rb_newobj                              341314
+	   mark_tbl                              1905278
+	   mark_entry                            4311987
+	   gc_mark_children                     18471501	
+</code>
+</pre>
+
+Thanks for reading - on holidays for the next 3 weeks, expect updates to be sporadic and patchy during that time.
+
+(c) 2009 Lourens Naudé (methodmissing)
