@@ -82,6 +82,7 @@ module Mri
             Tempfile.open( 'mri_instrumentation' ) do |file|
               file << d_stream()
               file.flush
+              %x[mate #{file.path}]
               cmd = "sudo dtrace -s #{file.path} #{yield}"
               @result = replace? ? exec( cmd ) : %x[#{cmd}]
             end

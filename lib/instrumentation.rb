@@ -21,6 +21,7 @@ module Mri
       autoload :Builder, 'mri/instrumentation/strategy/builder'            
       autoload :Base, 'mri/instrumentation/strategy/base'      
       autoload :Calltime, 'mri/instrumentation/strategy/calltime'      
+      autoload :Interval, 'mri/instrumentation/strategy/interval'
       
     end
     

@@ -5,7 +5,7 @@ module Mri
       # Find the largest argument count across all probes
       #
       def arguments_size
-        @arguments_size ||= self.max{|a,b| a.argument_size <=> b.argument_size }.argument_size
+        self.max{|a,b| a.argument_size <=> b.argument_size }.argument_size
       end
       
       # Columns header for the report
@@ -14,17 +14,35 @@ module Mri
         @report_header ||= ["\"Probe\""].concat( header_arguments ).compact.join( ", " )
       end
 
+      # Format string representation accross all probes
+      #
+      def format_string( suffix = '', join_with = ' ' )
+        self.map{|p| p.format_string( suffix ) }.join( join_with )
+      end  
+
+      # String representation across all probes
+      #
+      def to_s( suffix = '', join_with = ' ', wrap = '' )
+        self.map{|p| "#{wrap}#{p.to_s( suffix )}#{wrap}" }.join( join_with )
+      end
+
       # Sprintf formatting for the header
       #
       def header_format
-        @header_format ||= ( format <<  '%20s' ).join(' ')
+        ( format <<  '%20s' ).join(' ')
       end
       
       # Sprintf formatting for the report
       #
       def report_format
-        @report_format ||= ( format << '%@20d' ).join(' ')
+        ( format << '%@20d' ).join(' ')
       end      
+      
+      # Result format across all probes
+      #
+      def result_format
+        format( '%6d', self.size ).join(' ') 
+      end  
       
       # Is all of the returns void ?
       #        
@@ -46,8 +64,8 @@ module Mri
       
         # Format string helper
         #
-        def format
-          ['%-24s'] * arguments_size
+        def format( string = '%-24s', multiplyer = arguments_size )
+          [string] * multiplyer 
         end
       
     end  

@@ -6,6 +6,11 @@ class ProbeTest < Test::Unit::TestCase
     @probe = Mri::Instrumentation::Test.probe
   end
   
+  test "should be able to yield a format string representation of itself" do
+    assert_equal '%13s', @probe.format_string
+    assert_equal '%15s', @probe.format_string( '/s' )
+  end
+  
   test "should have a string representation" do
     assert_equal 'ruby_xrealloc', @probe.to_s
   end

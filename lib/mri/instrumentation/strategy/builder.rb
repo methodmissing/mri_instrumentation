@@ -26,15 +26,15 @@ module Mri
           # Build the D script
           #
           def build
-            @buffer << @root.header
-            @buffer << @root.setup
-            build_each()
-            @buffer << @root.report
+            build_each
+            @buffer = @root.build do
+              @buffer
+            end
           end
           
           # Build the entry and return function definitions for each probe
           #
-          def build_each
+          def build_each( buf = '' )
             @probes.each do |probe|
               strategy_instance = strategy.new( probe, @probes )
               @buffer << strategy_instance.entry

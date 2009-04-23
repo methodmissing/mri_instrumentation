@@ -14,11 +14,11 @@ module Mri
         # Script header.
         # Override for type declarations etc.
         #
-        def header
+        def header( contents = '' )
           %[ #!/usr/sbin/dtrace -Zs 
-
              #pragma D option quiet\n
-             #pragma D option dynvarsize=64m\n ]
+             #pragma D option dynvarsize=64m\n
+             #{contents}\n ]
         end
         
         # Any strategy specific setup eg. runtime variables
@@ -26,7 +26,7 @@ module Mri
         def setup( contents = '')
           %[ dtrace:::BEGIN
               { 
-          	    #{contents}
+                #{contents}
               }\n ]
         end
         
@@ -34,9 +34,9 @@ module Mri
         #
         def entry( contents = '' )
           %[ #{function_entry}
-          {
-          	#{contents}
-          }\n ]
+             {
+               #{contents}
+              }\n ]
         end
         
         # Any predicate conditions
@@ -50,9 +50,9 @@ module Mri
         def return( contents = '' )
           %[ #{function_return}
              #{predicate}
-          {
-          	#{contents}
-          }\n ]
+              {
+               	#{contents}
+               }\n ]
         end  
         
         # Report results
@@ -61,9 +61,21 @@ module Mri
           %[ dtrace:::END
               {
                 #{contents}
-              }\n ]
+               }\n ]
         end
         
+        # Build this strategy
+        #
+        def build
+          %[ #{header}
+             #{setup}
+             #{yield}
+             #{report} ]
+        end
+        
+        # Respect methods on the probe collection first, then cascade down to the
+        # current probe definition if any.
+        #
         def method_missing( method, *args, &block )
           if @probes_collection.respond_to?(method)
             @probes_collection.send( method, *args, &block )

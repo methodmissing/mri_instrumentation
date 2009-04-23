@@ -2,10 +2,16 @@ module Mri
   module Instrumentation
     class Probe < Struct.new( :group, :name, :arguments, :return )
       
+      # Format string representation of the probe name
+      #
+      def format_string( suffix = '' )
+        "%#{to_s(suffix).size}s" 
+      end
+      
       # String representation as name
       #
-      def to_s
-        self.name
+      def to_s( suffix = '' )
+        "#{self.name}#{suffix}"
       end
       
       # True if no explicit return type

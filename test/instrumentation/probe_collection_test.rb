@@ -27,4 +27,18 @@ class ProbeCollectionTest < Test::Unit::TestCase
     assert !@probe_collection.void?
   end
   
+  test "should have a format string representation" do
+    assert_equal "%11s %9s %12s", @probe_collection.format_string
+    assert_equal "%13s %11s %14s", @probe_collection.format_string( '/s' )
+  end
+
+  test "should have a string representation" do
+    assert_equal "rb_memerror rb_newobj ruby_xmalloc", @probe_collection.to_s
+    assert_equal "\"rb_memerror/s\" \"rb_newobj/s\" \"ruby_xmalloc/s\"", @probe_collection.to_s( '/s', ' ', "\"" )
+  end
+  
+  test "should have a result format representation" do
+    assert_equal '%6d %6d', @probe_collection.result_format
+  end
+  
 end  
