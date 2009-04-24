@@ -39,6 +39,15 @@ module Mri
               }\n ]
         end
         
+        # Probe function definition
+        #
+        def function( contents = '' )
+          %[ #{@probe.function}
+             {
+               #{contents}
+              }\n ]
+        end  
+        
         # Any predicate conditions
         #
         def predicate
@@ -71,6 +80,14 @@ module Mri
              #{setup}
              #{yield}
              #{report} ]
+        end
+        
+        # The function definitions to build out
+        #
+        def functions
+          fncs = [:entry]
+          fncs << :return unless void?
+          fncs
         end
         
         # Respect methods on the probe collection first, then cascade down to the

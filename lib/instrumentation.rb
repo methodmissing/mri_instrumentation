@@ -23,6 +23,7 @@ module Mri
       autoload :Calltime, 'mri/instrumentation/strategy/calltime'      
       autoload :Interval, 'mri/instrumentation/strategy/interval'
       autoload :Flow, 'mri/instrumentation/strategy/flow'
+      autoload :Calls, 'mri/instrumentation/strategy/calls'
       
     end
     

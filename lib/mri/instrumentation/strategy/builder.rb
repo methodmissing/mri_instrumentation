@@ -37,8 +37,9 @@ module Mri
           def build_each( buf = '' )
             @probes.each do |probe|
               strategy_instance = strategy.new( probe, @probes )
-              @buffer << strategy_instance.entry
-              @buffer << strategy_instance.return unless strategy_instance.void?
+              strategy_instance.functions.each do |func|
+                @buffer << strategy_instance.send(func)
+              end  
             end  
           end  
         

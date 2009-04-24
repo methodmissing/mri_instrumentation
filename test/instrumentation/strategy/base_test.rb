@@ -11,6 +11,10 @@ class BaseStrategyTest < Test::Unit::TestCase
     assert_equal 'pid$target::ruby_xrealloc:return', @strategy.function_return
   end  
   
+  test "should be able to yield function definitions to build" do
+    assert_equal [:entry, :return], @strategy.functions
+  end
+  
   test "should be able to yield a header" do
     assert_match /pragma/, @strategy.header
   end  

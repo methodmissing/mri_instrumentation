@@ -31,6 +31,12 @@ module Mri
       def length
         @length ||= self.name.size
       end      
+      
+      # Function declaration
+      #
+      def function
+        @function ||= "pid$target*:::#{self.name}"
+      end
             
       # Entry declaration
       #

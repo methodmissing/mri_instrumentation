@@ -3,11 +3,11 @@ module Mri
     module Strategy
       class Calltime < Base
         
-        def setup( contents = '' )
+        def setup
           super %[ printf("Tracing... Hit Ctrl-C to end.\\n");\n ]          
         end
         
-        def entry( contents = '' )
+        def entry
           super %[ self->depth++;
             	     self->exclude[self->depth] = 0;
             	     #{assign_arguments}
@@ -20,7 +20,7 @@ module Mri
           "/self->#{name}[self->depth]/"
         end
         
-        def return( contents = '' )
+        def return
           super %[ this->elapsed_incl = timestamp - self->#{name}[self->depth];
                    this->elapsed_excl = this->elapsed_incl - self->exclude[self->depth];
                 	 self->#{name}[self->depth] = 0;
@@ -33,7 +33,7 @@ module Mri
                 	 self->exclude[self->depth] += this->elapsed_incl; ]
         end        
         
-        def report( contents = '' )
+        def report
           super %[ printf("\\nCount,\\n");
                    printf("   #{header_format}\\n", #{report_header}, "COUNT");
               	   printa("   #{report_format}\\n", @num);
