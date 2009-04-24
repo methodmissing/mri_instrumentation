@@ -1,6 +1,10 @@
-rb_block_given_p:
+rb_block_given_p: 
+  desc: 'Is a block given ?'
+  return:
+    - int: 'Boolean'          
 block_pass:
 rb_need_block:
+  desc: 'Block required'      
 rb_yield_0:
 rb_yield:
 yield_under_i:

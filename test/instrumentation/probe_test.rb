@@ -11,6 +11,10 @@ class ProbeTest < Test::Unit::TestCase
     assert_equal '%15s', @probe.format_string( '/s' )
   end
   
+  test "should have a description" do
+    assert_equal 'Reallocation', @probe.description
+  end
+  
   test "should have a string representation" do
     assert_equal 'ruby_xrealloc', @probe.to_s
   end

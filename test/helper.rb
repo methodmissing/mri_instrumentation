@@ -27,7 +27,7 @@ module Mri
       end
       
       def self.probe( args = self.arguments )
-        Mri::Instrumentation::Probe.new( :gc, 'ruby_xrealloc', args )
+        Mri::Instrumentation::Probe.new( :gc, 'ruby_xrealloc', 'Reallocation', args )
       end
       
       # thx ActiveSupport
