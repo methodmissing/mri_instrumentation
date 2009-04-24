@@ -10,8 +10,9 @@ module Mri
       
       # Probe description
       #
-      def description
-        self.probe_description.nil? ? self.name : self.probe_description
+      def description( suffix = '' )
+        desc = self.probe_description.nil? ? self.name : self.probe_description
+        "#{desc}#{suffix}"
       end
             
       # String representation as name

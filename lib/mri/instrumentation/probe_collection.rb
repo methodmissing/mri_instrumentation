@@ -32,6 +32,12 @@ module Mri
         self.map{|p| "#{wrap}#{p.to_s( suffix )}#{wrap}" }.join( join_with )
       end
 
+      # Description across all probes
+      #
+      def description( suffix = '', join_with = ' ', wrap = '' )
+        self.map{|p| "#{wrap}#{p.description( suffix )}#{wrap}" }.join( join_with )
+      end
+
       # Sprintf formatting for the header
       #
       def header_format
