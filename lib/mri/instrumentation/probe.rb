@@ -68,13 +68,19 @@ module Mri
         # Setup and optionally pad the argument list
         #
         def setup_arguments_list( pad )
-          pad_with = pad - argument_size
-          args = self.arguments.dup.sort{|a,b| a.order <=> b.order }
-          if pad_with > 0
-            args.concat( ["\"\""] * pad_with )
-          end
-          iterate_arguments( args, :to_var, ', ' )
+          padding = pad - argument_size
+          iterate_arguments( pad_arguments( padding ), :to_var, ', ' )
         end  
+        
+        # Pad the argument list
+        #
+        def pad_arguments( padding )
+          args = self.arguments.dup.sort{|a,b| a.order <=> b.order }
+          if padding > 0
+            args.concat( ["\"\""] * padding )
+          end
+          args
+        end
         
         # Iterate and join arguments
         #
