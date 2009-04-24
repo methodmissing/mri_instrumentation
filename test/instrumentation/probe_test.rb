@@ -19,6 +19,10 @@ class ProbeTest < Test::Unit::TestCase
     assert !@probe.void?
   end
   
+  test "should be able to calculate it's length" do
+    assert_equal 13, @probe.length
+  end
+  
   test "should be able to calculate it's argument size" do
     assert_equal 3, @probe.argument_size
   end

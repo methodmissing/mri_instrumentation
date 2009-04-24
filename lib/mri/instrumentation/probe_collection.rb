@@ -8,6 +8,12 @@ module Mri
         self.max{|a,b| a.argument_size <=> b.argument_size }.argument_size
       end
       
+      # Find the largest length across all probes
+      #
+      def length
+        self.max{|a,b| a.length <=> b.length }.length
+      end      
+      
       # Columns header for the report
       #
       def report_header

@@ -7,7 +7,7 @@ module Mri
       def format_string( suffix = '' )
         "%#{to_s(suffix).size}s" 
       end
-      
+            
       # String representation as name
       #
       def to_s( suffix = '' )
@@ -25,6 +25,12 @@ module Mri
       def argument_size
         @argument_size ||= self.arguments.size
       end
+      
+      # The length of the probe name
+      #
+      def length
+        @length ||= self.name.size
+      end      
             
       # Entry declaration
       #

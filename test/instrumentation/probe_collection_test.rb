@@ -10,6 +10,10 @@ class ProbeCollectionTest < Test::Unit::TestCase
   test "should be able to calculate it's maximum argument size" do
     assert_equal 2, @probe_collection.arguments_size
   end
+
+  test "should be able to calculate it's maximum length" do
+    assert_equal 12, @probe_collection.length
+  end
   
   test "should be able to yield a report header" do
     assert_equal "\"Probe\", \"arg0\"", @probe_collection.report_header
