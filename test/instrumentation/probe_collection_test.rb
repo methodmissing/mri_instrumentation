@@ -42,7 +42,7 @@ class ProbeCollectionTest < Test::Unit::TestCase
   end
   
   test "should have a result format representation" do
-    assert_equal '%6d %6d', @probe_collection.result_format
+    assert_equal "%6d %6d %6d", @probe_collection.result_format
   end
   
 end  

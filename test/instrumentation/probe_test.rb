@@ -45,4 +45,8 @@ class ProbeTest < Test::Unit::TestCase
     assert_equal "this->type = probefunc;\nthis->arg0 = arg0;\nthis->arg1 = stringof( arg1 );", @probe.assign_arguments
   end
   
+  test "should be able to find it's probe argument" do
+    assert_equal "Probe", @probe.probe_argument.description
+  end
+  
 end  

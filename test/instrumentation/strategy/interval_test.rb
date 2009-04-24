@@ -22,7 +22,7 @@ class IntervalStrategyTest < Test::Unit::TestCase
   end
   
   test "should be able to yield a reporting function" do
-    assert_equal  "", @strategy.report
+    assert_equal  " profile:::tick-1sec\n              {\n              \tprintf(\"%20Y %6d %6d %6d\\n\", walltimestamp, rb_memerror, rb_newobj, ruby_xmalloc);\n\n              \trb_memerror = 0;\nrb_newobj = 0;\nruby_xmalloc = 0;\n              }\n ", @strategy.report
   end  
   
 end

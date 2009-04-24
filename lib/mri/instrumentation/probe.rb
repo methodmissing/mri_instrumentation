@@ -46,9 +46,9 @@ module Mri
       
       # Yields a list of arguments for associative D arrays
       #
-      def arguments_list( pad = 0 )
+      def arguments_list( padding = 0 )
         @arguments_list ||= {}
-        @arguments_list[pad] ||= setup_arguments_list( pad )
+        @arguments_list[padding] ||= setup_arguments_list( padding )
       end
       
       # Assign massaged values to the arguments
@@ -56,6 +56,12 @@ module Mri
       def assign_arguments
         iterate_arguments( self.arguments, :to_assignment )
       end      
+      
+      # The argument representing the probe type
+      #
+      def probe_argument
+        self.arguments.detect{|a| a.probe? }
+      end
       
       private
         
@@ -67,8 +73,8 @@ module Mri
         
         # Setup and optionally pad the argument list
         #
-        def setup_arguments_list( pad )
-          padding = pad - argument_size
+        def setup_arguments_list( padding )
+          padding = padding - argument_size
           iterate_arguments( pad_arguments( padding ), :to_var, ', ' )
         end  
         
@@ -86,7 +92,7 @@ module Mri
         #
         def iterate_arguments( args, method, join_with = "\n" )
           args.map do |arg|
-            arg.respond_to?(method) ? arg.send(method) : arg
+            arg.respond_to?(method) ? arg.send(method) : "\"\""
           end.join( join_with )
         end  
       
