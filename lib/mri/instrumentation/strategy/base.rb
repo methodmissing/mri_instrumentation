@@ -14,29 +14,29 @@ module Mri
         # Script header.
         # Override for type declarations etc.
         #
-        def header( contents = '' )
+        def header( body = '' )
           %[ #!/usr/sbin/dtrace -ZFs 
              #pragma D option quiet\n
              #pragma D option dynvarsize=64m\n
-             #{contents}\n ]
+             #{body}\n ]
         end
         
         # Any strategy specific setup eg. runtime variables
         #
-        def setup( contents = '')
-          function_template( 'dtrace:::BEGIN', contents )
+        def setup( body = '')
+          function_template( 'dtrace:::BEGIN', body )
         end
         
         # Probe entry definition
         #
-        def entry( contents = '' )
-          function_template( function_entry, contents )
+        def entry( body = '' )
+          function_template( function_entry, body )
         end
         
         # Probe function definition
         #
-        def function( contents = '' )
-          function_template( @probe.function, contents )
+        def function( body = '' )
+          function_template( @probe.function, body )
         end  
         
         # Any predicate conditions
@@ -47,14 +47,14 @@ module Mri
         
         # Probe return definition
         #
-        def return( contents = '' )
-          function_template( function_return, contents, predicate )
+        def return( body = '' )
+          function_template( function_return, body, predicate )
         end  
         
         # Report results
         #
-        def report( contents = '' )
-          function_template( 'dtrace:::END', contents, '' )
+        def report( body = '' )
+          function_template( 'dtrace:::END', body, '' )
         end
         
         # Build this strategy
@@ -87,11 +87,11 @@ module Mri
         
         private
         
-          def function_template( name, contents, predicate_clause = '' )
+          def function_template( name, body, predicate_clause = '' )
             %[ #{name}
                #{predicate_clause}
                {
-                 #{contents}
+                 #{body}
                 }\n ]            
           end
         

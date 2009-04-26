@@ -7,23 +7,23 @@ module Mri
           super %[ inline int SCREEN = 21;\n ]
         end
         
-        def setup( contents = '' )
+        def setup( body = '' )
           super %[ #{init_counters()}
                    lines = SCREEN + 1;  ]          
         end
         
-        def entry( contents = '' )
+        def entry( body = '' )
           %[ #{function_entry} 
              {
                #{probe.to_s}++;
               }\n ]  
         end
                
-        def return( contents = '' )       
+        def return( body = '' )       
           ''            
         end              
                       
-        def report( contents = '' )
+        def report( body = '' )
           %[ profile:::tick-1sec
               {
               	printf("%20Y #{probes_collection.result_format}\\n", walltimestamp, #{probes_collection.to_s('', ', ')});
