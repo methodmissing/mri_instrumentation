@@ -22,8 +22,8 @@ module Mri
 
       # Format string representation accross all probes
       #
-      def format_string( suffix = '', join_with = ' ' )
-        self.map{|p| p.format_string( suffix ) }.join( join_with )
+      def format_string( suffix = '', join_with = ' ', method = :to_s )
+        self.map{|p| p.format_string( suffix, method ) }.join( join_with )
       end  
 
       # String representation across all probes

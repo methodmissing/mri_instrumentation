@@ -24,6 +24,7 @@ module Mri
       autoload :Interval, 'mri/instrumentation/strategy/interval'
       autoload :Flow, 'mri/instrumentation/strategy/flow'
       autoload :Calls, 'mri/instrumentation/strategy/calls'
+      autoload :Speculate, 'mri/instrumentation/strategy/speculate'
       
     end
     

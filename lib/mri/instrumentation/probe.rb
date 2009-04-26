@@ -4,8 +4,8 @@ module Mri
       
       # Format string representation of the probe name
       #
-      def format_string( suffix = '' )
-        "%#{to_s(suffix).size}s" 
+      def format_string( suffix = '', method = :to_s )
+        "%#{send( method, suffix).size}s" 
       end
       
       # Probe description

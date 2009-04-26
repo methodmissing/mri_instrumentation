@@ -55,7 +55,7 @@ module Mri
               tick-1sec
               /lines++ > SCREEN/
               {
-               	printf("#{probes_collection.format_string( '/s' )}\\n", #{probes_collection.description( '/s', ', ', '"' )});
+               	printf("#{probes_collection.format_string( '/s', ' ', :description )}\\n", #{probes_collection.description( '/s', ', ', '"' )});
               	lines = 0;
               }\n ]
           end   

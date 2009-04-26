@@ -4,12 +4,12 @@ module Mri
       class Flow < Base
         
         def header
-          super %[ #pragma D option switchrate=10\n
+          super %[ #pragma D option switchrate=5\n
                    self int depth;\n ]
         end        
         
         def setup
-          super %[ printf("#{probes_collection.format_string( '/s' )}\\n", #{probes_collection.to_s( '/s', ', ', '"' )});\n ]
+          super %[ printf("#{probes_collection.format_string( '/s', ' ', :description )}\\n", #{probes_collection.description( '/s', ', ', '"' )});\n ]
         end  
         
         def entry

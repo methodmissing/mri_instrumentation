@@ -3,6 +3,10 @@ rb_block_given_p:
   return:
     - int: 'Boolean'          
 block_pass:
+  desc: 'Pass this block'
+  args:
+    - char: 'Self'
+    - char: 'Node'
 rb_need_block:
   desc: 'Block required'      
 rb_yield_0:

@@ -1,3 +1,10 @@
 rb_clear_cache: 
+  desc: 'Clear Method Cache'
 rb_clear_cache_by_id:
+  args:
+    - char: 'Identifier'
+  desc: 'Clear Method Cache by ID'
 rb_clear_cache_by_class:
+  args:
+    - char: 'Class'
+  desc: 'Clear Method Cache by Class'

@@ -10,11 +10,11 @@ class IntervalStrategyTest < Test::Unit::TestCase
   end
   
   test "should be able to yield a header" do
-    assert_equal " #!/usr/sbin/dtrace -Zs \n             #pragma D option quiet\n\n             #pragma D option dynvarsize=64m\n\n              inline int SCREEN = 21;\n \n ", @strategy.header
+    assert_equal " #!/usr/sbin/dtrace -ZFs \n             #pragma D option quiet\n\n             #pragma D option dynvarsize=64m\n\n              inline int SCREEN = 21;\n \n ", @strategy.header
   end  
   
   test "should be able to yield a setup function" do
-    assert_equal " dtrace:::BEGIN\n              { \n                 rb_memerror = 0;\nrb_newobj = 0;\nruby_xmalloc = 0;\n                   lines = SCREEN + 1;  \n              }\n ", @strategy.setup
+    assert_equal " dtrace:::BEGIN\n               \n               {\n                  rb_memerror = 0;\nrb_newobj = 0;\nruby_xmalloc = 0;\n                   lines = SCREEN + 1;  \n                }\n ", @strategy.setup
   end
   
   test "should be able to yield a function entry definition" do

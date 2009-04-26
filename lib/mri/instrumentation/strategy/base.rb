@@ -15,7 +15,7 @@ module Mri
         # Override for type declarations etc.
         #
         def header( contents = '' )
-          %[ #!/usr/sbin/dtrace -Zs 
+          %[ #!/usr/sbin/dtrace -ZFs 
              #pragma D option quiet\n
              #pragma D option dynvarsize=64m\n
              #{contents}\n ]
@@ -24,28 +24,19 @@ module Mri
         # Any strategy specific setup eg. runtime variables
         #
         def setup( contents = '')
-          %[ dtrace:::BEGIN
-              { 
-                #{contents}
-              }\n ]
+          function_template( 'dtrace:::BEGIN', contents )
         end
         
         # Probe entry definition
         #
         def entry( contents = '' )
-          %[ #{function_entry}
-             {
-               #{contents}
-              }\n ]
+          function_template( function_entry, contents )
         end
         
         # Probe function definition
         #
         def function( contents = '' )
-          %[ #{@probe.function}
-             {
-               #{contents}
-              }\n ]
+          function_template( @probe.function, contents )
         end  
         
         # Any predicate conditions
@@ -57,20 +48,13 @@ module Mri
         # Probe return definition
         #
         def return( contents = '' )
-          %[ #{function_return}
-             #{predicate}
-              {
-               	#{contents}
-               }\n ]
+          function_template( function_return, contents, predicate )
         end  
         
         # Report results
         #
         def report( contents = '' )
-          %[ dtrace:::END
-              {
-                #{contents}
-               }\n ]
+          function_template( 'dtrace:::END', contents, '' )
         end
         
         # Build this strategy
@@ -100,6 +84,16 @@ module Mri
             @probe.send( method, *args, &block )
           end    
         end  
+        
+        private
+        
+          def function_template( name, contents, predicate_clause = '' )
+            %[ #{name}
+               #{predicate_clause}
+               {
+                 #{contents}
+                }\n ]            
+          end
         
       end  
     end
