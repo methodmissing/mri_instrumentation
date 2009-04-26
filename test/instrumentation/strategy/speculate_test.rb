@@ -22,11 +22,11 @@ class SpeculateTest < Test::Unit::TestCase
   end
 
   test "should be able to yield a function return success definition" do
-    assert_equal " pid$target::ruby_xrealloc:return\n               /self->spec && errno == 0/\n               {\n                 commit(self->spec);\n \n                      self->spec = 0;\n                }\n ", @strategy.return_success
+    assert_equal " pid$target::ruby_xrealloc:return\n               /self->spec && errno == 0/\n               {\n                  commit(self->spec);\n                        self->spec = 0; \n                }\n ", @strategy.return_success
   end
 
   test "should be able to yield a function return failure definition" do
-    assert_equal " pid$target::ruby_xrealloc:return\n               /self->spec && errno != 0/\n               {\n                 discard(self->spec);\n \n                      self->spec = 0;\n                }\n ", @strategy.return_failure
+    assert_equal " pid$target::ruby_xrealloc:return\n               /self->spec && errno != 0/\n               {\n                  discard(self->spec); \n                        self->spec = 0; \n                }\n ", @strategy.return_failure
   end
   
 end

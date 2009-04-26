@@ -25,6 +25,7 @@ module Mri
       autoload :Flow, 'mri/instrumentation/strategy/flow'
       autoload :Calls, 'mri/instrumentation/strategy/calls'
       autoload :Speculate, 'mri/instrumentation/strategy/speculate'
+      autoload :Peek, 'mri/instrumentation/strategy/peek'
       
     end
     

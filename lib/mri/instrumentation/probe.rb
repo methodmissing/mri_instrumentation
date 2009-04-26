@@ -39,6 +39,12 @@ module Mri
         @length ||= self.name.size
       end      
       
+      # Wildcard probe
+      #
+      def wildcard
+        @wildcard ||= "pid$target:::"
+      end  
+      
       # Function declaration
       #
       def function

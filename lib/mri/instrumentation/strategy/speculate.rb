@@ -27,8 +27,8 @@ module Mri
         end
 
         def return_success
-          contents = "commit(self->spec);\n 
-                      self->spec = 0;"
+          contents = %[ commit(self->spec);
+                        self->spec = 0; ]
           function_template( function_return, contents, predicate_success  )
         end
 
@@ -37,8 +37,8 @@ module Mri
         end
         
         def return_failure
-          contents = "discard(self->spec);\n 
-                      self->spec = 0;"
+          contents = %[ discard(self->spec); 
+                        self->spec = 0; ]
           function_template( function_return, contents, predicate_failure  )          
         end
         

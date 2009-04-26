@@ -43,6 +43,10 @@ class ProbeTest < Test::Unit::TestCase
     assert_equal 'pid$target*:::ruby_xrealloc', @probe.function
   end
   
+  test "should be able to yield a wildcard probe name" do
+    assert_equal 'pid$target:::', @probe.wildcard
+  end
+  
   test "should be able to yield an arguments list" do
     assert_equal 'this->type, this->arg0, this->arg1', @probe.arguments_list
     assert_equal "this->type, this->arg0, this->arg1, \"\", \"\"", @probe.arguments_list( 5 )
