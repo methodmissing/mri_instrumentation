@@ -1,0 +1,542 @@
+--- 
+- rb_memcicmp: 
+    arguments: 
+    - const void *: x
+    - const void *: y
+    - long int: len
+    storage: ""
+    desc: rb_memcicmp
+    return: int
+- rb_memcmp: 
+    arguments: 
+    - const void *: p1
+    - const void *: p2
+    - long int: len
+    storage: ""
+    desc: rb_memcmp
+    return: int
+- rb_memsearch: 
+    arguments: 
+    - const void *: x0
+    - long int: m
+    - const void *: y0
+    - long int: n
+    storage: ""
+    desc: rb_memsearch
+    return: long int
+- kcode_euc: 
+    arguments: 
+    - struct RRegexp *: re
+    storage: static
+    desc: kcode_euc
+    return: void
+- kcode_sjis: 
+    arguments: 
+    - struct RRegexp *: re
+    storage: static
+    desc: kcode_sjis
+    return: void
+- kcode_utf8: 
+    arguments: 
+    - struct RRegexp *: re
+    storage: static
+    desc: kcode_utf8
+    return: void
+- kcode_none: 
+    arguments: 
+    - struct RRegexp *: re
+    storage: static
+    desc: kcode_none
+    return: void
+- rb_kcode_set_option: 
+    arguments: 
+    - VALUE: re
+    storage: ""
+    desc: rb_kcode_set_option
+    return: void
+- rb_kcode_reset_option: 
+    arguments: []
+
+    storage: ""
+    desc: rb_kcode_reset_option
+    return: void
+- rb_reg_mbclen2: 
+    arguments: 
+    - unsigned int: c
+    - VALUE: re
+    storage: ""
+    desc: rb_reg_mbclen2
+    return: int
+- rb_reg_check: 
+    arguments: 
+    - VALUE: re
+    storage: static
+    desc: rb_reg_check
+    return: void
+- rb_reg_expr_str: 
+    arguments: 
+    - VALUE: str
+    - const char *: s
+    - long int: len
+    storage: static
+    desc: rb_reg_expr_str
+    return: void
+- rb_reg_desc: 
+    arguments: 
+    - const char *: s
+    - long int: len
+    - VALUE: re
+    storage: static
+    desc: rb_reg_desc
+    return: VALUE
+- rb_reg_source: 
+    arguments: 
+    - VALUE: re
+    storage: static
+    desc: rb_reg_source
+    return: VALUE
+- rb_reg_inspect: 
+    arguments: 
+    - VALUE: re
+    storage: static
+    desc: rb_reg_inspect
+    return: VALUE
+- rb_reg_to_s: 
+    arguments: 
+    - VALUE: re
+    storage: static
+    desc: rb_reg_to_s
+    return: VALUE
+- rb_reg_raise: 
+    arguments: 
+    - const char *: s
+    - long int: len
+    - const char *: err
+    - VALUE: re
+    storage: static
+    desc: rb_reg_raise
+    return: void
+- rb_reg_casefold_p: 
+    arguments: 
+    - VALUE: re
+    storage: static
+    desc: rb_reg_casefold_p
+    return: VALUE
+- rb_reg_options_m: 
+    arguments: 
+    - VALUE: re
+    storage: static
+    desc: rb_reg_options_m
+    return: VALUE
+- rb_reg_kcode_m: 
+    arguments: 
+    - VALUE: re
+    storage: static
+    desc: rb_reg_kcode_m
+    return: VALUE
+- make_regexp: 
+    arguments: 
+    - const char *: s
+    - long int: len
+    - int: flags
+    storage: static
+    desc: make_regexp
+    return: Regexp *
+- match_alloc: 
+    arguments: 
+    - VALUE: klass
+    storage: static
+    desc: match_alloc
+    return: VALUE
+- match_check: 
+    arguments: 
+    - VALUE: match
+    storage: static
+    desc: match_check
+    return: void
+- match_init_copy: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: orig
+    storage: static
+    desc: match_init_copy
+    return: VALUE
+- match_size: 
+    arguments: 
+    - VALUE: match
+    storage: static
+    desc: match_size
+    return: VALUE
+- match_offset: 
+    arguments: 
+    - VALUE: match
+    - VALUE: n
+    storage: static
+    desc: match_offset
+    return: VALUE
+- match_begin: 
+    arguments: 
+    - VALUE: match
+    - VALUE: n
+    storage: static
+    desc: match_begin
+    return: VALUE
+- match_end: 
+    arguments: 
+    - VALUE: match
+    - VALUE: n
+    storage: static
+    desc: match_end
+    return: VALUE
+- rb_match_busy: 
+    arguments: 
+    - VALUE: match
+    storage: ""
+    desc: rb_match_busy
+    return: void
+- rb_reg_prepare_re: 
+    arguments: 
+    - VALUE: re
+    storage: static
+    desc: rb_reg_prepare_re
+    return: void
+- rb_reg_adjust_startpos: 
+    arguments: 
+    - VALUE: re
+    - VALUE: str
+    - long int: pos
+    - long int: reverse
+    storage: ""
+    desc: rb_reg_adjust_startpos
+    return: long int
+- rb_reg_search: 
+    arguments: 
+    - VALUE: re
+    - VALUE: str
+    - long int: pos
+    - long int: reverse
+    storage: ""
+    desc: rb_reg_search
+    return: long int
+- rb_reg_nth_defined: 
+    arguments: 
+    - int: nth
+    - VALUE: match
+    storage: ""
+    desc: rb_reg_nth_defined
+    return: VALUE
+- rb_reg_nth_match: 
+    arguments: 
+    - int: nth
+    - VALUE: match
+    storage: ""
+    desc: rb_reg_nth_match
+    return: VALUE
+- rb_reg_last_match: 
+    arguments: 
+    - VALUE: match
+    storage: ""
+    desc: rb_reg_last_match
+    return: VALUE
+- rb_reg_match_pre: 
+    arguments: 
+    - VALUE: match
+    storage: ""
+    desc: rb_reg_match_pre
+    return: VALUE
+- rb_reg_match_post: 
+    arguments: 
+    - VALUE: match
+    storage: ""
+    desc: rb_reg_match_post
+    return: VALUE
+- rb_reg_match_last: 
+    arguments: 
+    - VALUE: match
+    storage: ""
+    desc: rb_reg_match_last
+    return: VALUE
+- last_match_getter: 
+    arguments: []
+
+    storage: static
+    desc: last_match_getter
+    return: VALUE
+- prematch_getter: 
+    arguments: []
+
+    storage: static
+    desc: prematch_getter
+    return: VALUE
+- postmatch_getter: 
+    arguments: []
+
+    storage: static
+    desc: postmatch_getter
+    return: VALUE
+- last_paren_match_getter: 
+    arguments: []
+
+    storage: static
+    desc: last_paren_match_getter
+    return: VALUE
+- match_array: 
+    arguments: 
+    - VALUE: match
+    - int: start
+    storage: static
+    desc: match_array
+    return: VALUE
+- match_to_a: 
+    arguments: 
+    - VALUE: match
+    storage: static
+    desc: match_to_a
+    return: VALUE
+- match_captures: 
+    arguments: 
+    - VALUE: match
+    storage: static
+    desc: match_captures
+    return: VALUE
+- match_aref: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: match
+    storage: static
+    desc: match_aref
+    return: VALUE
+- match_entry: 
+    arguments: 
+    - VALUE: match
+    - long int: n
+    storage: static
+    desc: match_entry
+    return: VALUE
+- match_values_at: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: match
+    storage: static
+    desc: match_values_at
+    return: VALUE
+- match_select: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: match
+    storage: static
+    desc: match_select
+    return: VALUE
+- match_to_s: 
+    arguments: 
+    - VALUE: match
+    storage: static
+    desc: match_to_s
+    return: VALUE
+- match_string: 
+    arguments: 
+    - VALUE: match
+    storage: static
+    desc: match_string
+    return: VALUE
+- rb_reg_initialize: 
+    arguments: 
+    - VALUE: obj
+    - const char *: s
+    - long int: len
+    - int: options
+    storage: static
+    desc: rb_reg_initialize
+    return: void
+- rb_reg_s_alloc: 
+    arguments: 
+    - VALUE: klass
+    storage: static
+    desc: rb_reg_s_alloc
+    return: VALUE
+- rb_reg_new: 
+    arguments: 
+    - const char *: s
+    - long int: len
+    - int: options
+    storage: ""
+    desc: rb_reg_new
+    return: VALUE
+- rb_reg_regcomp: 
+    arguments: 
+    - VALUE: str
+    storage: ""
+    desc: rb_reg_regcomp
+    return: VALUE
+- rb_reg_cur_kcode: 
+    arguments: 
+    - VALUE: re
+    storage: static
+    desc: rb_reg_cur_kcode
+    return: int
+- rb_reg_hash: 
+    arguments: 
+    - VALUE: re
+    storage: static
+    desc: rb_reg_hash
+    return: VALUE
+- rb_reg_equal: 
+    arguments: 
+    - VALUE: re1
+    - VALUE: re2
+    storage: static
+    desc: rb_reg_equal
+    return: VALUE
+- rb_reg_match: 
+    arguments: 
+    - VALUE: re
+    - VALUE: str
+    storage: ""
+    desc: rb_reg_match
+    return: VALUE
+- rb_reg_eqq: 
+    arguments: 
+    - VALUE: re
+    - VALUE: str
+    storage: ""
+    desc: rb_reg_eqq
+    return: VALUE
+- rb_reg_match2: 
+    arguments: 
+    - VALUE: re
+    storage: ""
+    desc: rb_reg_match2
+    return: VALUE
+- rb_reg_match_m: 
+    arguments: 
+    - VALUE: re
+    - VALUE: str
+    storage: static
+    desc: rb_reg_match_m
+    return: VALUE
+- rb_reg_initialize_m: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: self
+    storage: static
+    desc: rb_reg_initialize_m
+    return: VALUE
+- rb_reg_quote: 
+    arguments: 
+    - VALUE: str
+    storage: ""
+    desc: rb_reg_quote
+    return: VALUE
+- rb_reg_s_quote: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_reg_s_quote
+    return: VALUE
+- rb_kcode: 
+    arguments: []
+
+    storage: ""
+    desc: rb_kcode
+    return: int
+- rb_reg_get_kcode: 
+    arguments: 
+    - VALUE: re
+    storage: static
+    desc: rb_reg_get_kcode
+    return: int
+- rb_reg_options: 
+    arguments: 
+    - VALUE: re
+    storage: ""
+    desc: rb_reg_options
+    return: int
+- rb_reg_s_union: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_reg_s_union
+    return: VALUE
+- rb_reg_init_copy: 
+    arguments: 
+    - VALUE: copy
+    - VALUE: re
+    storage: static
+    desc: rb_reg_init_copy
+    return: VALUE
+- rb_reg_regsub: 
+    arguments: 
+    - VALUE: str
+    - VALUE: src
+    - struct re_registers *: regs
+    storage: ""
+    desc: rb_reg_regsub
+    return: VALUE
+- rb_get_kcode: 
+    arguments: []
+
+    storage: ""
+    desc: rb_get_kcode
+    return: const char *
+- kcode_getter: 
+    arguments: []
+
+    storage: static
+    desc: kcode_getter
+    return: VALUE
+- rb_set_kcode: 
+    arguments: 
+    - const char *: code
+    storage: ""
+    desc: rb_set_kcode
+    return: void
+- kcode_setter: 
+    arguments: 
+    - VALUE: val
+    storage: static
+    desc: kcode_setter
+    return: void
+- ignorecase_getter: 
+    arguments: []
+
+    storage: static
+    desc: ignorecase_getter
+    return: VALUE
+- ignorecase_setter: 
+    arguments: 
+    - VALUE: val
+    - ID: id
+    storage: static
+    desc: ignorecase_setter
+    return: void
+- match_getter: 
+    arguments: []
+
+    storage: static
+    desc: match_getter
+    return: VALUE
+- match_setter: 
+    arguments: 
+    - VALUE: val
+    storage: static
+    desc: match_setter
+    return: void
+- rb_reg_s_last_match: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_reg_s_last_match
+    return: VALUE
+- Init_Regexp: 
+    arguments: []
+
+    storage: ""
+    desc: Init_Regexp
+    return: void

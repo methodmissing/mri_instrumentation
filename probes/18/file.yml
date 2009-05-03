@@ -1,0 +1,937 @@
+--- 
+- apply2files: 
+    arguments: 
+    - void (*)(const char *, void *): func
+    - VALUE: vargs
+    - void *: arg
+    storage: static
+    desc: apply2files
+    return: long int
+- rb_file_path: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_file_path
+    return: VALUE
+- stat_new_0: 
+    arguments: 
+    - VALUE: klass
+    - struct stat *: st
+    storage: static
+    desc: stat_new_0
+    return: VALUE
+- stat_new: 
+    arguments: 
+    - struct stat *: st
+    storage: static
+    desc: stat_new
+    return: VALUE
+- get_stat: 
+    arguments: 
+    - VALUE: self
+    storage: static
+    desc: get_stat
+    return: struct stat *
+- rb_stat_cmp: 
+    arguments: 
+    - VALUE: self
+    - VALUE: other
+    storage: static
+    desc: rb_stat_cmp
+    return: VALUE
+- rb_stat_dev: 
+    arguments: 
+    - VALUE: self
+    storage: static
+    desc: rb_stat_dev
+    return: VALUE
+- rb_stat_dev_major: 
+    arguments: 
+    - VALUE: self
+    storage: static
+    desc: rb_stat_dev_major
+    return: VALUE
+- rb_stat_dev_minor: 
+    arguments: 
+    - VALUE: self
+    storage: static
+    desc: rb_stat_dev_minor
+    return: VALUE
+- rb_stat_ino: 
+    arguments: 
+    - VALUE: self
+    storage: static
+    desc: rb_stat_ino
+    return: VALUE
+- rb_stat_mode: 
+    arguments: 
+    - VALUE: self
+    storage: static
+    desc: rb_stat_mode
+    return: VALUE
+- rb_stat_nlink: 
+    arguments: 
+    - VALUE: self
+    storage: static
+    desc: rb_stat_nlink
+    return: VALUE
+- rb_stat_uid: 
+    arguments: 
+    - VALUE: self
+    storage: static
+    desc: rb_stat_uid
+    return: VALUE
+- rb_stat_gid: 
+    arguments: 
+    - VALUE: self
+    storage: static
+    desc: rb_stat_gid
+    return: VALUE
+- rb_stat_rdev: 
+    arguments: 
+    - VALUE: self
+    storage: static
+    desc: rb_stat_rdev
+    return: VALUE
+- rb_stat_rdev_major: 
+    arguments: 
+    - VALUE: self
+    storage: static
+    desc: rb_stat_rdev_major
+    return: VALUE
+- rb_stat_rdev_minor: 
+    arguments: 
+    - VALUE: self
+    storage: static
+    desc: rb_stat_rdev_minor
+    return: VALUE
+- rb_stat_size: 
+    arguments: 
+    - VALUE: self
+    storage: static
+    desc: rb_stat_size
+    return: VALUE
+- rb_stat_blksize: 
+    arguments: 
+    - VALUE: self
+    storage: static
+    desc: rb_stat_blksize
+    return: VALUE
+- rb_stat_blocks: 
+    arguments: 
+    - VALUE: self
+    storage: static
+    desc: rb_stat_blocks
+    return: VALUE
+- rb_stat_atime: 
+    arguments: 
+    - VALUE: self
+    storage: static
+    desc: rb_stat_atime
+    return: VALUE
+- rb_stat_mtime: 
+    arguments: 
+    - VALUE: self
+    storage: static
+    desc: rb_stat_mtime
+    return: VALUE
+- rb_stat_ctime: 
+    arguments: 
+    - VALUE: self
+    storage: static
+    desc: rb_stat_ctime
+    return: VALUE
+- rb_stat_inspect: 
+    arguments: 
+    - VALUE: self
+    storage: static
+    desc: rb_stat_inspect
+    return: VALUE
+- rb_stat: 
+    arguments: 
+    - VALUE: file
+    - struct stat *: st
+    storage: static
+    desc: rb_stat
+    return: int
+- rb_file_s_stat: 
+    arguments: 
+    - VALUE: klass
+    - VALUE: fname
+    storage: static
+    desc: rb_file_s_stat
+    return: VALUE
+- rb_io_stat: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_io_stat
+    return: VALUE
+- rb_file_s_lstat: 
+    arguments: 
+    - VALUE: klass
+    - VALUE: fname
+    storage: static
+    desc: rb_file_s_lstat
+    return: VALUE
+- rb_file_lstat: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_file_lstat
+    return: VALUE
+- group_member: 
+    arguments: 
+    - gid_t: gid
+    storage: static
+    desc: group_member
+    return: int
+- eaccess: 
+    arguments: 
+    - const char *: path
+    - int: mode
+    storage: ""
+    desc: eaccess
+    return: int
+- test_d: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: fname
+    storage: static
+    desc: test_d
+    return: VALUE
+- test_p: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: fname
+    storage: static
+    desc: test_p
+    return: VALUE
+- test_l: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: fname
+    storage: static
+    desc: test_l
+    return: VALUE
+- test_S: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: fname
+    storage: static
+    desc: test_S
+    return: VALUE
+- test_b: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: fname
+    storage: static
+    desc: test_b
+    return: VALUE
+- test_c: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: fname
+    storage: static
+    desc: test_c
+    return: VALUE
+- test_e: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: fname
+    storage: static
+    desc: test_e
+    return: VALUE
+- test_r: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: fname
+    storage: static
+    desc: test_r
+    return: VALUE
+- test_R: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: fname
+    storage: static
+    desc: test_R
+    return: VALUE
+- test_w: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: fname
+    storage: static
+    desc: test_w
+    return: VALUE
+- test_W: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: fname
+    storage: static
+    desc: test_W
+    return: VALUE
+- test_x: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: fname
+    storage: static
+    desc: test_x
+    return: VALUE
+- test_X: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: fname
+    storage: static
+    desc: test_X
+    return: VALUE
+- test_f: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: fname
+    storage: static
+    desc: test_f
+    return: VALUE
+- test_z: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: fname
+    storage: static
+    desc: test_z
+    return: VALUE
+- test_s: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: fname
+    storage: static
+    desc: test_s
+    return: VALUE
+- test_owned: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: fname
+    storage: static
+    desc: test_owned
+    return: VALUE
+- test_rowned: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: fname
+    storage: static
+    desc: test_rowned
+    return: VALUE
+- test_grpowned: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: fname
+    storage: static
+    desc: test_grpowned
+    return: VALUE
+- test_suid: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: fname
+    storage: static
+    desc: test_suid
+    return: VALUE
+- test_sgid: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: fname
+    storage: static
+    desc: test_sgid
+    return: VALUE
+- test_sticky: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: fname
+    storage: static
+    desc: test_sticky
+    return: VALUE
+- test_identical: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: fname1
+    - VALUE: fname2
+    storage: static
+    desc: test_identical
+    return: VALUE
+- rb_file_s_size: 
+    arguments: 
+    - VALUE: klass
+    - VALUE: fname
+    storage: static
+    desc: rb_file_s_size
+    return: VALUE
+- rb_file_ftype: 
+    arguments: 
+    - struct stat *: st
+    storage: static
+    desc: rb_file_ftype
+    return: VALUE
+- rb_file_s_ftype: 
+    arguments: 
+    - VALUE: klass
+    - VALUE: fname
+    storage: static
+    desc: rb_file_s_ftype
+    return: VALUE
+- rb_file_s_atime: 
+    arguments: 
+    - VALUE: klass
+    - VALUE: fname
+    storage: static
+    desc: rb_file_s_atime
+    return: VALUE
+- rb_file_atime: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_file_atime
+    return: VALUE
+- rb_file_s_mtime: 
+    arguments: 
+    - VALUE: klass
+    - VALUE: fname
+    storage: static
+    desc: rb_file_s_mtime
+    return: VALUE
+- rb_file_mtime: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_file_mtime
+    return: VALUE
+- rb_file_s_ctime: 
+    arguments: 
+    - VALUE: klass
+    - VALUE: fname
+    storage: static
+    desc: rb_file_s_ctime
+    return: VALUE
+- rb_file_ctime: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_file_ctime
+    return: VALUE
+- chmod_internal: 
+    arguments: 
+    - const char *: path
+    - void *: mode
+    storage: static
+    desc: chmod_internal
+    return: void
+- rb_file_s_chmod: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_file_s_chmod
+    return: VALUE
+- rb_file_chmod: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: vmode
+    storage: static
+    desc: rb_file_chmod
+    return: VALUE
+- lchmod_internal: 
+    arguments: 
+    - const char *: path
+    - void *: mode
+    storage: static
+    desc: lchmod_internal
+    return: void
+- rb_file_s_lchmod: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_file_s_lchmod
+    return: VALUE
+- chown_internal: 
+    arguments: 
+    - const char *: path
+    - void *: argp
+    storage: static
+    desc: chown_internal
+    return: void
+- rb_file_s_chown: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_file_s_chown
+    return: VALUE
+- rb_file_chown: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: owner
+    - VALUE: group
+    storage: static
+    desc: rb_file_chown
+    return: VALUE
+- lchown_internal: 
+    arguments: 
+    - const char *: path
+    - void *: argp
+    storage: static
+    desc: lchown_internal
+    return: void
+- rb_file_s_lchown: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_file_s_lchown
+    return: VALUE
+- utime_internal: 
+    arguments: 
+    - const char *: path
+    - void *: arg
+    storage: static
+    desc: utime_internal
+    return: void
+- rb_file_s_utime: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_file_s_utime
+    return: VALUE
+- sys_fail2: 
+    arguments: 
+    - VALUE: s1
+    - VALUE: s2
+    storage: static
+    desc: sys_fail2
+    return: void
+- rb_file_s_link: 
+    arguments: 
+    - VALUE: klass
+    - VALUE: from
+    - VALUE: to
+    storage: static
+    desc: rb_file_s_link
+    return: VALUE
+- rb_file_s_symlink: 
+    arguments: 
+    - VALUE: klass
+    - VALUE: from
+    - VALUE: to
+    storage: static
+    desc: rb_file_s_symlink
+    return: VALUE
+- rb_file_s_readlink: 
+    arguments: 
+    - VALUE: klass
+    - VALUE: path
+    storage: static
+    desc: rb_file_s_readlink
+    return: VALUE
+- unlink_internal: 
+    arguments: 
+    - const char *: path
+    - void *: arg
+    storage: static
+    desc: unlink_internal
+    return: void
+- rb_file_s_unlink: 
+    arguments: 
+    - VALUE: klass
+    - VALUE: args
+    storage: static
+    desc: rb_file_s_unlink
+    return: VALUE
+- rb_file_s_rename: 
+    arguments: 
+    - VALUE: klass
+    - VALUE: from
+    - VALUE: to
+    storage: static
+    desc: rb_file_s_rename
+    return: VALUE
+- rb_file_s_umask: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_file_s_umask
+    return: VALUE
+- skiproot: 
+    arguments: 
+    - const char *: path
+    storage: static
+    desc: skiproot
+    return: char *
+- rb_path_next: 
+    arguments: 
+    - const char *: s
+    storage: ""
+    desc: rb_path_next
+    return: char *
+- rb_path_skip_prefix: 
+    arguments: 
+    - const char *: path
+    storage: ""
+    desc: rb_path_skip_prefix
+    return: char *
+- rb_path_last_separator: 
+    arguments: 
+    - const char *: path
+    storage: ""
+    desc: rb_path_last_separator
+    return: char *
+- chompdirsep: 
+    arguments: 
+    - const char *: path
+    storage: static
+    desc: chompdirsep
+    return: char *
+- rb_path_end: 
+    arguments: 
+    - const char *: path
+    storage: ""
+    desc: rb_path_end
+    return: char *
+- file_expand_path: 
+    arguments: 
+    - VALUE: fname
+    - VALUE: dname
+    - VALUE: result
+    storage: static
+    desc: file_expand_path
+    return: VALUE
+- rb_file_expand_path: 
+    arguments: 
+    - VALUE: fname
+    - VALUE: dname
+    storage: ""
+    desc: rb_file_expand_path
+    return: VALUE
+- rb_file_s_expand_path: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: ""
+    desc: rb_file_s_expand_path
+    return: VALUE
+- rmext: 
+    arguments: 
+    - const char *: p
+    - int: l1
+    - const char *: e
+    storage: static
+    desc: rmext
+    return: int
+- rb_file_s_basename: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_file_s_basename
+    return: VALUE
+- rb_file_s_dirname: 
+    arguments: 
+    - VALUE: klass
+    - VALUE: fname
+    storage: static
+    desc: rb_file_s_dirname
+    return: VALUE
+- rb_file_s_extname: 
+    arguments: 
+    - VALUE: klass
+    - VALUE: fname
+    storage: static
+    desc: rb_file_s_extname
+    return: VALUE
+- rb_file_s_split: 
+    arguments: 
+    - VALUE: klass
+    - VALUE: path
+    storage: static
+    desc: rb_file_s_split
+    return: VALUE
+- file_inspect_join: 
+    arguments: 
+    - VALUE: ary
+    - VALUE *: arg
+    storage: static
+    desc: file_inspect_join
+    return: VALUE
+- rb_file_join: 
+    arguments: 
+    - VALUE: ary
+    - VALUE: sep
+    storage: static
+    desc: rb_file_join
+    return: VALUE
+- rb_file_s_join: 
+    arguments: 
+    - VALUE: klass
+    - VALUE: args
+    storage: static
+    desc: rb_file_s_join
+    return: VALUE
+- rb_file_s_truncate: 
+    arguments: 
+    - VALUE: klass
+    - VALUE: path
+    - VALUE: len
+    storage: static
+    desc: rb_file_s_truncate
+    return: VALUE
+- rb_file_truncate: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: len
+    storage: static
+    desc: rb_file_truncate
+    return: VALUE
+- rb_thread_flock: 
+    arguments: 
+    - int: fd
+    - int: op
+    - OpenFile *: fptr
+    storage: static
+    desc: rb_thread_flock
+    return: int
+- rb_file_flock: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: operation
+    storage: static
+    desc: rb_file_flock
+    return: VALUE
+- test_check: 
+    arguments: 
+    - int: n
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: test_check
+    return: void
+- rb_f_test: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_f_test
+    return: VALUE
+- rb_stat_s_alloc: 
+    arguments: 
+    - VALUE: klass
+    storage: static
+    desc: rb_stat_s_alloc
+    return: VALUE
+- rb_stat_init: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: fname
+    storage: static
+    desc: rb_stat_init
+    return: VALUE
+- rb_stat_init_copy: 
+    arguments: 
+    - VALUE: copy
+    - VALUE: orig
+    storage: static
+    desc: rb_stat_init_copy
+    return: VALUE
+- rb_stat_ftype: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_stat_ftype
+    return: VALUE
+- rb_stat_d: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_stat_d
+    return: VALUE
+- rb_stat_p: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_stat_p
+    return: VALUE
+- rb_stat_l: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_stat_l
+    return: VALUE
+- rb_stat_S: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_stat_S
+    return: VALUE
+- rb_stat_b: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_stat_b
+    return: VALUE
+- rb_stat_c: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_stat_c
+    return: VALUE
+- rb_stat_owned: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_stat_owned
+    return: VALUE
+- rb_stat_rowned: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_stat_rowned
+    return: VALUE
+- rb_stat_grpowned: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_stat_grpowned
+    return: VALUE
+- rb_stat_r: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_stat_r
+    return: VALUE
+- rb_stat_R: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_stat_R
+    return: VALUE
+- rb_stat_w: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_stat_w
+    return: VALUE
+- rb_stat_W: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_stat_W
+    return: VALUE
+- rb_stat_x: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_stat_x
+    return: VALUE
+- rb_stat_X: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_stat_X
+    return: VALUE
+- rb_stat_f: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_stat_f
+    return: VALUE
+- rb_stat_z: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_stat_z
+    return: VALUE
+- rb_stat_s: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_stat_s
+    return: VALUE
+- rb_stat_suid: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_stat_suid
+    return: VALUE
+- rb_stat_sgid: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_stat_sgid
+    return: VALUE
+- rb_stat_sticky: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_stat_sticky
+    return: VALUE
+- rb_file_const: 
+    arguments: 
+    - const char *: name
+    - VALUE: value
+    storage: ""
+    desc: rb_file_const
+    return: void
+- is_absolute_path: 
+    arguments: 
+    - const char *: path
+    storage: static
+    desc: is_absolute_path
+    return: int
+- path_check_0: 
+    arguments: 
+    - VALUE: fpath
+    - int: execpath
+    storage: static
+    desc: path_check_0
+    return: int
+- fpath_check: 
+    arguments: 
+    - char *: path
+    storage: static
+    desc: fpath_check
+    return: int
+- rb_path_check: 
+    arguments: 
+    - char *: path
+    storage: ""
+    desc: rb_path_check
+    return: int
+- file_load_ok: 
+    arguments: 
+    - char *: file
+    storage: static
+    desc: file_load_ok
+    return: int
+- rb_find_file_ext: 
+    arguments: 
+    - VALUE *: filep
+    - const char *const *: ext
+    storage: ""
+    desc: rb_find_file_ext
+    return: int
+- rb_find_file: 
+    arguments: 
+    - VALUE: path
+    storage: ""
+    desc: rb_find_file
+    return: VALUE
+- define_filetest_function: 
+    arguments: 
+    - const char *: name
+    - VALUE (*)(): func
+    - int: argc
+    storage: static
+    desc: define_filetest_function
+    return: void
+- Init_File: 
+    arguments: []
+
+    storage: ""
+    desc: Init_File
+    return: void

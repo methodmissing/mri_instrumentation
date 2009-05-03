@@ -1,0 +1,225 @@
+--- 
+- ruby_scan_oct: 
+    arguments: 
+    - const char *: start
+    - int: len
+    - int *: retlen
+    storage: ""
+    desc: ruby_scan_oct
+    return: unsigned long int
+- ruby_scan_hex: 
+    arguments: 
+    - const char *: start
+    - int: len
+    - int *: retlen
+    storage: ""
+    desc: ruby_scan_hex
+    return: unsigned long int
+- mmswap_: 
+    arguments: 
+    - char *: a
+    - char *: b
+    - int: mmkind
+    - int: size
+    - int: high
+    - int: low
+    storage: static
+    desc: mmswap_
+    return: void
+- mmrot3_: 
+    arguments: 
+    - char *: a
+    - char *: b
+    - char *: c
+    - int: mmkind
+    - int: size
+    - int: high
+    - int: low
+    storage: static
+    desc: mmrot3_
+    return: void
+- ruby_qsort: 
+    arguments: 
+    - void *: base
+    - const int: nel
+    - const int: size
+    - int (*)(): cmp
+    - void *: d
+    storage: ""
+    desc: ruby_qsort
+    return: void
+- ruby_strdup: 
+    arguments: 
+    - const char *: str
+    storage: ""
+    desc: ruby_strdup
+    return: char *
+- ruby_getcwd: 
+    arguments: []
+
+    storage: ""
+    desc: ruby_getcwd
+    return: char *
+- Balloc: 
+    arguments: 
+    - int: k
+    storage: static
+    desc: Balloc
+    return: Bigint *
+- Bfree: 
+    arguments: 
+    - Bigint *: v
+    storage: static
+    desc: Bfree
+    return: void
+- multadd: 
+    arguments: 
+    - Bigint *: b
+    - int: m
+    - int: a
+    storage: static
+    desc: multadd
+    return: Bigint *
+- s2b: 
+    arguments: 
+    - const char *: s
+    - int: nd0
+    - int: nd
+    - unsigned int: y9
+    storage: static
+    desc: s2b
+    return: Bigint *
+- hi0bits: 
+    arguments: 
+    - unsigned int: x
+    storage: static
+    desc: hi0bits
+    return: int
+- lo0bits: 
+    arguments: 
+    - unsigned int *: y
+    storage: static
+    desc: lo0bits
+    return: int
+- i2b: 
+    arguments: 
+    - int: i
+    storage: static
+    desc: i2b
+    return: Bigint *
+- mult: 
+    arguments: 
+    - Bigint *: a
+    - Bigint *: b
+    storage: static
+    desc: mult
+    return: Bigint *
+- pow5mult: 
+    arguments: 
+    - Bigint *: b
+    - int: k
+    storage: static
+    desc: pow5mult
+    return: Bigint *
+- lshift: 
+    arguments: 
+    - Bigint *: b
+    - int: k
+    storage: static
+    desc: lshift
+    return: Bigint *
+- cmp: 
+    arguments: 
+    - Bigint *: a
+    - Bigint *: b
+    storage: static
+    desc: cmp
+    return: int
+- diff: 
+    arguments: 
+    - Bigint *: a
+    - Bigint *: b
+    storage: static
+    desc: diff
+    return: Bigint *
+- ulp: 
+    arguments: 
+    - double: x
+    storage: static
+    desc: ulp
+    return: double
+- b2d: 
+    arguments: 
+    - Bigint *: a
+    - int *: e
+    storage: static
+    desc: b2d
+    return: double
+- d2b: 
+    arguments: 
+    - double: d
+    - int *: e
+    - int *: bits
+    storage: static
+    desc: d2b
+    return: Bigint *
+- ratio: 
+    arguments: 
+    - Bigint *: a
+    - Bigint *: b
+    storage: static
+    desc: ratio
+    return: double
+- ruby_strtod: 
+    arguments: 
+    - const char *: s00
+    - char **: se
+    storage: ""
+    desc: ruby_strtod
+    return: double
+- quorem: 
+    arguments: 
+    - Bigint *: b
+    - Bigint *: S
+    storage: static
+    desc: quorem
+    return: int
+- rv_alloc: 
+    arguments: 
+    - int: i
+    storage: static
+    desc: rv_alloc
+    return: char *
+- nrv_alloc: 
+    arguments: 
+    - char *: s
+    - char **: rve
+    - int: n
+    storage: static
+    desc: nrv_alloc
+    return: char *
+- freedtoa: 
+    arguments: 
+    - char *: s
+    storage: ""
+    desc: freedtoa
+    return: void
+- dtoa: 
+    arguments: 
+    - double: d
+    - int: mode
+    - int: ndigits
+    - int *: decpt
+    - int *: sign
+    - char **: rve
+    storage: ""
+    desc: dtoa
+    return: char *
+- ruby_each_words: 
+    arguments: 
+    - const char *: str
+    - void (*)(const char *, int, void *): func
+    - void *: arg
+    storage: ""
+    desc: ruby_each_words
+    return: void

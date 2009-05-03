@@ -33,7 +33,7 @@ module Mri
         
         def functions
           fncs = [:guarded_entry]
-          fncs.concat( [:peek, :return] ) unless void?
+          fncs.concat( [:peek, :return] ) if @probe.return?
           fncs
         end                
         

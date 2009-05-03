@@ -1,0 +1,147 @@
+--- 
+- signm2signo: 
+    arguments: 
+    - const char *: nm
+    storage: static
+    desc: signm2signo
+    return: int
+- signo2signm: 
+    arguments: 
+    - int: "no"
+    storage: static
+    desc: signo2signm
+    return: char *
+- ruby_signal_name: 
+    arguments: 
+    - int: "no"
+    storage: ""
+    desc: ruby_signal_name
+    return: const char *
+- esignal_init: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: self
+    storage: static
+    desc: esignal_init
+    return: VALUE
+- interrupt_init: 
+    arguments: 
+    - VALUE: self
+    - VALUE: mesg
+    storage: static
+    desc: interrupt_init
+    return: VALUE
+- ruby_default_signal: 
+    arguments: 
+    - int: sig
+    storage: ""
+    desc: ruby_default_signal
+    return: void
+- rb_f_kill: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: ""
+    desc: rb_f_kill
+    return: VALUE
+- rb_gc_mark_trap_list: 
+    arguments: []
+
+    storage: ""
+    desc: rb_gc_mark_trap_list
+    return: void
+- ruby_signal: 
+    arguments: 
+    - int: signum
+    - sighandler_t: handler
+    storage: static
+    desc: ruby_signal
+    return: sighandler_t
+- ruby_posix_signal: 
+    arguments: 
+    - int: signum
+    - sighandler_t: handler
+    storage: ""
+    desc: ruby_posix_signal
+    return: void
+- signal_exec: 
+    arguments: 
+    - int: sig
+    storage: static
+    desc: signal_exec
+    return: void
+- sighandler: 
+    arguments: 
+    - int: sig
+    storage: static
+    desc: sighandler
+    return: void
+- rb_trap_exit: 
+    arguments: []
+
+    storage: ""
+    desc: rb_trap_exit
+    return: void
+- rb_trap_exec: 
+    arguments: []
+
+    storage: ""
+    desc: rb_trap_exec
+    return: void
+- sigexit: 
+    arguments: 
+    - int: sig
+    storage: static
+    desc: sigexit
+    return: void
+- trap: 
+    arguments: 
+    - struct trap_arg *: arg
+    storage: static
+    desc: trap
+    return: VALUE
+- trap_ensure: 
+    arguments: 
+    - struct trap_arg *: arg
+    storage: static
+    desc: trap_ensure
+    return: VALUE
+- rb_trap_restore_mask: 
+    arguments: []
+
+    storage: ""
+    desc: rb_trap_restore_mask
+    return: void
+- sig_trap: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: sig_trap
+    return: VALUE
+- sig_list: 
+    arguments: []
+
+    storage: static
+    desc: sig_list
+    return: VALUE
+- install_sighandler: 
+    arguments: 
+    - int: signum
+    - sighandler_t: handler
+    storage: static
+    desc: install_sighandler
+    return: void
+- init_sigchld: 
+    arguments: 
+    - int: sig
+    storage: static
+    desc: init_sigchld
+    return: void
+- Init_signal: 
+    arguments: []
+
+    storage: ""
+    desc: Init_signal
+    return: void

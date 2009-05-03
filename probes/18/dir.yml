@@ -1,0 +1,366 @@
+--- 
+- fnmatch_helper: 
+    arguments: 
+    - const char **: pcur
+    - const char **: scur
+    - int: flags
+    storage: static
+    desc: fnmatch_helper
+    return: int
+- fnmatch: 
+    arguments: 
+    - const char *: p
+    - const char *: s
+    - int: flags
+    storage: static
+    desc: fnmatch
+    return: int
+- free_dir: 
+    arguments: 
+    - struct dir_data *: dir
+    storage: static
+    desc: free_dir
+    return: void
+- dir_s_alloc: 
+    arguments: 
+    - VALUE: klass
+    storage: static
+    desc: dir_s_alloc
+    return: VALUE
+- dir_initialize: 
+    arguments: 
+    - VALUE: dir
+    - VALUE: dirname
+    storage: static
+    desc: dir_initialize
+    return: VALUE
+- dir_s_open: 
+    arguments: 
+    - VALUE: klass
+    - VALUE: dirname
+    storage: static
+    desc: dir_s_open
+    return: VALUE
+- dir_closed: 
+    arguments: []
+
+    storage: static
+    desc: dir_closed
+    return: void
+- dir_check: 
+    arguments: 
+    - VALUE: dir
+    storage: static
+    desc: dir_check
+    return: void
+- dir_inspect: 
+    arguments: 
+    - VALUE: dir
+    storage: static
+    desc: dir_inspect
+    return: VALUE
+- dir_path: 
+    arguments: 
+    - VALUE: dir
+    storage: static
+    desc: dir_path
+    return: VALUE
+- dir_read: 
+    arguments: 
+    - VALUE: dir
+    storage: static
+    desc: dir_read
+    return: VALUE
+- dir_each: 
+    arguments: 
+    - VALUE: dir
+    storage: static
+    desc: dir_each
+    return: VALUE
+- dir_tell: 
+    arguments: 
+    - VALUE: dir
+    storage: static
+    desc: dir_tell
+    return: VALUE
+- dir_seek: 
+    arguments: 
+    - VALUE: dir
+    - VALUE: pos
+    storage: static
+    desc: dir_seek
+    return: VALUE
+- dir_set_pos: 
+    arguments: 
+    - VALUE: dir
+    - VALUE: pos
+    storage: static
+    desc: dir_set_pos
+    return: VALUE
+- dir_rewind: 
+    arguments: 
+    - VALUE: dir
+    storage: static
+    desc: dir_rewind
+    return: VALUE
+- dir_close: 
+    arguments: 
+    - VALUE: dir
+    storage: static
+    desc: dir_close
+    return: VALUE
+- dir_chdir: 
+    arguments: 
+    - VALUE: path
+    storage: static
+    desc: dir_chdir
+    return: void
+- chdir_yield: 
+    arguments: 
+    - struct chdir_data *: args
+    storage: static
+    desc: chdir_yield
+    return: VALUE
+- chdir_restore: 
+    arguments: 
+    - struct chdir_data *: args
+    storage: static
+    desc: chdir_restore
+    return: VALUE
+- dir_s_chdir: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: obj
+    storage: static
+    desc: dir_s_chdir
+    return: VALUE
+- dir_s_getwd: 
+    arguments: 
+    - VALUE: dir
+    storage: static
+    desc: dir_s_getwd
+    return: VALUE
+- check_dirname: 
+    arguments: 
+    - volatile VALUE *: dir
+    storage: static
+    desc: check_dirname
+    return: void
+- dir_s_chroot: 
+    arguments: 
+    - VALUE: dir
+    - VALUE: path
+    storage: static
+    desc: dir_s_chroot
+    return: VALUE
+- dir_s_mkdir: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: obj
+    storage: static
+    desc: dir_s_mkdir
+    return: VALUE
+- dir_s_rmdir: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: dir
+    storage: static
+    desc: dir_s_rmdir
+    return: VALUE
+- sys_warning_1: 
+    arguments: 
+    - const char *: mesg
+    storage: static
+    desc: sys_warning_1
+    return: void
+- do_lstat: 
+    arguments: 
+    - const char *: path
+    - struct stat *: pst
+    - int: flags
+    storage: static
+    desc: do_lstat
+    return: int
+- glob_free_pattern: 
+    arguments: 
+    - struct glob_pattern *: list
+    storage: static
+    desc: glob_free_pattern
+    return: void
+- join_path: 
+    arguments: 
+    - const char *: path
+    - int: dirsep
+    - const char *: name
+    storage: static
+    desc: join_path
+    return: char *
+- glob_func_caller: 
+    arguments: 
+    - VALUE: val
+    storage: static
+    desc: glob_func_caller
+    return: VALUE
+- glob_helper: 
+    arguments: 
+    - const char *: path
+    - int: dirsep
+    - enum answer: exist
+    - enum answer: isdir
+    - struct glob_pattern **: beg
+    - struct glob_pattern **: end
+    - int: flags
+    - ruby_glob_func *: func
+    - VALUE: arg
+    storage: static
+    desc: glob_helper
+    return: int
+- ruby_glob0: 
+    arguments: 
+    - const char *: path
+    - int: flags
+    - ruby_glob_func *: func
+    - VALUE: arg
+    storage: static
+    desc: ruby_glob0
+    return: int
+- ruby_glob: 
+    arguments: 
+    - const char *: path
+    - int: flags
+    - ruby_glob_func *: func
+    - VALUE: arg
+    storage: ""
+    desc: ruby_glob
+    return: int
+- rb_glob_caller: 
+    arguments: 
+    - const char *: path
+    - VALUE: a
+    storage: static
+    desc: rb_glob_caller
+    return: int
+- rb_glob: 
+    arguments: 
+    - const char *: path
+    - void (*)(const char *, VALUE): func
+    - VALUE: arg
+    storage: ""
+    desc: rb_glob
+    return: void
+- push_pattern: 
+    arguments: 
+    - const char *: path
+    - VALUE: ary
+    storage: static
+    desc: push_pattern
+    return: void
+- ruby_brace_expand: 
+    arguments: 
+    - const char *: str
+    - int: flags
+    - ruby_glob_func *: func
+    - VALUE: arg
+    storage: ""
+    desc: ruby_brace_expand
+    return: int
+- glob_brace: 
+    arguments: 
+    - const char *: path
+    - VALUE: val
+    storage: static
+    desc: glob_brace
+    return: int
+- ruby_brace_glob0: 
+    arguments: 
+    - const char *: str
+    - int: flags
+    - ruby_glob_func *: func
+    - VALUE: arg
+    storage: static
+    desc: ruby_brace_glob0
+    return: int
+- ruby_brace_glob: 
+    arguments: 
+    - const char *: str
+    - int: flags
+    - ruby_glob_func *: func
+    - VALUE: arg
+    storage: ""
+    desc: ruby_brace_glob
+    return: int
+- push_glob: 
+    arguments: 
+    - VALUE: ary
+    - const char *: str
+    - int: flags
+    storage: static
+    desc: push_glob
+    return: int
+- rb_push_glob: 
+    arguments: 
+    - VALUE: str
+    - int: flags
+    storage: static
+    desc: rb_push_glob
+    return: VALUE
+- dir_globs: 
+    arguments: 
+    - long int: argc
+    - VALUE *: argv
+    - int: flags
+    storage: static
+    desc: dir_globs
+    return: VALUE
+- dir_s_aref: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: obj
+    storage: static
+    desc: dir_s_aref
+    return: VALUE
+- dir_s_glob: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: obj
+    storage: static
+    desc: dir_s_glob
+    return: VALUE
+- dir_open_dir: 
+    arguments: 
+    - VALUE: path
+    storage: static
+    desc: dir_open_dir
+    return: VALUE
+- dir_foreach: 
+    arguments: 
+    - VALUE: io
+    - VALUE: dirname
+    storage: static
+    desc: dir_foreach
+    return: VALUE
+- dir_entries: 
+    arguments: 
+    - VALUE: io
+    - VALUE: dirname
+    storage: static
+    desc: dir_entries
+    return: VALUE
+- file_s_fnmatch: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: obj
+    storage: static
+    desc: file_s_fnmatch
+    return: VALUE
+- Init_Dir: 
+    arguments: []
+
+    storage: ""
+    desc: Init_Dir
+    return: void

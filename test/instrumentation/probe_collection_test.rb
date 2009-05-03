@@ -27,23 +27,23 @@ class ProbeCollectionTest < Test::Unit::TestCase
     assert_equal "%-24s %-24s %@20d", @probe_collection.report_format
   end  
   
-  test "should be able to determine if all probes has a void return type" do
-    assert !@probe_collection.void?
+  test "should be able to determine if all probes has a return type" do
+    assert @probe_collection.return?
   end
   
   test "should have a format string representation" do
-    assert_equal "%11s %9s %12s", @probe_collection.format_string
-    assert_equal "%13s %11s %14s", @probe_collection.format_string( '/s' )
+    assert_equal "%11s %12s %9s", @probe_collection.format_string
+    assert_equal "%13s %14s %11s", @probe_collection.format_string( '/s' )
   end
 
   test "should have a string representation" do
-    assert_equal "rb_memerror rb_newobj ruby_xmalloc", @probe_collection.to_s
-    assert_equal "\"rb_memerror/s\" \"rb_newobj/s\" \"ruby_xmalloc/s\"", @probe_collection.to_s( '/s', ' ', "\"" )
+    assert_equal "rb_memerror ruby_xmalloc rb_newobj", @probe_collection.to_s
+    assert_equal "\"rb_memerror/s\" \"ruby_xmalloc/s\" \"rb_newobj/s\"", @probe_collection.to_s( '/s', ' ', "\"" )
   end
 
   test "should have a description representation" do
-    assert_equal "Memory Error New Object Created Memory allocation", @probe_collection.description
-    assert_equal "\"Memory Error/s\" \"New Object Created/s\" \"Memory allocation/s\"", @probe_collection.description( '/s', ' ', "\"" )
+    assert_equal "rb_memerror ruby_xmalloc rb_newobj", @probe_collection.description
+    assert_equal "\"rb_memerror/s\" \"ruby_xmalloc/s\" \"rb_newobj/s\"", @probe_collection.description( '/s', ' ', "\"" )
   end
   
   test "should have a result format representation" do

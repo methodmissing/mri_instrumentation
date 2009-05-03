@@ -1,3 +1,4 @@
+=begin
 require File.join( File.dirname( __FILE__ ), '..', '..', 'helper' )
 
 class CallsStrategyTest < Test::Unit::TestCase
@@ -26,3 +27,4 @@ class CallsStrategyTest < Test::Unit::TestCase
   end
   
 end
+=end

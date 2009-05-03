@@ -23,7 +23,7 @@ class BaseRunnerTest < Test::Unit::TestCase
   
   test "should be able to yield instrumentation probes from a given group signature" do
     @runner.probes :gc
-    assert_equal 43, @runner.probes.size
+    assert_equal 1, @runner.probes.size
   end
 
   test "should be able to yield instrumentation probes from a given group of probe signatures" do

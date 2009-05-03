@@ -7,7 +7,7 @@ class DefinitionTest < Test::Unit::TestCase
   end
   
   test "should be able to read and parse it's definition" do
-    assert_kind_of Hash, @definition.read
+    assert_kind_of Array, @definition.read
   end
   
   test "should be able to infer it's group" do
@@ -16,7 +16,7 @@ class DefinitionTest < Test::Unit::TestCase
   
   test "should be able to setup it's probes" do
     assert_equal 3, @definition.probes.size
-    assert_equal %w(rb_memerror rb_newobj ruby_xmalloc), @definition.probes.map{|p| p.name }
+    assert_equal ["rb_memerror", "ruby_xmalloc", "rb_newobj"], @definition.probes.map{|p| p.name }
   end
   
 end  

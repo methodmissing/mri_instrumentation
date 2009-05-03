@@ -2,6 +2,10 @@ module Mri
   module Instrumentation
     class ProbeCollection < Array
  
+      def to_yaml
+        self.map{|p| p.to_hash }.to_yaml
+      end
+ 
       # Find the largest argument count across all probes
       #
       def arguments_size
@@ -58,8 +62,8 @@ module Mri
       
       # Is all of the returns void ?
       #        
-      def void?
-        @void ||= self.all?{|p| p.void? }
+      def return?
+        @return ||= self.all?{|p| p.return? }
       end
       
       private

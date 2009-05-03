@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift File.dirname(__FILE__) + '/../lib'
+
+require 'instrumentation'
+
+Mri::Instrumentation::Parser.probes!( ARGV.first || '/Users/lourens/projects/matzruby' )

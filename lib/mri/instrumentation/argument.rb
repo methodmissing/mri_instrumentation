@@ -2,6 +2,9 @@ module Mri
   module Instrumentation
     class Argument < Struct.new(:type, :description, :order)
       
+      class TypeNotDefined < StandardError
+      end
+      
       class << self
         
         # Yields the default probe argument
@@ -16,22 +19,76 @@ module Mri
       # and integers.
       #
       
-      TYPES = { :char => ['copyinstr( %s )', '%s'],
-                :pointer => ['%s', '%#p'],
-                :int => ['stringof( %s )', '%s'],
-                :probe => ['%s', '%s'] }
+      TYPES = { 'VALUE' => ['%s', 'stringof(%d)'],
+                'VALUE *' => ['%s', '%s'],
+                'long int' => ['%s', 'stringof(%d)'],
+                'void' => ['%s', '%s'],
+                'int' => ['%s', 'stringof(%d)'],
+                'struct inspect_arg *' => ['%s', '%s'],
+                'VALUE (*)()' => ['%s', '%s'],
+                'struct ary_sort_data *' => ['%s', '%s'],
+                'VALUE (*)(VALUE, long int)' => ['%s', '%s'],
+                'void *' => ['%s', '%s'],
+                'struct st_hash_type *' => ['%s', '%s'],
+                'st_table' => ['%s', '%s'],
+                'st_table *' => ['%s', '%s'],
+                'st_data_t' => ['%s', '%s'],
+                'st_data_t *' => ['%s', '%s'],
+                'int (*)()' => ['%s', 'stringof(%d)'],
+                'const char *' => ['%s', '%s'],
+                'unsigned long int' => ['%s', 'stringof(%d)'],
+                'char *' => ['%s', '%s'],
+                'unsigned long long int' => ['%s', 'stringof(%d)'],
+                'long long int' => ['%s', 'stringof(%d)'],
+                'double' => ['%s', 'stringof(%d)'],
+                'double *' => ['%s', 'stringof(%d)'],
+                'const char **' => ['%s', '%s'],
+                'struct dir_data *' => ['%s', '%s'],
+                'struct chdir_data *' => ['%s', '%s'],
+                'struct stat *' => ['%s', '%s'],
+                'DIR *' => ['%s', '%s'],
+                'struct glob_pattern *' => ['%s', '%s'],
+                'enum answer' => ['%s', '%s'],
+                'ruby_glob_func *' => ['%s', '%s'],
+                'void (*)(const char *, VALUE)' => ['%s', '%s'],              
+                'gid_t' => ['%s', '%s'],
+                'OpenFile *' => ['%s', '%s'],
+                'FILE *' => ['%s', '%s'],
+                'ID' => ['%s', 'stringof(%d)'],
+                'struct foreach_arg *' => ['%s', '%s'],
+                'struct kwtable *' => ['%s', '%s'],
+                :probe => ['%s', '%s']
+              }  
+
+      # Hash representation
+      # 
+      def to_hash
+        { self.type => self.description }
+      end
+      
+      # YAML representation
+      #
+      def to_yaml( opts = {} )
+        to_hash.to_yaml
+      end      
+      
+      # Type lookup accessor
+      #
+      def lookup
+        TYPES[self.type] || raise( TypeNotDefined, "type not defined #{self.type.inspect}" )
+      end
       
       # Format helper for D's printf
       #
       def to_format
-        @format ||= TYPES[self.type.to_sym].last  
+        @format ||= lookup.last  
       end      
 
       # Massage into a format D can easily work with.
       # Standardized on everything being a string, for the time being.
       #
       def massage
-        @massage ||= TYPES[self.type.to_sym].first % to_arg  
+        @massage ||= lookup.first % to_var( '_copy' )
       end      
       
       # String representation as description
@@ -42,14 +99,21 @@ module Mri
       
       # Function variable
       #
-      def to_var
-        @to_var ||= probe? ? "this->type" : "this->#{to_arg}"
+      def to_var( suffix = '' )
+        @to_var ||= {}
+        @to_var[suffix] ||= probe? ? "self->type#{suffix}" : "self->#{to_arg}#{suffix}"
       end
       
       # Function variable assignment
       #
       def to_assignment
-        @to_assignment ||= "#{to_var} = #{massage};"
+        @to_assignment ||= default_assignment #init_assignment
+      end
+      
+      # Copy argument to a thread local ( pointers )
+      #
+      def to_copy
+        @to_copy ||= "#{to_var( '_copy' )} = #{to_arg};"
       end
       
       # Argument representation.
@@ -63,6 +127,12 @@ module Mri
       def probe?
         self.order == -1
       end
+      
+      private
+      
+        def default_assignment
+          "#{to_var} = #{massage};"
+        end
       
     end
   end

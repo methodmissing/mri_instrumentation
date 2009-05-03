@@ -33,12 +33,15 @@ module Mri
         # Setup all probes
         #    
         def setup_probes
-          read.each_pair do |probe, definition|
-            @probes << setup_probe( probe, 
-                                    safe_definition( definition, "desc" ),
-                                    safe_definition( definition, "args" ),
-                                    safe_definition( definition, "return" ) )
-          end  
+          read.each do |probe|
+            probe.each_pair do |probe, definition|
+              @probes << setup_probe( probe, 
+                                      safe_definition( definition, "desc" ),
+                                      safe_definition( definition, "arguments" ),
+                                      safe_definition( definition, "return" ),
+                                      safe_definition( definition, "storage" ) )
+            end  
+          end
         end
         
         # Don't assume all argument and return definitions is given
@@ -49,8 +52,8 @@ module Mri
       
         # Setup a single probe
         #
-        def setup_probe( probe, description, arguments, returns )
-          Mri::Instrumentation::Probe.new( group, probe, description, setup_arguments( arguments ), returns )
+        def setup_probe( probe, description, arguments, returns, storage )
+          Mri::Instrumentation::Probe.new( group, probe, description, setup_arguments( arguments ), returns, storage )
         end  
        
         # Setup arguments for a single probe

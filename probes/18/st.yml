@@ -1,0 +1,145 @@
+--- 
+- new_size: 
+    arguments: 
+    - int: size
+    storage: static
+    desc: new_size
+    return: int
+- st_init_table_with_size: 
+    arguments: 
+    - struct st_hash_type *: type
+    - int: size
+    storage: ""
+    desc: st_init_table_with_size
+    return: st_table *
+- st_init_table: 
+    arguments: 
+    - struct st_hash_type *: type
+    storage: ""
+    desc: st_init_table
+    return: st_table *
+- st_init_numtable: 
+    arguments: []
+
+    storage: ""
+    desc: st_init_numtable
+    return: st_table *
+- st_init_numtable_with_size: 
+    arguments: 
+    - int: size
+    storage: ""
+    desc: st_init_numtable_with_size
+    return: st_table *
+- st_init_strtable: 
+    arguments: []
+
+    storage: ""
+    desc: st_init_strtable
+    return: st_table *
+- st_init_strtable_with_size: 
+    arguments: 
+    - int: size
+    storage: ""
+    desc: st_init_strtable_with_size
+    return: st_table *
+- st_free_table: 
+    arguments: 
+    - st_table *: table
+    storage: ""
+    desc: st_free_table
+    return: void
+- st_lookup: 
+    arguments: 
+    - st_table *: table
+    - st_data_t: key
+    - st_data_t *: value
+    storage: ""
+    desc: st_lookup
+    return: int
+- st_insert: 
+    arguments: 
+    - st_table *: table
+    - st_data_t: key
+    - st_data_t: value
+    storage: ""
+    desc: st_insert
+    return: int
+- st_add_direct: 
+    arguments: 
+    - st_table *: table
+    - st_data_t: key
+    - st_data_t: value
+    storage: ""
+    desc: st_add_direct
+    return: void
+- rehash: 
+    arguments: 
+    - st_table *: table
+    storage: static
+    desc: rehash
+    return: void
+- st_copy: 
+    arguments: 
+    - st_table *: old_table
+    storage: ""
+    desc: st_copy
+    return: st_table *
+- st_delete: 
+    arguments: 
+    - st_table *: table
+    - st_data_t *: key
+    - st_data_t *: value
+    storage: ""
+    desc: st_delete
+    return: int
+- st_delete_safe: 
+    arguments: 
+    - st_table *: table
+    - st_data_t *: key
+    - st_data_t *: value
+    - st_data_t: never
+    storage: ""
+    desc: st_delete_safe
+    return: int
+- delete_never: 
+    arguments: 
+    - st_data_t: key
+    - st_data_t: value
+    - st_data_t: never
+    storage: static
+    desc: delete_never
+    return: int
+- st_cleanup_safe: 
+    arguments: 
+    - st_table *: table
+    - st_data_t: never
+    storage: ""
+    desc: st_cleanup_safe
+    return: void
+- st_foreach: 
+    arguments: 
+    - st_table *: table
+    - int (*)(): func
+    - st_data_t: arg
+    storage: ""
+    desc: st_foreach
+    return: int
+- strhash: 
+    arguments: 
+    - const char *: string
+    storage: static
+    desc: strhash
+    return: int
+- numcmp: 
+    arguments: 
+    - long int: x
+    - long int: y
+    storage: static
+    desc: numcmp
+    return: int
+- numhash: 
+    arguments: 
+    - long int: n
+    storage: static
+    desc: numhash
+    return: int

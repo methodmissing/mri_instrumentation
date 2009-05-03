@@ -1,0 +1,16 @@
+---
+- rb_class_of
+- rb_type
+- rb_special_const_p
+- memfill
+- rb_ary_modify_check
+- rb_ary_elt
+- bigfixize
+- bracket
+- do_stat
+- do_opendir
+- has_magic
+- find_dirsep
+- remove_backslashes
+- glob_make_pattern
+- rb_glob2

@@ -1,0 +1,171 @@
+--- 
+- domain_check: 
+    arguments: 
+    - double: x
+    - char *: msg
+    storage: static
+    desc: domain_check
+    return: void
+- math_atan2: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: y
+    - VALUE: x
+    storage: static
+    desc: math_atan2
+    return: VALUE
+- math_cos: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: x
+    storage: static
+    desc: math_cos
+    return: VALUE
+- math_sin: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: x
+    storage: static
+    desc: math_sin
+    return: VALUE
+- math_tan: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: x
+    storage: static
+    desc: math_tan
+    return: VALUE
+- math_acos: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: x
+    storage: static
+    desc: math_acos
+    return: VALUE
+- math_asin: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: x
+    storage: static
+    desc: math_asin
+    return: VALUE
+- math_atan: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: x
+    storage: static
+    desc: math_atan
+    return: VALUE
+- math_cosh: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: x
+    storage: static
+    desc: math_cosh
+    return: VALUE
+- math_sinh: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: x
+    storage: static
+    desc: math_sinh
+    return: VALUE
+- math_tanh: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: x
+    storage: static
+    desc: math_tanh
+    return: VALUE
+- math_acosh: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: x
+    storage: static
+    desc: math_acosh
+    return: VALUE
+- math_asinh: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: x
+    storage: static
+    desc: math_asinh
+    return: VALUE
+- math_atanh: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: x
+    storage: static
+    desc: math_atanh
+    return: VALUE
+- math_exp: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: x
+    storage: static
+    desc: math_exp
+    return: VALUE
+- math_log: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: x
+    storage: static
+    desc: math_log
+    return: VALUE
+- math_log10: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: x
+    storage: static
+    desc: math_log10
+    return: VALUE
+- math_sqrt: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: x
+    storage: static
+    desc: math_sqrt
+    return: VALUE
+- math_frexp: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: x
+    storage: static
+    desc: math_frexp
+    return: VALUE
+- math_ldexp: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: x
+    - VALUE: n
+    storage: static
+    desc: math_ldexp
+    return: VALUE
+- math_hypot: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: math_hypot
+    return: VALUE
+- math_erf: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: x
+    storage: static
+    desc: math_erf
+    return: VALUE
+- math_erfc: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: x
+    storage: static
+    desc: math_erfc
+    return: VALUE
+- Init_Math: 
+    arguments: []
+
+    storage: ""
+    desc: Init_Math
+    return: void

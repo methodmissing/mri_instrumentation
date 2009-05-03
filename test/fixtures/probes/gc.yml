@@ -1,8 +1,17 @@
-rb_memerror:
-  desc: 'Memory Error'    
-ruby_xmalloc:
-  desc: 'Memory allocation'
-  args: 
-    - int: 'Allocation Size'
-rb_newobj:  
-  desc: 'New Object Created'
+--- 
+- rb_memerror: 
+    arguments: 
+    storage:
+    desc: rb_memerror
+    return: void  
+- ruby_xmalloc: 
+    arguments: 
+      - long: size 
+    storage:
+    desc: ruby_xmalloc
+    return: void *
+- rb_newobj: 
+    arguments: 
+    storage:
+    desc: rb_newobj
+    return: VALUE      

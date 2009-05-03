@@ -1,0 +1,478 @@
+--- 
+- bigzero_p: 
+    arguments: 
+    - VALUE: x
+    storage: static
+    desc: bigzero_p
+    return: int
+- bignew_1: 
+    arguments: 
+    - VALUE: klass
+    - long int: len
+    - int: sign
+    storage: static
+    desc: bignew_1
+    return: VALUE
+- rb_big_clone: 
+    arguments: 
+    - VALUE: x
+    storage: ""
+    desc: rb_big_clone
+    return: VALUE
+- get2comp: 
+    arguments: 
+    - VALUE: x
+    storage: static
+    desc: get2comp
+    return: void
+- rb_big_2comp: 
+    arguments: 
+    - VALUE: x
+    storage: ""
+    desc: rb_big_2comp
+    return: void
+- bigtrunc: 
+    arguments: 
+    - VALUE: x
+    storage: static
+    desc: bigtrunc
+    return: VALUE
+- bignorm: 
+    arguments: 
+    - VALUE: x
+    storage: static
+    desc: bignorm
+    return: VALUE
+- rb_big_norm: 
+    arguments: 
+    - VALUE: x
+    storage: ""
+    desc: rb_big_norm
+    return: VALUE
+- rb_uint2big: 
+    arguments: 
+    - unsigned long int: n
+    storage: ""
+    desc: rb_uint2big
+    return: VALUE
+- rb_int2big: 
+    arguments: 
+    - long int: n
+    storage: ""
+    desc: rb_int2big
+    return: VALUE
+- rb_uint2inum: 
+    arguments: 
+    - unsigned long int: n
+    storage: ""
+    desc: rb_uint2inum
+    return: VALUE
+- rb_int2inum: 
+    arguments: 
+    - long int: n
+    storage: ""
+    desc: rb_int2inum
+    return: VALUE
+- rb_quad_pack: 
+    arguments: 
+    - char *: buf
+    - VALUE: val
+    storage: ""
+    desc: rb_quad_pack
+    return: void
+- rb_quad_unpack: 
+    arguments: 
+    - const char *: buf
+    - int: sign
+    storage: ""
+    desc: rb_quad_unpack
+    return: VALUE
+- rb_cstr_to_inum: 
+    arguments: 
+    - const char *: str
+    - int: base
+    - int: badcheck
+    storage: ""
+    desc: rb_cstr_to_inum
+    return: VALUE
+- rb_str_to_inum: 
+    arguments: 
+    - VALUE: str
+    - int: base
+    - int: badcheck
+    storage: ""
+    desc: rb_str_to_inum
+    return: VALUE
+- rb_ull2big: 
+    arguments: 
+    - unsigned long long int: n
+    storage: ""
+    desc: rb_ull2big
+    return: VALUE
+- rb_ll2big: 
+    arguments: 
+    - long long int: n
+    storage: ""
+    desc: rb_ll2big
+    return: VALUE
+- rb_ull2inum: 
+    arguments: 
+    - unsigned long long int: n
+    storage: ""
+    desc: rb_ull2inum
+    return: VALUE
+- rb_ll2inum: 
+    arguments: 
+    - long long int: n
+    storage: ""
+    desc: rb_ll2inum
+    return: VALUE
+- rb_cstr2inum: 
+    arguments: 
+    - const char *: str
+    - int: base
+    storage: ""
+    desc: rb_cstr2inum
+    return: VALUE
+- rb_str2inum: 
+    arguments: 
+    - VALUE: str
+    - int: base
+    storage: ""
+    desc: rb_str2inum
+    return: VALUE
+- rb_big2str0: 
+    arguments: 
+    - VALUE: x
+    - int: base
+    - int: trim
+    storage: ""
+    desc: rb_big2str0
+    return: VALUE
+- rb_big2str: 
+    arguments: 
+    - VALUE: x
+    - int: base
+    storage: ""
+    desc: rb_big2str
+    return: VALUE
+- rb_big_to_s: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: x
+    storage: static
+    desc: rb_big_to_s
+    return: VALUE
+- big2ulong: 
+    arguments: 
+    - VALUE: x
+    - char *: type
+    storage: static
+    desc: big2ulong
+    return: unsigned long int
+- rb_big2ulong_pack: 
+    arguments: 
+    - VALUE: x
+    storage: ""
+    desc: rb_big2ulong_pack
+    return: unsigned long int
+- rb_big2ulong: 
+    arguments: 
+    - VALUE: x
+    storage: ""
+    desc: rb_big2ulong
+    return: unsigned long int
+- rb_big2long: 
+    arguments: 
+    - VALUE: x
+    storage: ""
+    desc: rb_big2long
+    return: long int
+- big2ull: 
+    arguments: 
+    - VALUE: x
+    - char *: type
+    storage: static
+    desc: big2ull
+    return: unsigned long long int
+- rb_big2ull: 
+    arguments: 
+    - VALUE: x
+    storage: ""
+    desc: rb_big2ull
+    return: unsigned long long int
+- rb_big2ll: 
+    arguments: 
+    - VALUE: x
+    storage: ""
+    desc: rb_big2ll
+    return: long long int
+- dbl2big: 
+    arguments: 
+    - double: d
+    storage: static
+    desc: dbl2big
+    return: VALUE
+- rb_dbl2big: 
+    arguments: 
+    - double: d
+    storage: ""
+    desc: rb_dbl2big
+    return: VALUE
+- rb_big2dbl: 
+    arguments: 
+    - VALUE: x
+    storage: ""
+    desc: rb_big2dbl
+    return: double
+- rb_big_to_f: 
+    arguments: 
+    - VALUE: x
+    storage: static
+    desc: rb_big_to_f
+    return: VALUE
+- rb_big_cmp: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: rb_big_cmp
+    return: VALUE
+- rb_big_eq: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: rb_big_eq
+    return: VALUE
+- rb_big_eql: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: rb_big_eql
+    return: VALUE
+- rb_big_uminus: 
+    arguments: 
+    - VALUE: x
+    storage: static
+    desc: rb_big_uminus
+    return: VALUE
+- rb_big_neg: 
+    arguments: 
+    - VALUE: x
+    storage: static
+    desc: rb_big_neg
+    return: VALUE
+- bigsub: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: bigsub
+    return: VALUE
+- bigadd: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    - int: sign
+    storage: static
+    desc: bigadd
+    return: VALUE
+- rb_big_plus: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: ""
+    desc: rb_big_plus
+    return: VALUE
+- rb_big_minus: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: ""
+    desc: rb_big_minus
+    return: VALUE
+- rb_big_mul0: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: ""
+    desc: rb_big_mul0
+    return: VALUE
+- rb_big_mul: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: ""
+    desc: rb_big_mul
+    return: VALUE
+- bigdivrem: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    - VALUE *: divp
+    - VALUE *: modp
+    storage: static
+    desc: bigdivrem
+    return: void
+- bigdivmod: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    - VALUE *: divp
+    - VALUE *: modp
+    storage: static
+    desc: bigdivmod
+    return: void
+- rb_big_div: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: rb_big_div
+    return: VALUE
+- rb_big_modulo: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: rb_big_modulo
+    return: VALUE
+- rb_big_remainder: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: rb_big_remainder
+    return: VALUE
+- big_shift: 
+    arguments: 
+    - VALUE: x
+    - int: n
+    storage: static
+    desc: big_shift
+    return: VALUE
+- rb_big_divmod: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: ""
+    desc: rb_big_divmod
+    return: VALUE
+- rb_big_quo: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: rb_big_quo
+    return: VALUE
+- rb_big_pow: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: ""
+    desc: rb_big_pow
+    return: VALUE
+- rb_big_and: 
+    arguments: 
+    - VALUE: xx
+    - VALUE: yy
+    storage: ""
+    desc: rb_big_and
+    return: VALUE
+- rb_big_or: 
+    arguments: 
+    - VALUE: xx
+    - VALUE: yy
+    storage: ""
+    desc: rb_big_or
+    return: VALUE
+- rb_big_xor: 
+    arguments: 
+    - VALUE: xx
+    - VALUE: yy
+    storage: ""
+    desc: rb_big_xor
+    return: VALUE
+- check_shiftdown: 
+    arguments: 
+    - VALUE: y
+    - VALUE: x
+    storage: static
+    desc: check_shiftdown
+    return: VALUE
+- rb_big_lshift: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: ""
+    desc: rb_big_lshift
+    return: VALUE
+- big_lshift: 
+    arguments: 
+    - VALUE: x
+    - unsigned long int: shift
+    storage: static
+    desc: big_lshift
+    return: VALUE
+- rb_big_rshift: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: ""
+    desc: rb_big_rshift
+    return: VALUE
+- big_rshift: 
+    arguments: 
+    - VALUE: x
+    - unsigned long int: shift
+    storage: static
+    desc: big_rshift
+    return: VALUE
+- rb_big_aref: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: rb_big_aref
+    return: VALUE
+- rb_big_hash: 
+    arguments: 
+    - VALUE: x
+    storage: static
+    desc: rb_big_hash
+    return: VALUE
+- rb_big_coerce: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: rb_big_coerce
+    return: VALUE
+- rb_big_abs: 
+    arguments: 
+    - VALUE: x
+    storage: static
+    desc: rb_big_abs
+    return: VALUE
+- rb_big_rand: 
+    arguments: 
+    - VALUE: max
+    - double *: rand_buf
+    storage: ""
+    desc: rb_big_rand
+    return: VALUE
+- rb_big_size: 
+    arguments: 
+    - VALUE: big
+    storage: static
+    desc: rb_big_size
+    return: VALUE
+- Init_Bignum: 
+    arguments: []
+
+    storage: ""
+    desc: Init_Bignum
+    return: void

@@ -22,12 +22,12 @@ module Mri
       
       def self.arguments
         [ Mri::Instrumentation::Argument.probe,
-          Mri::Instrumentation::Argument.new( :pointer, 'Address', 0 ),
-          Mri::Instrumentation::Argument.new( :int, 'Allocation Size', 1 ) ]
+          Mri::Instrumentation::Argument.new( 'char *', 'Address', 0 ),
+          Mri::Instrumentation::Argument.new( 'int', 'Allocation Size', 1 ) ]
       end
       
       def self.probe( args = self.arguments )
-        Mri::Instrumentation::Probe.new( :gc, 'ruby_xrealloc', 'Reallocation', args )
+        Mri::Instrumentation::Probe.new( :gc, 'ruby_xrealloc', 'Reallocation', args, 'VALUE' )
       end
       
       # thx ActiveSupport

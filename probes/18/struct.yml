@@ -1,0 +1,288 @@
+--- 
+- rb_struct_iv_get: 
+    arguments: 
+    - VALUE: c
+    - char *: name
+    storage: ""
+    desc: rb_struct_iv_get
+    return: VALUE
+- rb_struct_s_members: 
+    arguments: 
+    - VALUE: klass
+    storage: ""
+    desc: rb_struct_s_members
+    return: VALUE
+- rb_struct_members: 
+    arguments: 
+    - VALUE: s
+    storage: ""
+    desc: rb_struct_members
+    return: VALUE
+- rb_struct_s_members_m: 
+    arguments: 
+    - VALUE: klass
+    storage: static
+    desc: rb_struct_s_members_m
+    return: VALUE
+- rb_struct_members_m: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_struct_members_m
+    return: VALUE
+- rb_struct_getmember: 
+    arguments: 
+    - VALUE: obj
+    - ID: id
+    storage: ""
+    desc: rb_struct_getmember
+    return: VALUE
+- rb_struct_ref: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_struct_ref
+    return: VALUE
+- rb_struct_ref0: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_struct_ref0
+    return: VALUE
+- rb_struct_ref1: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_struct_ref1
+    return: VALUE
+- rb_struct_ref2: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_struct_ref2
+    return: VALUE
+- rb_struct_ref3: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_struct_ref3
+    return: VALUE
+- rb_struct_ref4: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_struct_ref4
+    return: VALUE
+- rb_struct_ref5: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_struct_ref5
+    return: VALUE
+- rb_struct_ref6: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_struct_ref6
+    return: VALUE
+- rb_struct_ref7: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_struct_ref7
+    return: VALUE
+- rb_struct_ref8: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_struct_ref8
+    return: VALUE
+- rb_struct_ref9: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_struct_ref9
+    return: VALUE
+- rb_struct_modify: 
+    arguments: 
+    - VALUE: s
+    storage: static
+    desc: rb_struct_modify
+    return: void
+- rb_struct_set: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: val
+    storage: static
+    desc: rb_struct_set
+    return: VALUE
+- make_struct: 
+    arguments: 
+    - VALUE: name
+    - VALUE: members
+    - VALUE: klass
+    storage: static
+    desc: make_struct
+    return: VALUE
+- rb_struct_define: 
+    arguments: 
+    - const char *: name
+    storage: ""
+    desc: rb_struct_define
+    return: VALUE
+- rb_struct_s_def: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: klass
+    storage: static
+    desc: rb_struct_s_def
+    return: VALUE
+- rb_struct_initialize: 
+    arguments: 
+    - VALUE: self
+    - VALUE: values
+    storage: static
+    desc: rb_struct_initialize
+    return: VALUE
+- struct_alloc: 
+    arguments: 
+    - VALUE: klass
+    storage: static
+    desc: struct_alloc
+    return: VALUE
+- rb_struct_alloc: 
+    arguments: 
+    - VALUE: klass
+    - VALUE: values
+    storage: ""
+    desc: rb_struct_alloc
+    return: VALUE
+- rb_struct_new: 
+    arguments: 
+    - VALUE: klass
+    storage: ""
+    desc: rb_struct_new
+    return: VALUE
+- rb_struct_each: 
+    arguments: 
+    - VALUE: s
+    storage: static
+    desc: rb_struct_each
+    return: VALUE
+- rb_struct_each_pair: 
+    arguments: 
+    - VALUE: s
+    storage: static
+    desc: rb_struct_each_pair
+    return: VALUE
+- inspect_struct: 
+    arguments: 
+    - VALUE: s
+    storage: static
+    desc: inspect_struct
+    return: VALUE
+- rb_struct_inspect: 
+    arguments: 
+    - VALUE: s
+    storage: static
+    desc: rb_struct_inspect
+    return: VALUE
+- rb_struct_to_a: 
+    arguments: 
+    - VALUE: s
+    storage: static
+    desc: rb_struct_to_a
+    return: VALUE
+- rb_struct_init_copy: 
+    arguments: 
+    - VALUE: copy
+    - VALUE: s
+    storage: static
+    desc: rb_struct_init_copy
+    return: VALUE
+- rb_struct_aref_id: 
+    arguments: 
+    - VALUE: s
+    - ID: id
+    storage: static
+    desc: rb_struct_aref_id
+    return: VALUE
+- rb_struct_aref: 
+    arguments: 
+    - VALUE: s
+    - VALUE: idx
+    storage: ""
+    desc: rb_struct_aref
+    return: VALUE
+- rb_struct_aset_id: 
+    arguments: 
+    - VALUE: s
+    - ID: id
+    - VALUE: val
+    storage: static
+    desc: rb_struct_aset_id
+    return: VALUE
+- rb_struct_aset: 
+    arguments: 
+    - VALUE: s
+    - VALUE: idx
+    - VALUE: val
+    storage: ""
+    desc: rb_struct_aset
+    return: VALUE
+- struct_entry: 
+    arguments: 
+    - VALUE: s
+    - long int: n
+    storage: static
+    desc: struct_entry
+    return: VALUE
+- rb_struct_values_at: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: s
+    storage: static
+    desc: rb_struct_values_at
+    return: VALUE
+- rb_struct_select: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: s
+    storage: static
+    desc: rb_struct_select
+    return: VALUE
+- rb_struct_equal: 
+    arguments: 
+    - VALUE: s
+    - VALUE: s2
+    storage: static
+    desc: rb_struct_equal
+    return: VALUE
+- rb_struct_hash: 
+    arguments: 
+    - VALUE: s
+    storage: static
+    desc: rb_struct_hash
+    return: VALUE
+- rb_struct_eql: 
+    arguments: 
+    - VALUE: s
+    - VALUE: s2
+    storage: static
+    desc: rb_struct_eql
+    return: VALUE
+- rb_struct_size: 
+    arguments: 
+    - VALUE: s
+    storage: static
+    desc: rb_struct_size
+    return: VALUE
+- Init_Struct: 
+    arguments: []
+
+    storage: ""
+    desc: Init_Struct
+    return: void

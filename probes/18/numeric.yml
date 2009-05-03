@@ -1,0 +1,755 @@
+--- 
+- rb_num_zerodiv: 
+    arguments: []
+
+    storage: ""
+    desc: rb_num_zerodiv
+    return: void
+- num_coerce: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: num_coerce
+    return: VALUE
+- coerce_body: 
+    arguments: 
+    - VALUE *: x
+    storage: static
+    desc: coerce_body
+    return: VALUE
+- coerce_rescue: 
+    arguments: 
+    - VALUE *: x
+    storage: static
+    desc: coerce_rescue
+    return: VALUE
+- do_coerce: 
+    arguments: 
+    - VALUE *: x
+    - VALUE *: y
+    - int: err
+    storage: static
+    desc: do_coerce
+    return: int
+- rb_num_coerce_bin: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: ""
+    desc: rb_num_coerce_bin
+    return: VALUE
+- rb_num_coerce_cmp: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: ""
+    desc: rb_num_coerce_cmp
+    return: VALUE
+- rb_num_coerce_relop: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: ""
+    desc: rb_num_coerce_relop
+    return: VALUE
+- num_sadded: 
+    arguments: 
+    - VALUE: x
+    - VALUE: name
+    storage: static
+    desc: num_sadded
+    return: VALUE
+- num_init_copy: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: num_init_copy
+    return: VALUE
+- num_uplus: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: num_uplus
+    return: VALUE
+- num_uminus: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: num_uminus
+    return: VALUE
+- num_quo: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: num_quo
+    return: VALUE
+- num_div: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: num_div
+    return: VALUE
+- num_divmod: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: num_divmod
+    return: VALUE
+- num_modulo: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: num_modulo
+    return: VALUE
+- num_remainder: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: num_remainder
+    return: VALUE
+- num_int_p: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: num_int_p
+    return: VALUE
+- num_abs: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: num_abs
+    return: VALUE
+- num_zero_p: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: num_zero_p
+    return: VALUE
+- num_nonzero_p: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: num_nonzero_p
+    return: VALUE
+- num_to_int: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: num_to_int
+    return: VALUE
+- rb_float_new: 
+    arguments: 
+    - double: d
+    storage: ""
+    desc: rb_float_new
+    return: VALUE
+- flo_to_s: 
+    arguments: 
+    - VALUE: flt
+    storage: static
+    desc: flo_to_s
+    return: VALUE
+- flo_coerce: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: flo_coerce
+    return: VALUE
+- flo_uminus: 
+    arguments: 
+    - VALUE: flt
+    storage: static
+    desc: flo_uminus
+    return: VALUE
+- flo_plus: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: flo_plus
+    return: VALUE
+- flo_minus: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: flo_minus
+    return: VALUE
+- flo_mul: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: flo_mul
+    return: VALUE
+- flo_div: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: flo_div
+    return: VALUE
+- flodivmod: 
+    arguments: 
+    - double: x
+    - double: y
+    - double *: divp
+    - double *: modp
+    storage: static
+    desc: flodivmod
+    return: void
+- flo_mod: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: flo_mod
+    return: VALUE
+- flo_divmod: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: flo_divmod
+    return: VALUE
+- flo_pow: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: flo_pow
+    return: VALUE
+- num_eql: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: num_eql
+    return: VALUE
+- num_cmp: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: num_cmp
+    return: VALUE
+- num_equal: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: num_equal
+    return: VALUE
+- flo_eq: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: flo_eq
+    return: VALUE
+- flo_hash: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: flo_hash
+    return: VALUE
+- rb_dbl_cmp: 
+    arguments: 
+    - double: a
+    - double: b
+    storage: ""
+    desc: rb_dbl_cmp
+    return: VALUE
+- flo_cmp: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: flo_cmp
+    return: VALUE
+- flo_gt: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: flo_gt
+    return: VALUE
+- flo_ge: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: flo_ge
+    return: VALUE
+- flo_lt: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: flo_lt
+    return: VALUE
+- flo_le: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: flo_le
+    return: VALUE
+- flo_eql: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: flo_eql
+    return: VALUE
+- flo_to_f: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: flo_to_f
+    return: VALUE
+- flo_abs: 
+    arguments: 
+    - VALUE: flt
+    storage: static
+    desc: flo_abs
+    return: VALUE
+- flo_zero_p: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: flo_zero_p
+    return: VALUE
+- flo_is_nan_p: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: flo_is_nan_p
+    return: VALUE
+- flo_is_infinite_p: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: flo_is_infinite_p
+    return: VALUE
+- flo_is_finite_p: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: flo_is_finite_p
+    return: VALUE
+- flo_floor: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: flo_floor
+    return: VALUE
+- flo_ceil: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: flo_ceil
+    return: VALUE
+- flo_round: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: flo_round
+    return: VALUE
+- flo_truncate: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: flo_truncate
+    return: VALUE
+- num_floor: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: num_floor
+    return: VALUE
+- num_ceil: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: num_ceil
+    return: VALUE
+- num_round: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: num_round
+    return: VALUE
+- num_truncate: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: num_truncate
+    return: VALUE
+- num_step: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: from
+    storage: static
+    desc: num_step
+    return: VALUE
+- rb_num2long: 
+    arguments: 
+    - VALUE: val
+    storage: ""
+    desc: rb_num2long
+    return: long int
+- rb_num2ulong: 
+    arguments: 
+    - VALUE: val
+    storage: ""
+    desc: rb_num2ulong
+    return: unsigned long int
+- rb_num2int: 
+    arguments: 
+    - VALUE: val
+    storage: ""
+    desc: rb_num2int
+    return: long int
+- rb_fix2int: 
+    arguments: 
+    - VALUE: val
+    storage: ""
+    desc: rb_fix2int
+    return: long int
+- rb_num2fix: 
+    arguments: 
+    - VALUE: val
+    storage: ""
+    desc: rb_num2fix
+    return: VALUE
+- rb_num2ll: 
+    arguments: 
+    - VALUE: val
+    storage: ""
+    desc: rb_num2ll
+    return: long long int
+- rb_num2ull: 
+    arguments: 
+    - VALUE: val
+    storage: ""
+    desc: rb_num2ull
+    return: unsigned long long int
+- int_to_i: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: int_to_i
+    return: VALUE
+- int_int_p: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: int_int_p
+    return: VALUE
+- int_succ: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: int_succ
+    return: VALUE
+- int_chr: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: int_chr
+    return: VALUE
+- rb_fix_induced_from: 
+    arguments: 
+    - VALUE: klass
+    - VALUE: x
+    storage: static
+    desc: rb_fix_induced_from
+    return: VALUE
+- rb_int_induced_from: 
+    arguments: 
+    - VALUE: klass
+    - VALUE: x
+    storage: static
+    desc: rb_int_induced_from
+    return: VALUE
+- rb_flo_induced_from: 
+    arguments: 
+    - VALUE: klass
+    - VALUE: x
+    storage: static
+    desc: rb_flo_induced_from
+    return: VALUE
+- fix_uminus: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: fix_uminus
+    return: VALUE
+- rb_fix2str: 
+    arguments: 
+    - VALUE: x
+    - int: base
+    storage: ""
+    desc: rb_fix2str
+    return: VALUE
+- fix_to_s: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: x
+    storage: static
+    desc: fix_to_s
+    return: VALUE
+- fix_plus: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: fix_plus
+    return: VALUE
+- fix_minus: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: fix_minus
+    return: VALUE
+- fix_mul: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: fix_mul
+    return: VALUE
+- fixdivmod: 
+    arguments: 
+    - long int: x
+    - long int: y
+    - long int *: divp
+    - long int *: modp
+    storage: static
+    desc: fixdivmod
+    return: void
+- fix_quo: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: fix_quo
+    return: VALUE
+- fix_div: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: fix_div
+    return: VALUE
+- fix_mod: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: fix_mod
+    return: VALUE
+- fix_divmod: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: fix_divmod
+    return: VALUE
+- int_even_p: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: int_even_p
+    return: VALUE
+- fix_pow: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: fix_pow
+    return: VALUE
+- fix_equal: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: fix_equal
+    return: VALUE
+- fix_cmp: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: fix_cmp
+    return: VALUE
+- fix_gt: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: fix_gt
+    return: VALUE
+- fix_ge: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: fix_ge
+    return: VALUE
+- fix_lt: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: fix_lt
+    return: VALUE
+- fix_le: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: fix_le
+    return: VALUE
+- fix_rev: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: fix_rev
+    return: VALUE
+- fix_coerce: 
+    arguments: 
+    - VALUE: x
+    storage: static
+    desc: fix_coerce
+    return: VALUE
+- fix_and: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: fix_and
+    return: VALUE
+- fix_or: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: fix_or
+    return: VALUE
+- fix_xor: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: fix_xor
+    return: VALUE
+- rb_fix_lshift: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: rb_fix_lshift
+    return: VALUE
+- fix_lshift: 
+    arguments: 
+    - long int: val
+    - unsigned long int: width
+    storage: static
+    desc: fix_lshift
+    return: VALUE
+- rb_fix_rshift: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: rb_fix_rshift
+    return: VALUE
+- fix_rshift: 
+    arguments: 
+    - long int: val
+    - unsigned long int: i
+    storage: static
+    desc: fix_rshift
+    return: VALUE
+- fix_aref: 
+    arguments: 
+    - VALUE: fix
+    - VALUE: idx
+    storage: static
+    desc: fix_aref
+    return: VALUE
+- fix_to_f: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: fix_to_f
+    return: VALUE
+- fix_abs: 
+    arguments: 
+    - VALUE: fix
+    storage: static
+    desc: fix_abs
+    return: VALUE
+- fix_id2name: 
+    arguments: 
+    - VALUE: fix
+    storage: static
+    desc: fix_id2name
+    return: VALUE
+- fix_to_sym: 
+    arguments: 
+    - VALUE: fix
+    storage: static
+    desc: fix_to_sym
+    return: VALUE
+- fix_size: 
+    arguments: 
+    - VALUE: fix
+    storage: static
+    desc: fix_size
+    return: VALUE
+- int_upto: 
+    arguments: 
+    - VALUE: from
+    - VALUE: to
+    storage: static
+    desc: int_upto
+    return: VALUE
+- int_downto: 
+    arguments: 
+    - VALUE: from
+    - VALUE: to
+    storage: static
+    desc: int_downto
+    return: VALUE
+- int_dotimes: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: int_dotimes
+    return: VALUE
+- fix_zero_p: 
+    arguments: 
+    - VALUE: num
+    storage: static
+    desc: fix_zero_p
+    return: VALUE
+- Init_Numeric: 
+    arguments: []
+
+    storage: ""
+    desc: Init_Numeric
+    return: void

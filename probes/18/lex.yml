@@ -1,0 +1,15 @@
+--- 
+- hash: 
+    arguments: 
+    - const char *: str
+    - unsigned int: len
+    storage: static
+    desc: hash
+    return: unsigned int
+- rb_reserved_word: 
+    arguments: 
+    - const char *: str
+    - unsigned int: len
+    storage: ""
+    desc: rb_reserved_word
+    return: struct kwtable *

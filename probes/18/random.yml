@@ -1,0 +1,84 @@
+--- 
+- init_genrand: 
+    arguments: 
+    - unsigned long int: s
+    storage: static
+    desc: init_genrand
+    return: void
+- init_by_array: 
+    arguments: 
+    - unsigned long int []: init_key
+    - int: key_length
+    storage: static
+    desc: init_by_array
+    return: void
+- next_state: 
+    arguments: []
+
+    storage: static
+    desc: next_state
+    return: void
+- genrand_int32: 
+    arguments: []
+
+    storage: static
+    desc: genrand_int32
+    return: unsigned long int
+- genrand_real: 
+    arguments: []
+
+    storage: static
+    desc: genrand_real
+    return: double
+- rand_init: 
+    arguments: 
+    - VALUE: vseed
+    storage: static
+    desc: rand_init
+    return: VALUE
+- random_seed: 
+    arguments: []
+
+    storage: static
+    desc: random_seed
+    return: VALUE
+- rb_f_srand: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: obj
+    storage: static
+    desc: rb_f_srand
+    return: VALUE
+- make_mask: 
+    arguments: 
+    - unsigned long int: x
+    storage: static
+    desc: make_mask
+    return: unsigned long int
+- limited_rand: 
+    arguments: 
+    - unsigned long int: limit
+    storage: static
+    desc: limited_rand
+    return: unsigned long int
+- limited_big_rand: 
+    arguments: 
+    - struct RBignum *: limit
+    storage: static
+    desc: limited_big_rand
+    return: VALUE
+- rb_f_rand: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: obj
+    storage: static
+    desc: rb_f_rand
+    return: VALUE
+- Init_Random: 
+    arguments: []
+
+    storage: ""
+    desc: Init_Random
+    return: void

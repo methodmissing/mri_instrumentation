@@ -44,7 +44,7 @@ module Mri
         
         def functions
           fncs = [:entry]
-          fncs.concat( [:return_success, :return_failure] ) unless void?
+          fncs.concat( [:return_success, :return_failure] ) if @probe.return?
           fncs
         end        
         

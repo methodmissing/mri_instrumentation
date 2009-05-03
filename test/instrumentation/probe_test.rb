@@ -6,6 +6,19 @@ class ProbeTest < Test::Unit::TestCase
     @probe = Mri::Instrumentation::Test.probe
   end
   
+  test "should have a hash representation" do
+    assert_equal( { "ruby_xrealloc" => { 
+                     "arguments" =>
+                       [{:probe=>"Probe"}, {"char *"=>"Address"}, {"int"=>"Allocation Size"}],
+                     "storage" => nil,
+                     "desc" => "ruby_xrealloc",
+                     "return" => "VALUE" } }, @probe.to_hash )
+  end
+  
+  test "should have a yaml representation" do
+    assert_equal "--- \nruby_xrealloc: \n  arguments: \n  - :probe: Probe\n  - char *: Address\n  - int: Allocation Size\n  storage: \n  desc: ruby_xrealloc\n  return: VALUE\n", @probe.to_yaml
+  end
+  
   test "should be able to yield a format string representation of itself" do
     assert_equal '%13s', @probe.format_string
     assert_equal '%15s', @probe.format_string( '/s' )
@@ -19,8 +32,20 @@ class ProbeTest < Test::Unit::TestCase
     assert_equal 'ruby_xrealloc', @probe.to_s
   end
   
-  test "should be able to determine if it has no return" do
-    assert !@probe.void?
+  test "should be able to determine if it's static" do
+    assert !@probe.static?
+  end
+  
+  test "should be able to determine if it's external" do
+    assert !@probe.extern?
+  end
+  
+  test "should be able to determine if it has an entry" do
+    assert @probe.entry?
+  end
+  
+  test "should be able to determine if it has a return" do
+    assert @probe.return?
   end
   
   test "should be able to calculate it's length" do
@@ -48,13 +73,13 @@ class ProbeTest < Test::Unit::TestCase
   end
   
   test "should be able to yield an arguments list" do
-    assert_equal 'this->type, this->arg0, this->arg1', @probe.arguments_list
-    assert_equal "this->type, this->arg0, this->arg1, \"\", \"\"", @probe.arguments_list( 5 )
-    assert_equal "this->type, this->arg0, this->arg1, \"\"", @probe.arguments_list( 4 )
+    assert_equal 'self->type, self->arg0, self->arg1', @probe.arguments_list
+    assert_equal "self->type, self->arg0, self->arg1, \"\", \"\"", @probe.arguments_list( 5 )
+    assert_equal "self->type, self->arg0, self->arg1, \"\"", @probe.arguments_list( 4 )
   end
   
   test "should be able to assign it's arguments from within a function def" do
-    assert_equal "this->type = probefunc;\nthis->arg0 = arg0;\nthis->arg1 = stringof( arg1 );", @probe.assign_arguments
+    assert_equal "self->type = self->type_copy;\nself->arg0 = self->arg0_copy;\nself->arg1 = self->arg1_copy;", @probe.assign_arguments
   end
   
   test "should be able to find it's probe argument" do

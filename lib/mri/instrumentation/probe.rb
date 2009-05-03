@@ -1,6 +1,22 @@
 module Mri
   module Instrumentation
-    class Probe < Struct.new( :group, :name, :probe_description, :arguments, :return )
+    class Probe < Struct.new( :group, :name, :probe_description, :arguments, :return, :storage )
+      
+      # Hash representation
+      #      
+      def to_hash
+        { self.name => { 'desc' => self.name.to_s,
+                         'arguments' => self.arguments.map{|a| a.to_hash },
+                         'return' => self.return,
+                         'storage' => self.storage } 
+          }
+      end
+      
+      # YAML representation
+      #
+      def to_yaml( opts = {} )
+        to_hash.to_yaml
+      end        
       
       # Format string representation of the probe name
       #
@@ -19,12 +35,6 @@ module Mri
       #
       def to_s( suffix = '' )
         "#{self.name}#{suffix}"
-      end
-      
-      # True if no explicit return type
-      # 
-      def void?
-        @void ||= self.return == 'void'
       end
       
       # Argument size
@@ -50,11 +60,35 @@ module Mri
       def function
         @function ||= "pid$target*:::#{self.name}"
       end
+      
+      # External definition ?
+      #
+      def extern?
+        self.storage == 'extern'
+      end
+      
+      # Static definition ?
+      #
+      def static?
+        self.storage == 'static'
+      end
+      
+      # Should we define a function entry ?
+      #      
+      def entry?
+        true
+      end      
             
       # Entry declaration
       #
       def function_entry
         @function_entry ||= with_pid( 'entry' )
+      end
+      
+      # Should we define a function return ?
+      #
+      def return?
+        self.return != 'void'
       end
       
       # Retrun declaration
@@ -74,6 +108,12 @@ module Mri
       #
       def assign_arguments
         iterate_arguments( self.arguments, :to_assignment )
+      end      
+
+      # Copy all arguments
+      #
+      def copy_arguments
+        iterate_arguments( self.arguments, :to_copy )
       end      
       
       # The argument representing the probe type

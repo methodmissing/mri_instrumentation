@@ -1,0 +1,1212 @@
+--- 
+- rb_eof_error: 
+    arguments: []
+
+    storage: ""
+    desc: rb_eof_error
+    return: void
+- rb_io_taint_check: 
+    arguments: 
+    - VALUE: io
+    storage: ""
+    desc: rb_io_taint_check
+    return: VALUE
+- rb_io_check_initialized: 
+    arguments: 
+    - OpenFile *: fptr
+    storage: ""
+    desc: rb_io_check_initialized
+    return: void
+- rb_io_check_closed: 
+    arguments: 
+    - OpenFile *: fptr
+    storage: ""
+    desc: rb_io_check_closed
+    return: void
+- flush_before_seek: 
+    arguments: 
+    - OpenFile *: fptr
+    storage: static
+    desc: flush_before_seek
+    return: OpenFile *
+- rb_io_check_readable: 
+    arguments: 
+    - OpenFile *: fptr
+    storage: ""
+    desc: rb_io_check_readable
+    return: void
+- rb_io_check_writable: 
+    arguments: 
+    - OpenFile *: fptr
+    storage: ""
+    desc: rb_io_check_writable
+    return: void
+- rb_read_pending: 
+    arguments: 
+    - FILE *: fp
+    storage: ""
+    desc: rb_read_pending
+    return: int
+- rb_read_check: 
+    arguments: 
+    - FILE *: fp
+    storage: ""
+    desc: rb_read_check
+    return: void
+- ruby_dup: 
+    arguments: 
+    - int: orig
+    storage: static
+    desc: ruby_dup
+    return: int
+- io_alloc: 
+    arguments: 
+    - VALUE: klass
+    storage: static
+    desc: io_alloc
+    return: VALUE
+- io_fflush: 
+    arguments: 
+    - FILE *: f
+    - OpenFile *: fptr
+    storage: static
+    desc: io_fflush
+    return: void
+- rb_io_wait_readable: 
+    arguments: 
+    - int: f
+    storage: ""
+    desc: rb_io_wait_readable
+    return: int
+- rb_io_wait_writable: 
+    arguments: 
+    - int: f
+    storage: ""
+    desc: rb_io_wait_writable
+    return: int
+- wsplit_p: 
+    arguments: 
+    - OpenFile *: fptr
+    storage: static
+    desc: wsplit_p
+    return: int
+- io_fwrite: 
+    arguments: 
+    - VALUE: str
+    - OpenFile *: fptr
+    storage: static
+    desc: io_fwrite
+    return: long int
+- rb_io_fwrite: 
+    arguments: 
+    - const char *: ptr
+    - long int: len
+    - FILE *: f
+    storage: ""
+    desc: rb_io_fwrite
+    return: long int
+- io_write: 
+    arguments: 
+    - VALUE: io
+    - VALUE: str
+    storage: static
+    desc: io_write
+    return: VALUE
+- rb_io_write: 
+    arguments: 
+    - VALUE: io
+    - VALUE: str
+    storage: ""
+    desc: rb_io_write
+    return: VALUE
+- rb_io_addstr: 
+    arguments: 
+    - VALUE: io
+    - VALUE: str
+    storage: ""
+    desc: rb_io_addstr
+    return: VALUE
+- rb_io_flush: 
+    arguments: 
+    - VALUE: io
+    storage: static
+    desc: rb_io_flush
+    return: VALUE
+- rb_io_tell: 
+    arguments: 
+    - VALUE: io
+    storage: static
+    desc: rb_io_tell
+    return: VALUE
+- rb_io_seek: 
+    arguments: 
+    - VALUE: io
+    - VALUE: offset
+    - int: whence
+    storage: static
+    desc: rb_io_seek
+    return: VALUE
+- rb_io_seek_m: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: io
+    storage: static
+    desc: rb_io_seek_m
+    return: VALUE
+- rb_io_set_pos: 
+    arguments: 
+    - VALUE: io
+    - VALUE: offset
+    storage: static
+    desc: rb_io_set_pos
+    return: VALUE
+- rb_io_rewind: 
+    arguments: 
+    - VALUE: io
+    storage: static
+    desc: rb_io_rewind
+    return: VALUE
+- rb_io_eof: 
+    arguments: 
+    - VALUE: io
+    storage: ""
+    desc: rb_io_eof
+    return: VALUE
+- rb_io_sync: 
+    arguments: 
+    - VALUE: io
+    storage: static
+    desc: rb_io_sync
+    return: VALUE
+- rb_io_set_sync: 
+    arguments: 
+    - VALUE: io
+    - VALUE: mode
+    storage: static
+    desc: rb_io_set_sync
+    return: VALUE
+- rb_io_fsync: 
+    arguments: 
+    - VALUE: io
+    storage: static
+    desc: rb_io_fsync
+    return: VALUE
+- rb_io_fileno: 
+    arguments: 
+    - VALUE: io
+    storage: static
+    desc: rb_io_fileno
+    return: VALUE
+- rb_io_pid: 
+    arguments: 
+    - VALUE: io
+    storage: static
+    desc: rb_io_pid
+    return: VALUE
+- rb_io_inspect: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_io_inspect
+    return: VALUE
+- rb_io_to_io: 
+    arguments: 
+    - VALUE: io
+    storage: static
+    desc: rb_io_to_io
+    return: VALUE
+- read_buffered_data: 
+    arguments: 
+    - char *: ptr
+    - long int: len
+    - FILE *: f
+    storage: static
+    desc: read_buffered_data
+    return: long int
+- io_fread: 
+    arguments: 
+    - char *: ptr
+    - long int: len
+    - OpenFile *: fptr
+    storage: static
+    desc: io_fread
+    return: long int
+- rb_io_fread: 
+    arguments: 
+    - char *: ptr
+    - long int: len
+    - FILE *: f
+    storage: ""
+    desc: rb_io_fread
+    return: long int
+- remain_size: 
+    arguments: 
+    - OpenFile *: fptr
+    storage: static
+    desc: remain_size
+    return: long int
+- read_all: 
+    arguments: 
+    - OpenFile *: fptr
+    - long int: siz
+    - VALUE: str
+    storage: static
+    desc: read_all
+    return: VALUE
+- rb_io_set_nonblock: 
+    arguments: 
+    - OpenFile *: fptr
+    storage: ""
+    desc: rb_io_set_nonblock
+    return: void
+- io_getpartial: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: io
+    - int: nonblock
+    storage: static
+    desc: io_getpartial
+    return: VALUE
+- io_readpartial: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: io
+    storage: static
+    desc: io_readpartial
+    return: VALUE
+- io_read_nonblock: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: io
+    storage: static
+    desc: io_read_nonblock
+    return: VALUE
+- rb_io_write_nonblock: 
+    arguments: 
+    - VALUE: io
+    - VALUE: str
+    storage: static
+    desc: rb_io_write_nonblock
+    return: VALUE
+- io_read: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: io
+    storage: static
+    desc: io_read
+    return: VALUE
+- appendline: 
+    arguments: 
+    - OpenFile *: fptr
+    - int: delim
+    - VALUE *: strp
+    storage: static
+    desc: appendline
+    return: int
+- swallow: 
+    arguments: 
+    - OpenFile *: fptr
+    - int: term
+    storage: static
+    desc: swallow
+    return: int
+- rb_io_getline_fast: 
+    arguments: 
+    - OpenFile *: fptr
+    - unsigned char: delim
+    storage: static
+    desc: rb_io_getline_fast
+    return: VALUE
+- rscheck: 
+    arguments: 
+    - char *: rsptr
+    - long int: rslen
+    - VALUE: rs
+    storage: static
+    desc: rscheck
+    return: int
+- rb_io_getline: 
+    arguments: 
+    - VALUE: rs
+    - VALUE: io
+    storage: static
+    desc: rb_io_getline
+    return: VALUE
+- rb_io_gets: 
+    arguments: 
+    - VALUE: io
+    storage: ""
+    desc: rb_io_gets
+    return: VALUE
+- rb_io_gets_m: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: io
+    storage: static
+    desc: rb_io_gets_m
+    return: VALUE
+- rb_io_lineno: 
+    arguments: 
+    - VALUE: io
+    storage: static
+    desc: rb_io_lineno
+    return: VALUE
+- rb_io_set_lineno: 
+    arguments: 
+    - VALUE: io
+    - VALUE: lineno
+    storage: static
+    desc: rb_io_set_lineno
+    return: VALUE
+- lineno_setter: 
+    arguments: 
+    - VALUE: val
+    - ID: id
+    - VALUE *: var
+    storage: static
+    desc: lineno_setter
+    return: void
+- argf_set_lineno: 
+    arguments: 
+    - VALUE: argf
+    - VALUE: val
+    storage: static
+    desc: argf_set_lineno
+    return: VALUE
+- argf_lineno: 
+    arguments: []
+
+    storage: static
+    desc: argf_lineno
+    return: VALUE
+- rb_io_readline: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: io
+    storage: static
+    desc: rb_io_readline
+    return: VALUE
+- rb_io_readlines: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: io
+    storage: static
+    desc: rb_io_readlines
+    return: VALUE
+- rb_io_each_line: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: io
+    storage: static
+    desc: rb_io_each_line
+    return: VALUE
+- rb_io_each_byte: 
+    arguments: 
+    - VALUE: io
+    storage: static
+    desc: rb_io_each_byte
+    return: VALUE
+- rb_io_getc: 
+    arguments: 
+    - VALUE: io
+    storage: ""
+    desc: rb_io_getc
+    return: VALUE
+- rb_getc: 
+    arguments: 
+    - FILE *: f
+    storage: ""
+    desc: rb_getc
+    return: int
+- rb_io_readchar: 
+    arguments: 
+    - VALUE: io
+    storage: static
+    desc: rb_io_readchar
+    return: VALUE
+- rb_io_ungetc: 
+    arguments: 
+    - VALUE: io
+    - VALUE: c
+    storage: ""
+    desc: rb_io_ungetc
+    return: VALUE
+- rb_io_isatty: 
+    arguments: 
+    - VALUE: io
+    storage: static
+    desc: rb_io_isatty
+    return: VALUE
+- fptr_finalize: 
+    arguments: 
+    - OpenFile *: fptr
+    - int: noraise
+    storage: static
+    desc: fptr_finalize
+    return: void
+- rb_io_fptr_cleanup: 
+    arguments: 
+    - OpenFile *: fptr
+    - int: noraise
+    storage: static
+    desc: rb_io_fptr_cleanup
+    return: void
+- rb_io_fptr_finalize: 
+    arguments: 
+    - OpenFile *: fptr
+    storage: ""
+    desc: rb_io_fptr_finalize
+    return: void
+- rb_io_close: 
+    arguments: 
+    - VALUE: io
+    storage: ""
+    desc: rb_io_close
+    return: VALUE
+- rb_io_close_m: 
+    arguments: 
+    - VALUE: io
+    storage: static
+    desc: rb_io_close_m
+    return: VALUE
+- io_call_close: 
+    arguments: 
+    - VALUE: io
+    storage: static
+    desc: io_call_close
+    return: VALUE
+- io_close: 
+    arguments: 
+    - VALUE: io
+    storage: static
+    desc: io_close
+    return: VALUE
+- rb_io_closed: 
+    arguments: 
+    - VALUE: io
+    storage: static
+    desc: rb_io_closed
+    return: VALUE
+- rb_io_close_read: 
+    arguments: 
+    - VALUE: io
+    storage: static
+    desc: rb_io_close_read
+    return: VALUE
+- rb_io_close_write: 
+    arguments: 
+    - VALUE: io
+    storage: static
+    desc: rb_io_close_write
+    return: VALUE
+- rb_io_sysseek: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: io
+    storage: static
+    desc: rb_io_sysseek
+    return: VALUE
+- rb_io_syswrite: 
+    arguments: 
+    - VALUE: io
+    - VALUE: str
+    storage: static
+    desc: rb_io_syswrite
+    return: VALUE
+- rb_io_sysread: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: io
+    storage: static
+    desc: rb_io_sysread
+    return: VALUE
+- rb_io_binmode: 
+    arguments: 
+    - VALUE: io
+    storage: ""
+    desc: rb_io_binmode
+    return: VALUE
+- rb_io_flags_mode: 
+    arguments: 
+    - int: flags
+    storage: ""
+    desc: rb_io_flags_mode
+    return: char *
+- rb_io_mode_flags: 
+    arguments: 
+    - const char *: mode
+    storage: ""
+    desc: rb_io_mode_flags
+    return: int
+- rb_io_modenum_flags: 
+    arguments: 
+    - int: mode
+    storage: ""
+    desc: rb_io_modenum_flags
+    return: int
+- rb_io_mode_modenum: 
+    arguments: 
+    - const char *: mode
+    storage: static
+    desc: rb_io_mode_modenum
+    return: int
+- rb_io_modenum_mode: 
+    arguments: 
+    - int: flags
+    storage: static
+    desc: rb_io_modenum_mode
+    return: char *
+- rb_sysopen: 
+    arguments: 
+    - char *: fname
+    - int: flags
+    - unsigned int: mode
+    storage: static
+    desc: rb_sysopen
+    return: int
+- rb_fopen: 
+    arguments: 
+    - const char *: fname
+    - const char *: mode
+    storage: ""
+    desc: rb_fopen
+    return: FILE *
+- rb_fdopen: 
+    arguments: 
+    - int: fd
+    - const char *: mode
+    storage: ""
+    desc: rb_fdopen
+    return: FILE *
+- rb_file_open_internal: 
+    arguments: 
+    - VALUE: io
+    - const char *: fname
+    - const char *: mode
+    storage: static
+    desc: rb_file_open_internal
+    return: VALUE
+- rb_file_open: 
+    arguments: 
+    - const char *: fname
+    - const char *: mode
+    storage: ""
+    desc: rb_file_open
+    return: VALUE
+- rb_file_sysopen_internal: 
+    arguments: 
+    - VALUE: io
+    - char *: fname
+    - int: flags
+    - int: mode
+    storage: static
+    desc: rb_file_sysopen_internal
+    return: VALUE
+- rb_file_sysopen: 
+    arguments: 
+    - const char *: fname
+    - int: flags
+    - int: mode
+    storage: ""
+    desc: rb_file_sysopen
+    return: VALUE
+- rb_io_synchronized: 
+    arguments: 
+    - OpenFile *: fptr
+    storage: ""
+    desc: rb_io_synchronized
+    return: void
+- rb_io_unbuffered: 
+    arguments: 
+    - OpenFile *: fptr
+    storage: ""
+    desc: rb_io_unbuffered
+    return: void
+- pipe_open: 
+    arguments: 
+    - VALUE: pstr
+    - char *: pname
+    - char *: mode
+    storage: static
+    desc: pipe_open
+    return: VALUE
+- rb_io_s_popen: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: klass
+    storage: static
+    desc: rb_io_s_popen
+    return: VALUE
+- rb_open_file: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: io
+    storage: static
+    desc: rb_open_file
+    return: VALUE
+- rb_io_s_open: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: klass
+    storage: static
+    desc: rb_io_s_open
+    return: VALUE
+- rb_io_s_sysopen: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_io_s_sysopen
+    return: VALUE
+- rb_f_open: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_f_open
+    return: VALUE
+- rb_io_open: 
+    arguments: 
+    - char *: fname
+    - char *: mode
+    storage: static
+    desc: rb_io_open
+    return: VALUE
+- rb_io_get_io: 
+    arguments: 
+    - VALUE: io
+    storage: static
+    desc: rb_io_get_io
+    return: VALUE
+- rb_io_check_io: 
+    arguments: 
+    - VALUE: io
+    storage: static
+    desc: rb_io_check_io
+    return: VALUE
+- rb_io_mode_string: 
+    arguments: 
+    - OpenFile *: fptr
+    storage: static
+    desc: rb_io_mode_string
+    return: char *
+- io_reopen: 
+    arguments: 
+    - VALUE: io
+    - VALUE: nfile
+    storage: static
+    desc: io_reopen
+    return: VALUE
+- rb_io_reopen: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: file
+    storage: static
+    desc: rb_io_reopen
+    return: VALUE
+- rb_io_init_copy: 
+    arguments: 
+    - VALUE: dest
+    - VALUE: io
+    storage: static
+    desc: rb_io_init_copy
+    return: VALUE
+- rb_io_printf: 
+    arguments: 
+    - int: argc
+    - VALUE []: argv
+    - VALUE: out
+    storage: ""
+    desc: rb_io_printf
+    return: VALUE
+- rb_f_printf: 
+    arguments: 
+    - int: argc
+    - VALUE []: argv
+    storage: static
+    desc: rb_f_printf
+    return: VALUE
+- rb_io_print: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: out
+    storage: ""
+    desc: rb_io_print
+    return: VALUE
+- rb_f_print: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_f_print
+    return: VALUE
+- rb_io_putc: 
+    arguments: 
+    - VALUE: io
+    - VALUE: ch
+    storage: static
+    desc: rb_io_putc
+    return: VALUE
+- rb_f_putc: 
+    arguments: 
+    - VALUE: recv
+    - VALUE: ch
+    storage: static
+    desc: rb_f_putc
+    return: VALUE
+- io_puts_ary: 
+    arguments: 
+    - VALUE: ary
+    - VALUE: out
+    storage: static
+    desc: io_puts_ary
+    return: VALUE
+- rb_io_puts: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: out
+    storage: ""
+    desc: rb_io_puts
+    return: VALUE
+- rb_f_puts: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_f_puts
+    return: VALUE
+- rb_p: 
+    arguments: 
+    - VALUE: obj
+    storage: ""
+    desc: rb_p
+    return: void
+- rb_f_p: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_f_p
+    return: VALUE
+- rb_obj_display: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: self
+    storage: static
+    desc: rb_obj_display
+    return: VALUE
+- rb_write_error2: 
+    arguments: 
+    - const char *: mesg
+    - long int: len
+    storage: ""
+    desc: rb_write_error2
+    return: void
+- rb_write_error: 
+    arguments: 
+    - const char *: mesg
+    storage: ""
+    desc: rb_write_error
+    return: void
+- must_respond_to: 
+    arguments: 
+    - ID: mid
+    - VALUE: val
+    - ID: id
+    storage: static
+    desc: must_respond_to
+    return: void
+- stdout_setter: 
+    arguments: 
+    - VALUE: val
+    - ID: id
+    - VALUE *: variable
+    storage: static
+    desc: stdout_setter
+    return: void
+- defout_setter: 
+    arguments: 
+    - VALUE: val
+    - ID: id
+    - VALUE *: variable
+    storage: static
+    desc: defout_setter
+    return: void
+- deferr_setter: 
+    arguments: 
+    - VALUE: val
+    - ID: id
+    - VALUE *: variable
+    storage: static
+    desc: deferr_setter
+    return: void
+- prep_stdio: 
+    arguments: 
+    - FILE *: f
+    - int: mode
+    - VALUE: klass
+    storage: static
+    desc: prep_stdio
+    return: VALUE
+- prep_path: 
+    arguments: 
+    - VALUE: io
+    - char *: path
+    storage: static
+    desc: prep_path
+    return: void
+- rb_io_initialize: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: io
+    storage: static
+    desc: rb_io_initialize
+    return: VALUE
+- rb_file_initialize: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: io
+    storage: static
+    desc: rb_file_initialize
+    return: VALUE
+- rb_io_s_new: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: klass
+    storage: static
+    desc: rb_io_s_new
+    return: VALUE
+- rb_io_s_for_fd: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: klass
+    storage: static
+    desc: rb_io_s_for_fd
+    return: VALUE
+- argf_forward: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: argf_forward
+    return: VALUE
+- argf_close: 
+    arguments: 
+    - VALUE: file
+    storage: static
+    desc: argf_close
+    return: void
+- next_argv: 
+    arguments: []
+
+    storage: static
+    desc: next_argv
+    return: int
+- argf_getline: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: argf_getline
+    return: VALUE
+- rb_f_gets: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_f_gets
+    return: VALUE
+- rb_gets: 
+    arguments: []
+
+    storage: ""
+    desc: rb_gets
+    return: VALUE
+- rb_f_readline: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_f_readline
+    return: VALUE
+- rb_f_getc: 
+    arguments: []
+
+    storage: static
+    desc: rb_f_getc
+    return: VALUE
+- rb_f_readlines: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_f_readlines
+    return: VALUE
+- rb_f_backquote: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: str
+    storage: static
+    desc: rb_f_backquote
+    return: VALUE
+- rb_f_select: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: obj
+    storage: static
+    desc: rb_f_select
+    return: VALUE
+- io_cntl: 
+    arguments: 
+    - int: fd
+    - int: cmd
+    - long int: narg
+    - int: io_p
+    storage: static
+    desc: io_cntl
+    return: int
+- rb_io_ctl: 
+    arguments: 
+    - VALUE: io
+    - VALUE: req
+    - VALUE: arg
+    - int: io_p
+    storage: static
+    desc: rb_io_ctl
+    return: VALUE
+- rb_io_ioctl: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: io
+    storage: static
+    desc: rb_io_ioctl
+    return: VALUE
+- rb_io_fcntl: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: io
+    storage: static
+    desc: rb_io_fcntl
+    return: VALUE
+- rb_f_syscall: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_f_syscall
+    return: VALUE
+- io_new_instance: 
+    arguments: 
+    - VALUE: args
+    storage: static
+    desc: io_new_instance
+    return: VALUE
+- rb_io_s_pipe: 
+    arguments: 
+    - VALUE: klass
+    storage: static
+    desc: rb_io_s_pipe
+    return: VALUE
+- io_s_foreach: 
+    arguments: 
+    - struct foreach_arg *: arg
+    storage: static
+    desc: io_s_foreach
+    return: VALUE
+- rb_io_s_foreach: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_io_s_foreach
+    return: VALUE
+- io_s_readlines: 
+    arguments: 
+    - struct foreach_arg *: arg
+    storage: static
+    desc: io_s_readlines
+    return: VALUE
+- rb_io_s_readlines: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: io
+    storage: static
+    desc: rb_io_s_readlines
+    return: VALUE
+- io_s_read: 
+    arguments: 
+    - struct foreach_arg *: arg
+    storage: static
+    desc: io_s_read
+    return: VALUE
+- rb_io_s_read: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: io
+    storage: static
+    desc: rb_io_s_read
+    return: VALUE
+- argf_tell: 
+    arguments: []
+
+    storage: static
+    desc: argf_tell
+    return: VALUE
+- argf_seek_m: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: self
+    storage: static
+    desc: argf_seek_m
+    return: VALUE
+- argf_set_pos: 
+    arguments: 
+    - VALUE: self
+    - VALUE: offset
+    storage: static
+    desc: argf_set_pos
+    return: VALUE
+- argf_rewind: 
+    arguments: []
+
+    storage: static
+    desc: argf_rewind
+    return: VALUE
+- argf_fileno: 
+    arguments: []
+
+    storage: static
+    desc: argf_fileno
+    return: VALUE
+- argf_to_io: 
+    arguments: []
+
+    storage: static
+    desc: argf_to_io
+    return: VALUE
+- argf_eof: 
+    arguments: []
+
+    storage: static
+    desc: argf_eof
+    return: VALUE
+- argf_read: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: argf_read
+    return: VALUE
+- argf_getc: 
+    arguments: []
+
+    storage: static
+    desc: argf_getc
+    return: VALUE
+- argf_readchar: 
+    arguments: []
+
+    storage: static
+    desc: argf_readchar
+    return: VALUE
+- argf_each_line: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: argf_each_line
+    return: VALUE
+- argf_each_byte: 
+    arguments: []
+
+    storage: static
+    desc: argf_each_byte
+    return: VALUE
+- argf_filename: 
+    arguments: []
+
+    storage: static
+    desc: argf_filename
+    return: VALUE
+- argf_file: 
+    arguments: []
+
+    storage: static
+    desc: argf_file
+    return: VALUE
+- argf_binmode: 
+    arguments: []
+
+    storage: static
+    desc: argf_binmode
+    return: VALUE
+- argf_skip: 
+    arguments: []
+
+    storage: static
+    desc: argf_skip
+    return: VALUE
+- argf_close_m: 
+    arguments: []
+
+    storage: static
+    desc: argf_close_m
+    return: VALUE
+- argf_closed: 
+    arguments: []
+
+    storage: static
+    desc: argf_closed
+    return: VALUE
+- argf_to_s: 
+    arguments: []
+
+    storage: static
+    desc: argf_to_s
+    return: VALUE
+- opt_i_get: 
+    arguments: []
+
+    storage: static
+    desc: opt_i_get
+    return: VALUE
+- opt_i_set: 
+    arguments: 
+    - VALUE: val
+    storage: static
+    desc: opt_i_set
+    return: void
+- Init_IO: 
+    arguments: []
+
+    storage: ""
+    desc: Init_IO
+    return: void

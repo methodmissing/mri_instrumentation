@@ -10,8 +10,7 @@ module Mri
         def entry
           super %[ self->depth++;
             	     self->exclude[self->depth] = 0;
-            	     #{assign_arguments}
-            	     @num[#{arguments_list( arguments_size )}] = count();
+            	     #{copy_arguments}
             	     self->#{name}[self->depth] = timestamp; ]
             	     
         end
@@ -28,7 +27,7 @@ module Mri
                 	 #{assign_arguments}
                 	 @types_incl[#{arguments_list( arguments_size )}] = sum(this->elapsed_incl);
                 	 @types_excl[#{arguments_list( arguments_size )}] = sum(this->elapsed_excl);
-
+                   @num[#{arguments_list( arguments_size )}] = count();
                 	 self->depth--;
                 	 self->exclude[self->depth] += this->elapsed_incl; ]
         end        
@@ -43,7 +42,7 @@ module Mri
         private
         
           def exclusive_and_inclusive
-            if void?
+            unless return?
               ''
             else  
               %[ normalize(@types_excl, 1000);

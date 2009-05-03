@@ -9,17 +9,22 @@ module Mri
         end        
         
         def setup
-          super %[ printf("#{probes_collection.format_string( '/s', ' ', :description )}\\n", #{probes_collection.description( '/s', ', ', '"' )});\n ]
+          super %[ printf("#{probes_collection.format_string( '', ' ', :description )}\\n", #{probes_collection.description( '', ', ', '"' )});\n
+                   self->depth = 0;\n ]
         end  
         
         def entry
-          super %[ printf("%3d %-16d %-22s %*s->\\n", cpu, timestamp / 1000, 
-probefunc, self->depth * 2, "" );\n ]
+          super %[ printf("%3d %-16d %*s %-22s ->\\n", cpu, timestamp / 1000, self->depth * 2, "", probefunc );\n
+           self->depth++; ]
         end
 
         def return
-          super %[ printf("%3d %-16d %-22s %*s<-\\n", cpu, timestamp / 1000, 
-        probefunc, self->depth * 2, "" );\n ]
+          super %[ self->depth--;
+                   printf("%3d %-16d %*s %-22s <-\\n", cpu, timestamp / 1000, self->depth * 2, "", probefunc );\n ]
+        end
+        
+        def report
+          super %[ exit(0); ]
         end
         
       end

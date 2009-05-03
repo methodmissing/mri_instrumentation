@@ -1,3 +1,4 @@
+=begin
 require File.join( File.dirname( __FILE__ ), '..', '..', 'helper' )
 
 class CalltimeStrategyTest < Test::Unit::TestCase
@@ -18,11 +19,11 @@ class CalltimeStrategyTest < Test::Unit::TestCase
   end
   
   test "should be able to yield a function entry definition" do
-    assert_equal " pid$target::ruby_xrealloc:entry\n               \n               {\n                  self->depth++;\n            \t     self->exclude[self->depth] = 0;\n            \t     this->type = probefunc;\nthis->arg0 = arg0;\nthis->arg1 = stringof( arg1 );\n            \t     @num[this->type, this->arg0, this->arg1] = count();\n            \t     self->ruby_xrealloc[self->depth] = timestamp; \n                }\n ", @strategy.entry
+    assert_equal " pid$target::ruby_xrealloc:entry\n               \n               {\n                  self->depth++;\n            \t     self->exclude[self->depth] = 0;\n            \t     self->type = probefunc;\nself->arg0 = arg0;\nself->arg1 = stringof( arg1 );\n            \t     @num[self->type, self->arg0, self->arg1] = count();\n            \t     self->ruby_xrealloc[self->depth] = timestamp; \n                }\n ", @strategy.entry
   end
   
   test "should be able to yield a function return definition" do 
-    assert_equal " pid$target::ruby_xrealloc:return\n               /self->ruby_xrealloc[self->depth]/\n               {\n                  this->elapsed_incl = timestamp - self->ruby_xrealloc[self->depth];\n                   this->elapsed_excl = this->elapsed_incl - self->exclude[self->depth];\n                \t self->ruby_xrealloc[self->depth] = 0;\n                \t self->exclude[self->depth] = 0;\n                \t this->type = probefunc;\nthis->arg0 = arg0;\nthis->arg1 = stringof( arg1 );\n                \t @types_incl[this->type, this->arg0, this->arg1] = sum(this->elapsed_incl);\n                \t @types_excl[this->type, this->arg0, this->arg1] = sum(this->elapsed_excl);\n\n                \t self->depth--;\n                \t self->exclude[self->depth] += this->elapsed_incl; \n                }\n ", @strategy.return
+    assert_equal " pid$target::ruby_xrealloc:return\n               /self->ruby_xrealloc[self->depth]/\n               {\n                  this->elapsed_incl = timestamp - self->ruby_xrealloc[self->depth];\n                   this->elapsed_excl = this->elapsed_incl - self->exclude[self->depth];\n                \t self->ruby_xrealloc[self->depth] = 0;\n                \t self->exclude[self->depth] = 0;\n                \t self->type = probefunc;\nself->arg0 = arg0;\nself->arg1 = stringof( arg1 );\n                \t @types_incl[self->type, self->arg0, self->arg1] = sum(this->elapsed_incl);\n                \t @types_excl[self->type, self->arg0, self->arg1] = sum(this->elapsed_excl);\n\n                \t self->depth--;\n                \t self->exclude[self->depth] += this->elapsed_incl; \n                }\n ", @strategy.return
   end  
 
   test "should be able to yield a reporting function" do
@@ -30,3 +31,4 @@ class CalltimeStrategyTest < Test::Unit::TestCase
   end  
   
 end  
+=end

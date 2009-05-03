@@ -1,0 +1,77 @@
+--- 
+- rb_cmpint: 
+    arguments: 
+    - VALUE: val
+    - VALUE: a
+    - VALUE: b
+    storage: ""
+    desc: rb_cmpint
+    return: int
+- rb_cmperr: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: ""
+    desc: rb_cmperr
+    return: void
+- cmp_eq: 
+    arguments: 
+    - VALUE *: a
+    storage: static
+    desc: cmp_eq
+    return: VALUE
+- cmp_failed: 
+    arguments: []
+
+    storage: static
+    desc: cmp_failed
+    return: VALUE
+- cmp_equal: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: cmp_equal
+    return: VALUE
+- cmp_gt: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: cmp_gt
+    return: VALUE
+- cmp_ge: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: cmp_ge
+    return: VALUE
+- cmp_lt: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: cmp_lt
+    return: VALUE
+- cmp_le: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: cmp_le
+    return: VALUE
+- cmp_between: 
+    arguments: 
+    - VALUE: x
+    - VALUE: min
+    - VALUE: max
+    storage: static
+    desc: cmp_between
+    return: VALUE
+- Init_Comparable: 
+    arguments: []
+
+    storage: ""
+    desc: Init_Comparable
+    return: void

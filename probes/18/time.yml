@@ -1,0 +1,402 @@
+--- 
+- time_free: 
+    arguments: 
+    - void *: tobj
+    storage: static
+    desc: time_free
+    return: void
+- time_s_alloc: 
+    arguments: 
+    - VALUE: klass
+    storage: static
+    desc: time_s_alloc
+    return: VALUE
+- time_modify: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_modify
+    return: void
+- time_init: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_init
+    return: VALUE
+- time_overflow_p: 
+    arguments: 
+    - time_t *: secp
+    - time_t *: usecp
+    storage: static
+    desc: time_overflow_p
+    return: void
+- time_new_internal: 
+    arguments: 
+    - VALUE: klass
+    - time_t: sec
+    - time_t: usec
+    storage: static
+    desc: time_new_internal
+    return: VALUE
+- rb_time_new: 
+    arguments: 
+    - time_t: sec
+    - time_t: usec
+    storage: ""
+    desc: rb_time_new
+    return: VALUE
+- time_timeval: 
+    arguments: 
+    - VALUE: time
+    - int: interval
+    storage: static
+    desc: time_timeval
+    return: struct timeval
+- rb_time_interval: 
+    arguments: 
+    - VALUE: time
+    storage: ""
+    desc: rb_time_interval
+    return: struct timeval
+- rb_time_timeval: 
+    arguments: 
+    - VALUE: time
+    storage: ""
+    desc: rb_time_timeval
+    return: struct timeval
+- time_s_at: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: klass
+    storage: static
+    desc: time_s_at
+    return: VALUE
+- obj2long: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: obj2long
+    return: long int
+- time_arg: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - struct tm *: tm
+    - time_t *: usec
+    storage: static
+    desc: time_arg
+    return: void
+- leap_year_p: 
+    arguments: 
+    - long int: y
+    storage: static
+    desc: leap_year_p
+    return: int
+- timegm_noleapsecond: 
+    arguments: 
+    - struct tm *: tm
+    storage: static
+    desc: timegm_noleapsecond
+    return: time_t
+- tmcmp: 
+    arguments: 
+    - struct tm *: a
+    - struct tm *: b
+    storage: static
+    desc: tmcmp
+    return: int
+- search_time_t: 
+    arguments: 
+    - struct tm *: tptr
+    - int: utc_p
+    storage: static
+    desc: search_time_t
+    return: time_t
+- make_time_t: 
+    arguments: 
+    - struct tm *: tptr
+    - int: utc_p
+    storage: static
+    desc: make_time_t
+    return: time_t
+- time_utc_or_local: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - int: utc_p
+    - VALUE: klass
+    storage: static
+    desc: time_utc_or_local
+    return: VALUE
+- time_s_mkutc: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: klass
+    storage: static
+    desc: time_s_mkutc
+    return: VALUE
+- time_s_mktime: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: klass
+    storage: static
+    desc: time_s_mktime
+    return: VALUE
+- time_to_i: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_to_i
+    return: VALUE
+- time_to_f: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_to_f
+    return: VALUE
+- time_usec: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_usec
+    return: VALUE
+- time_cmp: 
+    arguments: 
+    - VALUE: time1
+    - VALUE: time2
+    storage: static
+    desc: time_cmp
+    return: VALUE
+- time_eql: 
+    arguments: 
+    - VALUE: time1
+    - VALUE: time2
+    storage: static
+    desc: time_eql
+    return: VALUE
+- time_utc_p: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_utc_p
+    return: VALUE
+- time_hash: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_hash
+    return: VALUE
+- time_init_copy: 
+    arguments: 
+    - VALUE: copy
+    - VALUE: time
+    storage: static
+    desc: time_init_copy
+    return: VALUE
+- time_dup: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_dup
+    return: VALUE
+- time_localtime: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_localtime
+    return: VALUE
+- time_gmtime: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_gmtime
+    return: VALUE
+- time_getlocaltime: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_getlocaltime
+    return: VALUE
+- time_getgmtime: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_getgmtime
+    return: VALUE
+- time_get_tm: 
+    arguments: 
+    - VALUE: time
+    - int: gmt
+    storage: static
+    desc: time_get_tm
+    return: VALUE
+- time_asctime: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_asctime
+    return: VALUE
+- time_to_s: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_to_s
+    return: VALUE
+- time_add: 
+    arguments: 
+    - struct time_object *: tobj
+    - VALUE: offset
+    - int: sign
+    storage: static
+    desc: time_add
+    return: VALUE
+- time_plus: 
+    arguments: 
+    - VALUE: time1
+    - VALUE: time2
+    storage: static
+    desc: time_plus
+    return: VALUE
+- time_minus: 
+    arguments: 
+    - VALUE: time1
+    - VALUE: time2
+    storage: static
+    desc: time_minus
+    return: VALUE
+- time_succ: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_succ
+    return: VALUE
+- time_sec: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_sec
+    return: VALUE
+- time_min: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_min
+    return: VALUE
+- time_hour: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_hour
+    return: VALUE
+- time_mday: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_mday
+    return: VALUE
+- time_mon: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_mon
+    return: VALUE
+- time_year: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_year
+    return: VALUE
+- time_wday: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_wday
+    return: VALUE
+- time_yday: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_yday
+    return: VALUE
+- time_isdst: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_isdst
+    return: VALUE
+- time_zone: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_zone
+    return: VALUE
+- time_utc_offset: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_utc_offset
+    return: VALUE
+- time_to_a: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_to_a
+    return: VALUE
+- rb_strftime: 
+    arguments: 
+    - char **: buf
+    - const char *: format
+    - struct tm *: time
+    storage: static
+    desc: rb_strftime
+    return: int
+- time_strftime: 
+    arguments: 
+    - VALUE: time
+    - VALUE: format
+    storage: static
+    desc: time_strftime
+    return: VALUE
+- time_s_times: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: time_s_times
+    return: VALUE
+- time_mdump: 
+    arguments: 
+    - VALUE: time
+    storage: static
+    desc: time_mdump
+    return: VALUE
+- time_dump: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: time
+    storage: static
+    desc: time_dump
+    return: VALUE
+- time_mload: 
+    arguments: 
+    - VALUE: time
+    - VALUE: str
+    storage: static
+    desc: time_mload
+    return: VALUE
+- time_load: 
+    arguments: 
+    - VALUE: klass
+    - VALUE: str
+    storage: static
+    desc: time_load
+    return: VALUE
+- Init_Time: 
+    arguments: []
+
+    storage: ""
+    desc: Init_Time
+    return: void

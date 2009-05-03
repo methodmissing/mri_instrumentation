@@ -1,3 +1,4 @@
+=begin
 require File.join( File.dirname( __FILE__ ), '..', '..', 'helper' )
 
 class PeekTest < Test::Unit::TestCase
@@ -18,7 +19,7 @@ class PeekTest < Test::Unit::TestCase
   end
   
   test "should be able to yield a guarded function entry definition" do
-    assert_equal " pid$target::ruby_xrealloc:entry\n               /guard++ == 0/\n               {\n                  self->peek = 1;\n                        this->type = probefunc;\nthis->arg0 = arg0;\nthis->arg1 = stringof( arg1 );\n                        printf( \"%13s\", this->type, this->arg0, this->arg1 ); \n                }\n ", @strategy.guarded_entry
+    assert_equal " pid$target::ruby_xrealloc:entry\n               /guard++ == 0/\n               {\n                  self->peek = 1;\n                        self->type = probefunc;\nself->arg0 = arg0;\nself->arg1 = stringof( arg1 );\n                        printf( \"%13s\", self->type, self->arg0, self->arg1 ); \n                }\n ", @strategy.guarded_entry
   end
 
   test "should be able to yield a function return definition" do
@@ -30,3 +31,4 @@ class PeekTest < Test::Unit::TestCase
   end
   
 end
+=end

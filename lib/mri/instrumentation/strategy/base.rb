@@ -18,6 +18,7 @@ module Mri
           %[ #!/usr/sbin/dtrace -ZFs 
              #pragma D option quiet\n
              #pragma D option dynvarsize=64m\n
+             #pragma D option bufsize=16m\n
              #{body}\n ]
         end
         
@@ -70,7 +71,7 @@ module Mri
         #
         def functions
           fncs = [:entry]
-          fncs << :return unless void?
+          fncs << :return if @probe.return?
           fncs
         end
         
@@ -87,6 +88,8 @@ module Mri
         
         private
         
+          # Shared function template
+          #
           def function_template( name, body, predicate_clause = '' )
             %[ #{name}
                #{predicate_clause}

@@ -1,0 +1,745 @@
+--- 
+- rb_mem_clear: 
+    arguments: 
+    - VALUE *: mem
+    - long int: size
+    storage: ""
+    desc: rb_mem_clear
+    return: void
+- rb_ary_modify: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_modify
+    return: void
+- rb_ary_freeze: 
+    arguments: 
+    - VALUE: ary
+    storage: ""
+    desc: rb_ary_freeze
+    return: VALUE
+- rb_ary_frozen_p: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_frozen_p
+    return: VALUE
+- ary_alloc: 
+    arguments: 
+    - VALUE: klass
+    storage: static
+    desc: ary_alloc
+    return: VALUE
+- ary_new: 
+    arguments: 
+    - VALUE: klass
+    - long int: len
+    storage: static
+    desc: ary_new
+    return: VALUE
+- rb_ary_new2: 
+    arguments: 
+    - long int: len
+    storage: ""
+    desc: rb_ary_new2
+    return: VALUE
+- rb_ary_new: 
+    arguments: []
+
+    storage: ""
+    desc: rb_ary_new
+    return: VALUE
+- rb_ary_new3: 
+    arguments: 
+    - long int: n
+    storage: ""
+    desc: rb_ary_new3
+    return: VALUE
+- rb_ary_new4: 
+    arguments: 
+    - long int: n
+    - const VALUE *: elts
+    storage: ""
+    desc: rb_ary_new4
+    return: VALUE
+- rb_assoc_new: 
+    arguments: 
+    - VALUE: car
+    - VALUE: cdr
+    storage: ""
+    desc: rb_assoc_new
+    return: VALUE
+- to_ary: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: to_ary
+    return: VALUE
+- rb_check_array_type: 
+    arguments: 
+    - VALUE: ary
+    storage: ""
+    desc: rb_check_array_type
+    return: VALUE
+- rb_ary_initialize: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_initialize
+    return: VALUE
+- rb_ary_s_create: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: klass
+    storage: static
+    desc: rb_ary_s_create
+    return: VALUE
+- rb_ary_store: 
+    arguments: 
+    - VALUE: ary
+    - long int: idx
+    - VALUE: val
+    storage: ""
+    desc: rb_ary_store
+    return: void
+- rb_ary_push: 
+    arguments: 
+    - VALUE: ary
+    - VALUE: item
+    storage: ""
+    desc: rb_ary_push
+    return: VALUE
+- rb_ary_push_m: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_push_m
+    return: VALUE
+- rb_ary_pop: 
+    arguments: 
+    - VALUE: ary
+    storage: ""
+    desc: rb_ary_pop
+    return: VALUE
+- ary_make_shared: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: ary_make_shared
+    return: VALUE
+- rb_ary_shift: 
+    arguments: 
+    - VALUE: ary
+    storage: ""
+    desc: rb_ary_shift
+    return: VALUE
+- rb_ary_unshift: 
+    arguments: 
+    - VALUE: ary
+    - VALUE: item
+    storage: ""
+    desc: rb_ary_unshift
+    return: VALUE
+- rb_ary_unshift_m: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_unshift_m
+    return: VALUE
+- rb_ary_entry: 
+    arguments: 
+    - VALUE: ary
+    - long int: offset
+    storage: ""
+    desc: rb_ary_entry
+    return: VALUE
+- rb_ary_subseq: 
+    arguments: 
+    - VALUE: ary
+    - long int: beg
+    - long int: len
+    storage: static
+    desc: rb_ary_subseq
+    return: VALUE
+- rb_ary_aref: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: ary
+    storage: ""
+    desc: rb_ary_aref
+    return: VALUE
+- rb_ary_at: 
+    arguments: 
+    - VALUE: ary
+    - VALUE: pos
+    storage: static
+    desc: rb_ary_at
+    return: VALUE
+- rb_ary_first: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_first
+    return: VALUE
+- rb_ary_last: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_last
+    return: VALUE
+- rb_ary_fetch: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_fetch
+    return: VALUE
+- rb_ary_index: 
+    arguments: 
+    - VALUE: ary
+    - VALUE: val
+    storage: static
+    desc: rb_ary_index
+    return: VALUE
+- rb_ary_rindex: 
+    arguments: 
+    - VALUE: ary
+    - VALUE: val
+    storage: static
+    desc: rb_ary_rindex
+    return: VALUE
+- rb_ary_indexes: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_indexes
+    return: VALUE
+- rb_ary_to_ary: 
+    arguments: 
+    - VALUE: obj
+    storage: ""
+    desc: rb_ary_to_ary
+    return: VALUE
+- rb_ary_splice: 
+    arguments: 
+    - VALUE: ary
+    - long int: beg
+    - long int: len
+    - VALUE: rpl
+    storage: static
+    desc: rb_ary_splice
+    return: void
+- rb_ary_aset: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_aset
+    return: VALUE
+- rb_ary_insert: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_insert
+    return: VALUE
+- rb_ary_each: 
+    arguments: 
+    - VALUE: ary
+    storage: ""
+    desc: rb_ary_each
+    return: VALUE
+- rb_ary_each_index: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_each_index
+    return: VALUE
+- rb_ary_reverse_each: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_reverse_each
+    return: VALUE
+- rb_ary_length: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_length
+    return: VALUE
+- rb_ary_empty_p: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_empty_p
+    return: VALUE
+- rb_ary_dup: 
+    arguments: 
+    - VALUE: ary
+    storage: ""
+    desc: rb_ary_dup
+    return: VALUE
+- inspect_join: 
+    arguments: 
+    - VALUE: ary
+    - VALUE *: arg
+    storage: static
+    desc: inspect_join
+    return: VALUE
+- rb_ary_join: 
+    arguments: 
+    - VALUE: ary
+    - VALUE: sep
+    storage: ""
+    desc: rb_ary_join
+    return: VALUE
+- rb_ary_join_m: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_join_m
+    return: VALUE
+- rb_ary_to_s: 
+    arguments: 
+    - VALUE: ary
+    storage: ""
+    desc: rb_ary_to_s
+    return: VALUE
+- inspect_call: 
+    arguments: 
+    - struct inspect_arg *: arg
+    storage: static
+    desc: inspect_call
+    return: VALUE
+- get_inspect_tbl: 
+    arguments: 
+    - int: create
+    storage: static
+    desc: get_inspect_tbl
+    return: VALUE
+- inspect_ensure: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: inspect_ensure
+    return: VALUE
+- rb_protect_inspect: 
+    arguments: 
+    - VALUE (*)(): func
+    - VALUE: obj
+    - VALUE: arg
+    storage: ""
+    desc: rb_protect_inspect
+    return: VALUE
+- rb_inspecting_p: 
+    arguments: 
+    - VALUE: obj
+    storage: ""
+    desc: rb_inspecting_p
+    return: VALUE
+- inspect_ary: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: inspect_ary
+    return: VALUE
+- rb_ary_inspect: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_inspect
+    return: VALUE
+- rb_ary_to_a: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_to_a
+    return: VALUE
+- rb_ary_to_ary_m: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_to_ary_m
+    return: VALUE
+- rb_ary_reverse: 
+    arguments: 
+    - VALUE: ary
+    storage: ""
+    desc: rb_ary_reverse
+    return: VALUE
+- rb_ary_reverse_bang: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_reverse_bang
+    return: VALUE
+- rb_ary_reverse_m: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_reverse_m
+    return: VALUE
+- ary_sort_check: 
+    arguments: 
+    - struct ary_sort_data *: data
+    storage: static
+    desc: ary_sort_check
+    return: void
+- sort_1: 
+    arguments: 
+    - VALUE *: a
+    - VALUE *: b
+    - struct ary_sort_data *: data
+    storage: static
+    desc: sort_1
+    return: int
+- sort_2: 
+    arguments: 
+    - VALUE *: ap
+    - VALUE *: bp
+    - struct ary_sort_data *: data
+    storage: static
+    desc: sort_2
+    return: int
+- sort_internal: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: sort_internal
+    return: VALUE
+- sort_unlock: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: sort_unlock
+    return: VALUE
+- rb_ary_sort_bang: 
+    arguments: 
+    - VALUE: ary
+    storage: ""
+    desc: rb_ary_sort_bang
+    return: VALUE
+- rb_ary_sort: 
+    arguments: 
+    - VALUE: ary
+    storage: ""
+    desc: rb_ary_sort
+    return: VALUE
+- rb_ary_collect: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_collect
+    return: VALUE
+- rb_ary_collect_bang: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_collect_bang
+    return: VALUE
+- rb_values_at: 
+    arguments: 
+    - VALUE: obj
+    - long int: olen
+    - int: argc
+    - VALUE *: argv
+    - VALUE (*)(VALUE, long int): func
+    storage: ""
+    desc: rb_values_at
+    return: VALUE
+- rb_ary_values_at: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_values_at
+    return: VALUE
+- rb_ary_select: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_select
+    return: VALUE
+- rb_ary_delete: 
+    arguments: 
+    - VALUE: ary
+    - VALUE: item
+    storage: ""
+    desc: rb_ary_delete
+    return: VALUE
+- rb_ary_delete_at: 
+    arguments: 
+    - VALUE: ary
+    - long int: pos
+    storage: ""
+    desc: rb_ary_delete_at
+    return: VALUE
+- rb_ary_delete_at_m: 
+    arguments: 
+    - VALUE: ary
+    - VALUE: pos
+    storage: static
+    desc: rb_ary_delete_at_m
+    return: VALUE
+- rb_ary_slice_bang: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_slice_bang
+    return: VALUE
+- rb_ary_reject_bang: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_reject_bang
+    return: VALUE
+- rb_ary_reject: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_reject
+    return: VALUE
+- rb_ary_delete_if: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_delete_if
+    return: VALUE
+- rb_ary_zip: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_zip
+    return: VALUE
+- rb_ary_transpose: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_transpose
+    return: VALUE
+- rb_ary_replace: 
+    arguments: 
+    - VALUE: copy
+    - VALUE: orig
+    storage: static
+    desc: rb_ary_replace
+    return: VALUE
+- rb_ary_clear: 
+    arguments: 
+    - VALUE: ary
+    storage: ""
+    desc: rb_ary_clear
+    return: VALUE
+- rb_ary_fill: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_fill
+    return: VALUE
+- rb_ary_plus: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: ""
+    desc: rb_ary_plus
+    return: VALUE
+- rb_ary_concat: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: ""
+    desc: rb_ary_concat
+    return: VALUE
+- rb_ary_times: 
+    arguments: 
+    - VALUE: ary
+    - VALUE: times
+    storage: static
+    desc: rb_ary_times
+    return: VALUE
+- rb_ary_assoc: 
+    arguments: 
+    - VALUE: ary
+    - VALUE: key
+    storage: ""
+    desc: rb_ary_assoc
+    return: VALUE
+- rb_ary_rassoc: 
+    arguments: 
+    - VALUE: ary
+    - VALUE: value
+    storage: ""
+    desc: rb_ary_rassoc
+    return: VALUE
+- recursive_equal: 
+    arguments: 
+    - VALUE: ary1
+    - VALUE: ary2
+    storage: static
+    desc: recursive_equal
+    return: VALUE
+- rb_ary_equal: 
+    arguments: 
+    - VALUE: ary1
+    - VALUE: ary2
+    storage: static
+    desc: rb_ary_equal
+    return: VALUE
+- recursive_eql: 
+    arguments: 
+    - VALUE: ary1
+    - VALUE: ary2
+    storage: static
+    desc: recursive_eql
+    return: VALUE
+- rb_ary_eql: 
+    arguments: 
+    - VALUE: ary1
+    - VALUE: ary2
+    storage: static
+    desc: rb_ary_eql
+    return: VALUE
+- recursive_hash: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: recursive_hash
+    return: VALUE
+- rb_ary_hash: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_hash
+    return: VALUE
+- rb_ary_includes: 
+    arguments: 
+    - VALUE: ary
+    - VALUE: item
+    storage: ""
+    desc: rb_ary_includes
+    return: VALUE
+- recursive_cmp: 
+    arguments: 
+    - VALUE: ary1
+    - VALUE: ary2
+    storage: ""
+    desc: recursive_cmp
+    return: VALUE
+- rb_ary_cmp: 
+    arguments: 
+    - VALUE: ary1
+    - VALUE: ary2
+    storage: ""
+    desc: rb_ary_cmp
+    return: VALUE
+- ary_make_hash: 
+    arguments: 
+    - VALUE: ary1
+    - VALUE: ary2
+    storage: static
+    desc: ary_make_hash
+    return: VALUE
+- rb_ary_diff: 
+    arguments: 
+    - VALUE: ary1
+    - VALUE: ary2
+    storage: static
+    desc: rb_ary_diff
+    return: VALUE
+- rb_ary_and: 
+    arguments: 
+    - VALUE: ary1
+    - VALUE: ary2
+    storage: static
+    desc: rb_ary_and
+    return: VALUE
+- rb_ary_or: 
+    arguments: 
+    - VALUE: ary1
+    - VALUE: ary2
+    storage: static
+    desc: rb_ary_or
+    return: VALUE
+- rb_ary_uniq_bang: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_uniq_bang
+    return: VALUE
+- rb_ary_uniq: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_uniq
+    return: VALUE
+- rb_ary_compact_bang: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_compact_bang
+    return: VALUE
+- rb_ary_compact: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_compact
+    return: VALUE
+- rb_ary_nitems: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_nitems
+    return: VALUE
+- flatten: 
+    arguments: 
+    - VALUE: ary
+    - long int: idx
+    - VALUE: ary2
+    - VALUE: memo
+    storage: static
+    desc: flatten
+    return: long int
+- rb_ary_flatten_bang: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_flatten_bang
+    return: VALUE
+- rb_ary_flatten: 
+    arguments: 
+    - VALUE: ary
+    storage: static
+    desc: rb_ary_flatten
+    return: VALUE
+- Init_Array: 
+    arguments: []
+
+    storage: ""
+    desc: Init_Array
+    return: void

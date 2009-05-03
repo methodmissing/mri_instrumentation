@@ -1,0 +1,169 @@
+--- 
+- range_failed: 
+    arguments: []
+
+    storage: static
+    desc: range_failed
+    return: VALUE
+- range_check: 
+    arguments: 
+    - VALUE *: args
+    storage: static
+    desc: range_check
+    return: VALUE
+- range_init: 
+    arguments: 
+    - VALUE: range
+    - VALUE: beg
+    - VALUE: end
+    - int: exclude_end
+    storage: static
+    desc: range_init
+    return: void
+- rb_range_new: 
+    arguments: 
+    - VALUE: beg
+    - VALUE: end
+    - int: exclude_end
+    storage: ""
+    desc: rb_range_new
+    return: VALUE
+- range_initialize: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: range
+    storage: static
+    desc: range_initialize
+    return: VALUE
+- range_exclude_end_p: 
+    arguments: 
+    - VALUE: range
+    storage: static
+    desc: range_exclude_end_p
+    return: VALUE
+- range_eq: 
+    arguments: 
+    - VALUE: range
+    - VALUE: obj
+    storage: static
+    desc: range_eq
+    return: VALUE
+- r_lt: 
+    arguments: 
+    - VALUE: a
+    - VALUE: b
+    storage: static
+    desc: r_lt
+    return: int
+- r_le: 
+    arguments: 
+    - VALUE: a
+    - VALUE: b
+    storage: static
+    desc: r_le
+    return: int
+- range_eql: 
+    arguments: 
+    - VALUE: range
+    - VALUE: obj
+    storage: static
+    desc: range_eql
+    return: VALUE
+- range_hash: 
+    arguments: 
+    - VALUE: range
+    storage: static
+    desc: range_hash
+    return: VALUE
+- str_step: 
+    arguments: 
+    - VALUE *: args
+    storage: static
+    desc: str_step
+    return: VALUE
+- range_each_func: 
+    arguments: 
+    - VALUE: range
+    - void (*)(VALUE, void *): func
+    - VALUE: v
+    - VALUE: e
+    - void *: arg
+    storage: static
+    desc: range_each_func
+    return: void
+- step_i: 
+    arguments: 
+    - VALUE: i
+    - long int *: iter
+    storage: static
+    desc: step_i
+    return: VALUE
+- range_step: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: range
+    storage: static
+    desc: range_step
+    return: VALUE
+- each_i: 
+    arguments: 
+    - VALUE: v
+    - void *: arg
+    storage: static
+    desc: each_i
+    return: void
+- range_each: 
+    arguments: 
+    - VALUE: range
+    storage: static
+    desc: range_each
+    return: VALUE
+- range_first: 
+    arguments: 
+    - VALUE: range
+    storage: static
+    desc: range_first
+    return: VALUE
+- range_last: 
+    arguments: 
+    - VALUE: range
+    storage: static
+    desc: range_last
+    return: VALUE
+- rb_range_beg_len: 
+    arguments: 
+    - VALUE: range
+    - long int *: begp
+    - long int *: lenp
+    - long int: len
+    - int: err
+    storage: ""
+    desc: rb_range_beg_len
+    return: VALUE
+- range_to_s: 
+    arguments: 
+    - VALUE: range
+    storage: static
+    desc: range_to_s
+    return: VALUE
+- range_inspect: 
+    arguments: 
+    - VALUE: range
+    storage: static
+    desc: range_inspect
+    return: VALUE
+- range_include: 
+    arguments: 
+    - VALUE: range
+    - VALUE: val
+    storage: static
+    desc: range_include
+    return: VALUE
+- Init_Range: 
+    arguments: []
+
+    storage: ""
+    desc: Init_Range
+    return: void

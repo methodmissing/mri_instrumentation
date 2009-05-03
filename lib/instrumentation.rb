@@ -9,12 +9,19 @@ module Mri
     
     MRI_VERSION = RUBY_VERSION.gsub('.','')[0..1]
     
-    PROBES = File.join( File.dirname( __FILE__ ), '..', 'probes', MRI_VERSION ).freeze
+    DIRECTORY = File.expand_path( File.join( File.dirname( __FILE__ ), '..' ) )
+    
+    PROBES = File.join( DIRECTORY, 'probes', MRI_VERSION ).freeze
+
+    CONFIG = File.join( DIRECTORY, 'config', MRI_VERSION ).freeze
+
+    EXTENSIONS = File.join( DIRECTORY, 'lib', 'mri', 'instrumentation', 'extensions' ).freeze
 
     autoload :Definition, 'mri/instrumentation/definition'        
     autoload :Probe, 'mri/instrumentation/probe'
     autoload :Argument, 'mri/instrumentation/argument'
     autoload :ProbeCollection, 'mri/instrumentation/probe_collection'
+    autoload :Parser, 'mri/instrumentation/parser'
     
     module Strategy
 
@@ -26,6 +33,7 @@ module Mri
       autoload :Calls, 'mri/instrumentation/strategy/calls'
       autoload :Speculate, 'mri/instrumentation/strategy/speculate'
       autoload :Peek, 'mri/instrumentation/strategy/peek'
+      autoload :Stack, 'mri/instrumentation/strategy/stack'
       
     end
     

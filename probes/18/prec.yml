@@ -1,0 +1,40 @@
+--- 
+- prec_prec: 
+    arguments: 
+    - VALUE: x
+    - VALUE: klass
+    storage: static
+    desc: prec_prec
+    return: VALUE
+- prec_prec_i: 
+    arguments: 
+    - VALUE: x
+    storage: static
+    desc: prec_prec_i
+    return: VALUE
+- prec_prec_f: 
+    arguments: 
+    - VALUE: x
+    storage: static
+    desc: prec_prec_f
+    return: VALUE
+- prec_induced_from: 
+    arguments: 
+    - VALUE: module
+    - VALUE: x
+    storage: static
+    desc: prec_induced_from
+    return: VALUE
+- prec_included: 
+    arguments: 
+    - VALUE: module
+    - VALUE: include
+    storage: static
+    desc: prec_included
+    return: VALUE
+- Init_Precision: 
+    arguments: []
+
+    storage: ""
+    desc: Init_Precision
+    return: void

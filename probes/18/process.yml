@@ -1,0 +1,614 @@
+--- 
+- get_pid: 
+    arguments: []
+
+    storage: static
+    desc: get_pid
+    return: VALUE
+- get_ppid: 
+    arguments: []
+
+    storage: static
+    desc: get_ppid
+    return: VALUE
+- last_status_set: 
+    arguments: 
+    - int: status
+    - int: pid
+    storage: static
+    desc: last_status_set
+    return: void
+- pst_to_i: 
+    arguments: 
+    - VALUE: st
+    storage: static
+    desc: pst_to_i
+    return: VALUE
+- pst_to_s: 
+    arguments: 
+    - VALUE: st
+    storage: static
+    desc: pst_to_s
+    return: VALUE
+- pst_pid: 
+    arguments: 
+    - VALUE: st
+    storage: static
+    desc: pst_pid
+    return: VALUE
+- pst_inspect: 
+    arguments: 
+    - VALUE: st
+    storage: static
+    desc: pst_inspect
+    return: VALUE
+- pst_equal: 
+    arguments: 
+    - VALUE: st1
+    - VALUE: st2
+    storage: static
+    desc: pst_equal
+    return: VALUE
+- pst_bitand: 
+    arguments: 
+    - VALUE: st1
+    - VALUE: st2
+    storage: static
+    desc: pst_bitand
+    return: VALUE
+- pst_rshift: 
+    arguments: 
+    - VALUE: st1
+    - VALUE: st2
+    storage: static
+    desc: pst_rshift
+    return: VALUE
+- pst_wifstopped: 
+    arguments: 
+    - VALUE: st
+    storage: static
+    desc: pst_wifstopped
+    return: VALUE
+- pst_wstopsig: 
+    arguments: 
+    - VALUE: st
+    storage: static
+    desc: pst_wstopsig
+    return: VALUE
+- pst_wifsignaled: 
+    arguments: 
+    - VALUE: st
+    storage: static
+    desc: pst_wifsignaled
+    return: VALUE
+- pst_wtermsig: 
+    arguments: 
+    - VALUE: st
+    storage: static
+    desc: pst_wtermsig
+    return: VALUE
+- pst_wifexited: 
+    arguments: 
+    - VALUE: st
+    storage: static
+    desc: pst_wifexited
+    return: VALUE
+- pst_wexitstatus: 
+    arguments: 
+    - VALUE: st
+    storage: static
+    desc: pst_wexitstatus
+    return: VALUE
+- pst_success_p: 
+    arguments: 
+    - VALUE: st
+    storage: static
+    desc: pst_success_p
+    return: VALUE
+- pst_wcoredump: 
+    arguments: 
+    - VALUE: st
+    storage: static
+    desc: pst_wcoredump
+    return: VALUE
+- rb_waitpid: 
+    arguments: 
+    - int: pid
+    - int *: st
+    - int: flags
+    storage: ""
+    desc: rb_waitpid
+    return: int
+- proc_wait: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: proc_wait
+    return: VALUE
+- proc_wait2: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: proc_wait2
+    return: VALUE
+- proc_waitall: 
+    arguments: []
+
+    storage: static
+    desc: proc_waitall
+    return: VALUE
+- detach_process_watcher: 
+    arguments: 
+    - void *: arg
+    storage: static
+    desc: detach_process_watcher
+    return: VALUE
+- rb_detach_process: 
+    arguments: 
+    - int: pid
+    storage: ""
+    desc: rb_detach_process
+    return: VALUE
+- proc_detach: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: pid
+    storage: static
+    desc: proc_detach
+    return: VALUE
+- security: 
+    arguments: 
+    - char *: str
+    storage: static
+    desc: security
+    return: void
+- proc_exec_v: 
+    arguments: 
+    - char **: argv
+    - char *: prog
+    storage: static
+    desc: proc_exec_v
+    return: int
+- proc_exec_n: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: progv
+    storage: static
+    desc: proc_exec_n
+    return: int
+- rb_proc_exec: 
+    arguments: 
+    - const char *: str
+    storage: ""
+    desc: rb_proc_exec
+    return: int
+- proc_prepare_args: 
+    arguments: 
+    - struct rb_exec_arg *: e
+    - int: argc
+    - VALUE *: argv
+    - VALUE: prog
+    storage: static
+    desc: proc_prepare_args
+    return: void
+- proc_exec_args: 
+    arguments: 
+    - VALUE: earg
+    storage: static
+    desc: proc_exec_args
+    return: VALUE
+- rb_f_exec: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: ""
+    desc: rb_f_exec
+    return: VALUE
+- rb_f_fork: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_f_fork
+    return: VALUE
+- rb_f_exit_bang: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: obj
+    storage: static
+    desc: rb_f_exit_bang
+    return: VALUE
+- rb_syswait: 
+    arguments: 
+    - int: pid
+    storage: ""
+    desc: rb_syswait
+    return: void
+- rb_f_system: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_f_system
+    return: VALUE
+- rb_f_sleep: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_f_sleep
+    return: VALUE
+- proc_getpgrp: 
+    arguments: []
+
+    storage: static
+    desc: proc_getpgrp
+    return: VALUE
+- proc_setpgrp: 
+    arguments: []
+
+    storage: static
+    desc: proc_setpgrp
+    return: VALUE
+- proc_getpgid: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: pid
+    storage: static
+    desc: proc_getpgid
+    return: VALUE
+- proc_setpgid: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: pid
+    - VALUE: pgrp
+    storage: static
+    desc: proc_setpgid
+    return: VALUE
+- proc_setsid: 
+    arguments: []
+
+    storage: static
+    desc: proc_setsid
+    return: VALUE
+- proc_getpriority: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: which
+    - VALUE: who
+    storage: static
+    desc: proc_getpriority
+    return: VALUE
+- proc_setpriority: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: which
+    - VALUE: who
+    - VALUE: prio
+    storage: static
+    desc: proc_setpriority
+    return: VALUE
+- proc_getrlimit: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: resource
+    storage: static
+    desc: proc_getrlimit
+    return: VALUE
+- proc_setrlimit: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: obj
+    storage: static
+    desc: proc_setrlimit
+    return: VALUE
+- check_uid_switch: 
+    arguments: []
+
+    storage: static
+    desc: check_uid_switch
+    return: void
+- check_gid_switch: 
+    arguments: []
+
+    storage: static
+    desc: check_gid_switch
+    return: void
+- p_sys_setuid: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: id
+    storage: static
+    desc: p_sys_setuid
+    return: VALUE
+- p_sys_setruid: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: id
+    storage: static
+    desc: p_sys_setruid
+    return: VALUE
+- p_sys_seteuid: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: id
+    storage: static
+    desc: p_sys_seteuid
+    return: VALUE
+- p_sys_setreuid: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: rid
+    - VALUE: eid
+    storage: static
+    desc: p_sys_setreuid
+    return: VALUE
+- p_sys_setresuid: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: rid
+    - VALUE: eid
+    - VALUE: sid
+    storage: static
+    desc: p_sys_setresuid
+    return: VALUE
+- proc_getuid: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: proc_getuid
+    return: VALUE
+- proc_setuid: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: id
+    storage: static
+    desc: proc_setuid
+    return: VALUE
+- ruby_setreuid: 
+    arguments: 
+    - uid_t: ruid
+    - uid_t: euid
+    storage: ""
+    desc: ruby_setreuid
+    return: int
+- p_uid_change_privilege: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: id
+    storage: static
+    desc: p_uid_change_privilege
+    return: VALUE
+- p_sys_setgid: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: id
+    storage: static
+    desc: p_sys_setgid
+    return: VALUE
+- p_sys_setrgid: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: id
+    storage: static
+    desc: p_sys_setrgid
+    return: VALUE
+- p_sys_setegid: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: id
+    storage: static
+    desc: p_sys_setegid
+    return: VALUE
+- p_sys_setregid: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: rid
+    - VALUE: eid
+    storage: static
+    desc: p_sys_setregid
+    return: VALUE
+- p_sys_setresgid: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: rid
+    - VALUE: eid
+    - VALUE: sid
+    storage: static
+    desc: p_sys_setresgid
+    return: VALUE
+- p_sys_issetugid: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: p_sys_issetugid
+    return: VALUE
+- proc_getgid: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: proc_getgid
+    return: VALUE
+- proc_setgid: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: id
+    storage: static
+    desc: proc_setgid
+    return: VALUE
+- proc_getgroups: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: proc_getgroups
+    return: VALUE
+- proc_setgroups: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: ary
+    storage: static
+    desc: proc_setgroups
+    return: VALUE
+- proc_initgroups: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: uname
+    - VALUE: base_grp
+    storage: static
+    desc: proc_initgroups
+    return: VALUE
+- proc_getmaxgroups: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: proc_getmaxgroups
+    return: VALUE
+- proc_setmaxgroups: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: val
+    storage: static
+    desc: proc_setmaxgroups
+    return: VALUE
+- ruby_setregid: 
+    arguments: 
+    - gid_t: rgid
+    - gid_t: egid
+    storage: ""
+    desc: ruby_setregid
+    return: int
+- p_gid_change_privilege: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: id
+    storage: static
+    desc: p_gid_change_privilege
+    return: VALUE
+- proc_geteuid: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: proc_geteuid
+    return: VALUE
+- proc_seteuid: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: euid
+    storage: static
+    desc: proc_seteuid
+    return: VALUE
+- rb_seteuid_core: 
+    arguments: 
+    - int: euid
+    storage: static
+    desc: rb_seteuid_core
+    return: VALUE
+- p_uid_grant_privilege: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: id
+    storage: static
+    desc: p_uid_grant_privilege
+    return: VALUE
+- proc_getegid: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: proc_getegid
+    return: VALUE
+- proc_setegid: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: egid
+    storage: static
+    desc: proc_setegid
+    return: VALUE
+- rb_setegid_core: 
+    arguments: 
+    - int: egid
+    storage: static
+    desc: rb_setegid_core
+    return: VALUE
+- p_gid_grant_privilege: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: id
+    storage: static
+    desc: p_gid_grant_privilege
+    return: VALUE
+- p_uid_exchangeable: 
+    arguments: []
+
+    storage: static
+    desc: p_uid_exchangeable
+    return: VALUE
+- p_uid_exchange: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: p_uid_exchange
+    return: VALUE
+- p_gid_exchangeable: 
+    arguments: []
+
+    storage: static
+    desc: p_gid_exchangeable
+    return: VALUE
+- p_gid_exchange: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: p_gid_exchange
+    return: VALUE
+- p_uid_have_saved_id: 
+    arguments: []
+
+    storage: static
+    desc: p_uid_have_saved_id
+    return: VALUE
+- p_uid_sw_ensure: 
+    arguments: 
+    - int: id
+    storage: static
+    desc: p_uid_sw_ensure
+    return: VALUE
+- p_uid_switch: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: p_uid_switch
+    return: VALUE
+- p_gid_have_saved_id: 
+    arguments: []
+
+    storage: static
+    desc: p_gid_have_saved_id
+    return: VALUE
+- p_gid_sw_ensure: 
+    arguments: 
+    - int: id
+    storage: static
+    desc: p_gid_sw_ensure
+    return: VALUE
+- p_gid_switch: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: p_gid_switch
+    return: VALUE
+- rb_proc_times: 
+    arguments: 
+    - VALUE: obj
+    storage: ""
+    desc: rb_proc_times
+    return: VALUE
+- Init_process: 
+    arguments: []
+
+    storage: ""
+    desc: Init_process
+    return: void
