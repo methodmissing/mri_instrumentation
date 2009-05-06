@@ -4,4 +4,8 @@ $LOAD_PATH.unshift File.dirname(__FILE__) + '/../lib'
 
 require 'instrumentation'
 
-Mri::Instrumentation::Parser.probes!( ARGV.first || '/Users/lourens/projects/matzruby' )
+if ARGV.first.match( /\.c|\.y/ )
+  Mri::Instrumentation::Parser.probe!( ARGV.first || '/Users/lourens/projects/matzruby/array.c' )
+else
+  Mri::Instrumentation::Parser.probes!( ARGV.first || '/Users/lourens/projects/matzruby' )
+end

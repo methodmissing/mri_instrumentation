@@ -1,0 +1,7 @@
+--- 
+- rb_call_inits: 
+    arguments: []
+
+    storage: ""
+    desc: rb_call_inits
+    return: void

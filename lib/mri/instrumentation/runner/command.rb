@@ -20,7 +20,7 @@ module Mri
           runner.pid @configuration[:pid] if pid?
           runner.command @configuration[:command]
           runner.strategy @configuration[:strategy]
-          runner.probes @configuration[:probes]
+          runner.probes *@configuration[:probes]
           runner.run!
         end
         

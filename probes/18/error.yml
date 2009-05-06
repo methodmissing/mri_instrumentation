@@ -1,0 +1,353 @@
+--- 
+- err_position: 
+    arguments: 
+    - char *: buf
+    - long int: len
+    storage: static
+    desc: err_position
+    return: int
+- err_snprintf: 
+    arguments: 
+    - char *: buf
+    - long int: len
+    - const char *: fmt
+    - va_list: args
+    storage: static
+    desc: err_snprintf
+    return: void
+- err_print: 
+    arguments: 
+    - const char *: fmt
+    - va_list: args
+    storage: static
+    desc: err_print
+    return: void
+- rb_compile_error: 
+    arguments: 
+    - const char *: fmt
+    storage: ""
+    desc: rb_compile_error
+    return: void
+- rb_compile_error_append: 
+    arguments: 
+    - const char *: fmt
+    storage: ""
+    desc: rb_compile_error_append
+    return: void
+- warn_print: 
+    arguments: 
+    - const char *: fmt
+    - va_list: args
+    storage: static
+    desc: warn_print
+    return: void
+- rb_warn: 
+    arguments: 
+    - const char *: fmt
+    storage: ""
+    desc: rb_warn
+    return: void
+- rb_warning: 
+    arguments: 
+    - const char *: fmt
+    storage: ""
+    desc: rb_warning
+    return: void
+- rb_warn_m: 
+    arguments: 
+    - VALUE: self
+    - VALUE: mesg
+    storage: static
+    desc: rb_warn_m
+    return: VALUE
+- rb_bug: 
+    arguments: 
+    - const char *: fmt
+    storage: ""
+    desc: rb_bug
+    return: void
+- rb_check_type: 
+    arguments: 
+    - VALUE: x
+    - int: t
+    storage: ""
+    desc: rb_check_type
+    return: void
+- rb_exc_new: 
+    arguments: 
+    - VALUE: etype
+    - const char *: ptr
+    - long int: len
+    storage: ""
+    desc: rb_exc_new
+    return: VALUE
+- rb_exc_new2: 
+    arguments: 
+    - VALUE: etype
+    - const char *: s
+    storage: ""
+    desc: rb_exc_new2
+    return: VALUE
+- rb_exc_new3: 
+    arguments: 
+    - VALUE: etype
+    - VALUE: str
+    storage: ""
+    desc: rb_exc_new3
+    return: VALUE
+- exc_initialize: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: exc
+    storage: static
+    desc: exc_initialize
+    return: VALUE
+- exc_exception: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: self
+    storage: static
+    desc: exc_exception
+    return: VALUE
+- exc_to_s: 
+    arguments: 
+    - VALUE: exc
+    storage: static
+    desc: exc_to_s
+    return: VALUE
+- exc_to_str: 
+    arguments: 
+    - VALUE: exc
+    storage: static
+    desc: exc_to_str
+    return: VALUE
+- exc_inspect: 
+    arguments: 
+    - VALUE: exc
+    storage: static
+    desc: exc_inspect
+    return: VALUE
+- exc_backtrace: 
+    arguments: 
+    - VALUE: exc
+    storage: static
+    desc: exc_backtrace
+    return: VALUE
+- rb_check_backtrace: 
+    arguments: 
+    - VALUE: bt
+    storage: ""
+    desc: rb_check_backtrace
+    return: VALUE
+- exc_set_backtrace: 
+    arguments: 
+    - VALUE: exc
+    - VALUE: bt
+    storage: static
+    desc: exc_set_backtrace
+    return: VALUE
+- exit_initialize: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: exc
+    storage: static
+    desc: exit_initialize
+    return: VALUE
+- exit_status: 
+    arguments: 
+    - VALUE: exc
+    storage: static
+    desc: exit_status
+    return: VALUE
+- exit_success_p: 
+    arguments: 
+    - VALUE: exc
+    storage: static
+    desc: exit_success_p
+    return: VALUE
+- rb_name_error: 
+    arguments: 
+    - ID: id
+    - const char *: fmt
+    storage: ""
+    desc: rb_name_error
+    return: void
+- name_err_initialize: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: self
+    storage: static
+    desc: name_err_initialize
+    return: VALUE
+- name_err_name: 
+    arguments: 
+    - VALUE: self
+    storage: static
+    desc: name_err_name
+    return: VALUE
+- name_err_to_s: 
+    arguments: 
+    - VALUE: exc
+    storage: static
+    desc: name_err_to_s
+    return: VALUE
+- nometh_err_initialize: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: self
+    storage: static
+    desc: nometh_err_initialize
+    return: VALUE
+- name_err_mesg_mark: 
+    arguments: 
+    - VALUE *: ptr
+    storage: static
+    desc: name_err_mesg_mark
+    return: void
+- name_err_mesg_new: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: mesg
+    - VALUE: recv
+    - VALUE: method
+    storage: static
+    desc: name_err_mesg_new
+    return: VALUE
+- name_err_mesg_to_str: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: name_err_mesg_to_str
+    return: VALUE
+- name_err_mesg_load: 
+    arguments: 
+    - VALUE: klass
+    - VALUE: str
+    storage: static
+    desc: name_err_mesg_load
+    return: VALUE
+- nometh_err_args: 
+    arguments: 
+    - VALUE: self
+    storage: static
+    desc: nometh_err_args
+    return: VALUE
+- rb_invalid_str: 
+    arguments: 
+    - const char *: str
+    - const char *: type
+    storage: ""
+    desc: rb_invalid_str
+    return: void
+- set_syserr: 
+    arguments: 
+    - int: n
+    - const char *: name
+    storage: static
+    desc: set_syserr
+    return: VALUE
+- get_syserr: 
+    arguments: 
+    - int: n
+    storage: static
+    desc: get_syserr
+    return: VALUE
+- syserr_initialize: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: self
+    storage: static
+    desc: syserr_initialize
+    return: VALUE
+- syserr_errno: 
+    arguments: 
+    - VALUE: self
+    storage: static
+    desc: syserr_errno
+    return: VALUE
+- syserr_eqq: 
+    arguments: 
+    - VALUE: self
+    - VALUE: exc
+    storage: static
+    desc: syserr_eqq
+    return: VALUE
+- Init_Exception: 
+    arguments: []
+
+    storage: ""
+    desc: Init_Exception
+    return: void
+- rb_raise: 
+    arguments: 
+    - VALUE: exc
+    - const char *: fmt
+    storage: ""
+    desc: rb_raise
+    return: void
+- rb_loaderror: 
+    arguments: 
+    - const char *: fmt
+    storage: ""
+    desc: rb_loaderror
+    return: void
+- rb_notimplement: 
+    arguments: []
+
+    storage: ""
+    desc: rb_notimplement
+    return: void
+- rb_fatal: 
+    arguments: 
+    - const char *: fmt
+    storage: ""
+    desc: rb_fatal
+    return: void
+- rb_sys_fail: 
+    arguments: 
+    - const char *: mesg
+    storage: ""
+    desc: rb_sys_fail
+    return: void
+- rb_sys_warning: 
+    arguments: 
+    - const char *: fmt
+    storage: ""
+    desc: rb_sys_warning
+    return: void
+- rb_load_fail: 
+    arguments: 
+    - const char *: path
+    storage: ""
+    desc: rb_load_fail
+    return: void
+- rb_error_frozen: 
+    arguments: 
+    - const char *: what
+    storage: ""
+    desc: rb_error_frozen
+    return: void
+- rb_check_frozen: 
+    arguments: 
+    - VALUE: obj
+    storage: ""
+    desc: rb_check_frozen
+    return: void
+- Init_syserr: 
+    arguments: []
+
+    storage: ""
+    desc: Init_syserr
+    return: void
+- err_append: 
+    arguments: 
+    - const char *: s
+    storage: static
+    desc: err_append
+    return: void

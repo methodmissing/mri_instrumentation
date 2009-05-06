@@ -1,0 +1,835 @@
+--- 
+- rb_hash_modify: 
+    arguments: 
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_modify
+    return: void
+- rb_hash_freeze: 
+    arguments: 
+    - VALUE: hash
+    storage: ""
+    desc: rb_hash_freeze
+    return: VALUE
+- eql: 
+    arguments: 
+    - VALUE *: args
+    storage: static
+    desc: eql
+    return: VALUE
+- rb_any_cmp: 
+    arguments: 
+    - VALUE: a
+    - VALUE: b
+    storage: static
+    desc: rb_any_cmp
+    return: int
+- rb_hash: 
+    arguments: 
+    - VALUE: obj
+    storage: ""
+    desc: rb_hash
+    return: VALUE
+- rb_any_hash: 
+    arguments: 
+    - VALUE: a
+    storage: static
+    desc: rb_any_hash
+    return: int
+- foreach_safe_i: 
+    arguments: 
+    - st_data_t: key
+    - st_data_t: value
+    - struct foreach_safe_arg *: arg
+    storage: static
+    desc: foreach_safe_i
+    return: int
+- st_foreach_safe: 
+    arguments: 
+    - st_table *: table
+    - int (*)(): func
+    - st_data_t: a
+    storage: ""
+    desc: st_foreach_safe
+    return: void
+- hash_foreach_iter: 
+    arguments: 
+    - VALUE: key
+    - VALUE: value
+    - struct hash_foreach_arg *: arg
+    storage: static
+    desc: hash_foreach_iter
+    return: int
+- hash_foreach_ensure: 
+    arguments: 
+    - VALUE: hash
+    storage: static
+    desc: hash_foreach_ensure
+    return: VALUE
+- hash_foreach_call: 
+    arguments: 
+    - struct hash_foreach_arg *: arg
+    storage: static
+    desc: hash_foreach_call
+    return: VALUE
+- rb_hash_foreach: 
+    arguments: 
+    - VALUE: hash
+    - int (*)(): func
+    - VALUE: farg
+    storage: ""
+    desc: rb_hash_foreach
+    return: void
+- hash_alloc0: 
+    arguments: 
+    - VALUE: klass
+    storage: static
+    desc: hash_alloc0
+    return: VALUE
+- hash_alloc: 
+    arguments: 
+    - VALUE: klass
+    storage: static
+    desc: hash_alloc
+    return: VALUE
+- rb_hash_new: 
+    arguments: []
+
+    storage: ""
+    desc: rb_hash_new
+    return: VALUE
+- rb_hash_initialize: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_initialize
+    return: VALUE
+- rb_hash_s_create: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: klass
+    storage: static
+    desc: rb_hash_s_create
+    return: VALUE
+- to_hash: 
+    arguments: 
+    - VALUE: hash
+    storage: static
+    desc: to_hash
+    return: VALUE
+- rb_hash_rehash_i: 
+    arguments: 
+    - VALUE: key
+    - VALUE: value
+    - st_table *: tbl
+    storage: static
+    desc: rb_hash_rehash_i
+    return: int
+- rb_hash_rehash: 
+    arguments: 
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_rehash
+    return: VALUE
+- rb_hash_aref: 
+    arguments: 
+    - VALUE: hash
+    - VALUE: key
+    storage: ""
+    desc: rb_hash_aref
+    return: VALUE
+- rb_hash_fetch: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_fetch
+    return: VALUE
+- rb_hash_default: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_default
+    return: VALUE
+- rb_hash_set_default: 
+    arguments: 
+    - VALUE: hash
+    - VALUE: ifnone
+    storage: static
+    desc: rb_hash_set_default
+    return: VALUE
+- rb_hash_default_proc: 
+    arguments: 
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_default_proc
+    return: VALUE
+- index_i: 
+    arguments: 
+    - VALUE: key
+    - VALUE: value
+    - VALUE *: args
+    storage: static
+    desc: index_i
+    return: int
+- rb_hash_delete_key: 
+    arguments: 
+    - VALUE: hash
+    - VALUE: key
+    storage: static
+    desc: rb_hash_delete_key
+    return: VALUE
+- rb_hash_index: 
+    arguments: 
+    - VALUE: hash
+    - VALUE: value
+    storage: static
+    desc: rb_hash_index
+    return: VALUE
+- rb_hash_indexes: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_indexes
+    return: VALUE
+- rb_hash_delete: 
+    arguments: 
+    - VALUE: hash
+    - VALUE: key
+    storage: ""
+    desc: rb_hash_delete
+    return: VALUE
+- shift_i: 
+    arguments: 
+    - VALUE: key
+    - VALUE: value
+    - struct shift_var *: var
+    storage: static
+    desc: shift_i
+    return: int
+- shift_i_safe: 
+    arguments: 
+    - VALUE: key
+    - VALUE: value
+    - struct shift_var *: var
+    storage: static
+    desc: shift_i_safe
+    return: int
+- rb_hash_shift: 
+    arguments: 
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_shift
+    return: VALUE
+- delete_if_i: 
+    arguments: 
+    - VALUE: key
+    - VALUE: value
+    - VALUE: hash
+    storage: static
+    desc: delete_if_i
+    return: int
+- rb_hash_delete_if: 
+    arguments: 
+    - VALUE: hash
+    storage: ""
+    desc: rb_hash_delete_if
+    return: VALUE
+- rb_hash_reject_bang: 
+    arguments: 
+    - VALUE: hash
+    storage: ""
+    desc: rb_hash_reject_bang
+    return: VALUE
+- rb_hash_reject: 
+    arguments: 
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_reject
+    return: VALUE
+- select_i: 
+    arguments: 
+    - VALUE: key
+    - VALUE: value
+    - VALUE: result
+    storage: static
+    desc: select_i
+    return: int
+- rb_hash_values_at: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: hash
+    storage: ""
+    desc: rb_hash_values_at
+    return: VALUE
+- rb_hash_select: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: hash
+    storage: ""
+    desc: rb_hash_select
+    return: VALUE
+- clear_i: 
+    arguments: 
+    - VALUE: key
+    - VALUE: value
+    - VALUE: dummy
+    storage: static
+    desc: clear_i
+    return: int
+- rb_hash_clear: 
+    arguments: 
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_clear
+    return: VALUE
+- rb_hash_aset: 
+    arguments: 
+    - VALUE: hash
+    - VALUE: key
+    - VALUE: val
+    storage: ""
+    desc: rb_hash_aset
+    return: VALUE
+- replace_i: 
+    arguments: 
+    - VALUE: key
+    - VALUE: val
+    - VALUE: hash
+    storage: static
+    desc: replace_i
+    return: int
+- rb_hash_replace: 
+    arguments: 
+    - VALUE: hash
+    - VALUE: hash2
+    storage: static
+    desc: rb_hash_replace
+    return: VALUE
+- rb_hash_size: 
+    arguments: 
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_size
+    return: VALUE
+- rb_hash_empty_p: 
+    arguments: 
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_empty_p
+    return: VALUE
+- each_value_i: 
+    arguments: 
+    - VALUE: key
+    - VALUE: value
+    storage: static
+    desc: each_value_i
+    return: int
+- rb_hash_each_value: 
+    arguments: 
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_each_value
+    return: VALUE
+- each_key_i: 
+    arguments: 
+    - VALUE: key
+    - VALUE: value
+    storage: static
+    desc: each_key_i
+    return: int
+- rb_hash_each_key: 
+    arguments: 
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_each_key
+    return: VALUE
+- each_pair_i: 
+    arguments: 
+    - VALUE: key
+    - VALUE: value
+    storage: static
+    desc: each_pair_i
+    return: int
+- rb_hash_each_pair: 
+    arguments: 
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_each_pair
+    return: VALUE
+- each_i: 
+    arguments: 
+    - VALUE: key
+    - VALUE: value
+    storage: static
+    desc: each_i
+    return: int
+- rb_hash_each: 
+    arguments: 
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_each
+    return: VALUE
+- to_a_i: 
+    arguments: 
+    - VALUE: key
+    - VALUE: value
+    - VALUE: ary
+    storage: static
+    desc: to_a_i
+    return: int
+- rb_hash_to_a: 
+    arguments: 
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_to_a
+    return: VALUE
+- rb_hash_sort: 
+    arguments: 
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_sort
+    return: VALUE
+- inspect_i: 
+    arguments: 
+    - VALUE: key
+    - VALUE: value
+    - VALUE: str
+    storage: static
+    desc: inspect_i
+    return: int
+- inspect_hash: 
+    arguments: 
+    - VALUE: hash
+    storage: static
+    desc: inspect_hash
+    return: VALUE
+- rb_hash_inspect: 
+    arguments: 
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_inspect
+    return: VALUE
+- to_s_hash: 
+    arguments: 
+    - VALUE: hash
+    storage: static
+    desc: to_s_hash
+    return: VALUE
+- rb_hash_to_s: 
+    arguments: 
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_to_s
+    return: VALUE
+- rb_hash_to_hash: 
+    arguments: 
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_to_hash
+    return: VALUE
+- keys_i: 
+    arguments: 
+    - VALUE: key
+    - VALUE: value
+    - VALUE: ary
+    storage: static
+    desc: keys_i
+    return: int
+- rb_hash_keys: 
+    arguments: 
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_keys
+    return: VALUE
+- values_i: 
+    arguments: 
+    - VALUE: key
+    - VALUE: value
+    - VALUE: ary
+    storage: static
+    desc: values_i
+    return: int
+- rb_hash_values: 
+    arguments: 
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_values
+    return: VALUE
+- rb_hash_has_key: 
+    arguments: 
+    - VALUE: hash
+    - VALUE: key
+    storage: static
+    desc: rb_hash_has_key
+    return: VALUE
+- rb_hash_search_value: 
+    arguments: 
+    - VALUE: key
+    - VALUE: value
+    - VALUE *: data
+    storage: static
+    desc: rb_hash_search_value
+    return: int
+- rb_hash_has_value: 
+    arguments: 
+    - VALUE: hash
+    - VALUE: val
+    storage: static
+    desc: rb_hash_has_value
+    return: VALUE
+- equal_i: 
+    arguments: 
+    - VALUE: key
+    - VALUE: val1
+    - struct equal_data *: data
+    storage: static
+    desc: equal_i
+    return: int
+- hash_equal: 
+    arguments: 
+    - VALUE: hash1
+    - VALUE: hash2
+    - int: eql
+    storage: static
+    desc: hash_equal
+    return: VALUE
+- rb_hash_equal: 
+    arguments: 
+    - VALUE: hash1
+    - VALUE: hash2
+    storage: static
+    desc: rb_hash_equal
+    return: VALUE
+- rb_hash_invert_i: 
+    arguments: 
+    - VALUE: key
+    - VALUE: value
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_invert_i
+    return: int
+- rb_hash_invert: 
+    arguments: 
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_invert
+    return: VALUE
+- rb_hash_update_i: 
+    arguments: 
+    - VALUE: key
+    - VALUE: value
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_update_i
+    return: int
+- rb_hash_update_block_i: 
+    arguments: 
+    - VALUE: key
+    - VALUE: value
+    - VALUE: hash
+    storage: static
+    desc: rb_hash_update_block_i
+    return: int
+- rb_hash_update: 
+    arguments: 
+    - VALUE: hash1
+    - VALUE: hash2
+    storage: static
+    desc: rb_hash_update
+    return: VALUE
+- rb_hash_merge: 
+    arguments: 
+    - VALUE: hash1
+    - VALUE: hash2
+    storage: static
+    desc: rb_hash_merge
+    return: VALUE
+- env_str_new: 
+    arguments: 
+    - const char *: ptr
+    - long int: len
+    storage: static
+    desc: env_str_new
+    return: VALUE
+- env_str_new2: 
+    arguments: 
+    - const char *: ptr
+    storage: static
+    desc: env_str_new2
+    return: VALUE
+- env_delete: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: name
+    storage: static
+    desc: env_delete
+    return: VALUE
+- env_delete_m: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: name
+    storage: static
+    desc: env_delete_m
+    return: VALUE
+- rb_f_getenv: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: name
+    storage: static
+    desc: rb_f_getenv
+    return: VALUE
+- env_fetch: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: env_fetch
+    return: VALUE
+- path_tainted_p: 
+    arguments: 
+    - char *: path
+    storage: static
+    desc: path_tainted_p
+    return: void
+- rb_env_path_tainted: 
+    arguments: []
+
+    storage: ""
+    desc: rb_env_path_tainted
+    return: int
+- envix: 
+    arguments: 
+    - const char *: nam
+    storage: static
+    desc: envix
+    return: int
+- ruby_setenv: 
+    arguments: 
+    - const char *: name
+    - const char *: value
+    storage: ""
+    desc: ruby_setenv
+    return: void
+- ruby_unsetenv: 
+    arguments: 
+    - const char *: name
+    storage: ""
+    desc: ruby_unsetenv
+    return: void
+- env_aset: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: nm
+    - VALUE: val
+    storage: static
+    desc: env_aset
+    return: VALUE
+- env_keys: 
+    arguments: []
+
+    storage: static
+    desc: env_keys
+    return: VALUE
+- env_each_key: 
+    arguments: 
+    - VALUE: ehash
+    storage: static
+    desc: env_each_key
+    return: VALUE
+- env_values: 
+    arguments: []
+
+    storage: static
+    desc: env_values
+    return: VALUE
+- env_each_value: 
+    arguments: 
+    - VALUE: ehash
+    storage: static
+    desc: env_each_value
+    return: VALUE
+- env_each_i: 
+    arguments: 
+    - VALUE: ehash
+    - int: values
+    storage: static
+    desc: env_each_i
+    return: VALUE
+- env_each: 
+    arguments: 
+    - VALUE: ehash
+    storage: static
+    desc: env_each
+    return: VALUE
+- env_each_pair: 
+    arguments: 
+    - VALUE: ehash
+    storage: static
+    desc: env_each_pair
+    return: VALUE
+- env_reject_bang: 
+    arguments: []
+
+    storage: static
+    desc: env_reject_bang
+    return: VALUE
+- env_delete_if: 
+    arguments: []
+
+    storage: static
+    desc: env_delete_if
+    return: VALUE
+- env_values_at: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: env_values_at
+    return: VALUE
+- env_select: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: env_select
+    return: VALUE
+- env_clear: 
+    arguments: []
+
+    storage: static
+    desc: env_clear
+    return: VALUE
+- env_to_s: 
+    arguments: []
+
+    storage: static
+    desc: env_to_s
+    return: VALUE
+- env_inspect: 
+    arguments: []
+
+    storage: static
+    desc: env_inspect
+    return: VALUE
+- env_to_a: 
+    arguments: []
+
+    storage: static
+    desc: env_to_a
+    return: VALUE
+- env_none: 
+    arguments: []
+
+    storage: static
+    desc: env_none
+    return: VALUE
+- env_size: 
+    arguments: []
+
+    storage: static
+    desc: env_size
+    return: VALUE
+- env_empty_p: 
+    arguments: []
+
+    storage: static
+    desc: env_empty_p
+    return: VALUE
+- env_has_key: 
+    arguments: 
+    - VALUE: env
+    - VALUE: key
+    storage: static
+    desc: env_has_key
+    return: VALUE
+- env_has_value: 
+    arguments: 
+    - VALUE: dmy
+    - VALUE: value
+    storage: static
+    desc: env_has_value
+    return: VALUE
+- env_index: 
+    arguments: 
+    - VALUE: dmy
+    - VALUE: value
+    storage: static
+    desc: env_index
+    return: VALUE
+- env_indexes: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: env_indexes
+    return: VALUE
+- env_to_hash: 
+    arguments: []
+
+    storage: static
+    desc: env_to_hash
+    return: VALUE
+- env_reject: 
+    arguments: []
+
+    storage: static
+    desc: env_reject
+    return: VALUE
+- env_shift: 
+    arguments: []
+
+    storage: static
+    desc: env_shift
+    return: VALUE
+- env_invert: 
+    arguments: []
+
+    storage: static
+    desc: env_invert
+    return: VALUE
+- env_replace_i: 
+    arguments: 
+    - VALUE: key
+    - VALUE: val
+    - VALUE: keys
+    storage: static
+    desc: env_replace_i
+    return: int
+- env_replace: 
+    arguments: 
+    - VALUE: env
+    - VALUE: hash
+    storage: static
+    desc: env_replace
+    return: VALUE
+- env_update_i: 
+    arguments: 
+    - VALUE: key
+    - VALUE: val
+    storage: static
+    desc: env_update_i
+    return: int
+- env_update: 
+    arguments: 
+    - VALUE: env
+    - VALUE: hash
+    storage: static
+    desc: env_update
+    return: VALUE
+- Init_Hash: 
+    arguments: []
+
+    storage: ""
+    desc: Init_Hash
+    return: void

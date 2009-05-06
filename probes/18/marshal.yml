@@ -1,0 +1,322 @@
+--- 
+- shortlen: 
+    arguments: 
+    - long int: len
+    - unsigned int *: ds
+    storage: static
+    desc: shortlen
+    return: int
+- check_dump_arg: 
+    arguments: 
+    - struct dump_arg *: arg
+    - ID: sym
+    storage: static
+    desc: check_dump_arg
+    return: void
+- mark_dump_arg: 
+    arguments: 
+    - void *: ptr
+    storage: static
+    desc: mark_dump_arg
+    return: void
+- class2path: 
+    arguments: 
+    - VALUE: klass
+    storage: static
+    desc: class2path
+    return: VALUE
+- w_nbyte: 
+    arguments: 
+    - char *: s
+    - int: n
+    - struct dump_arg *: arg
+    storage: static
+    desc: w_nbyte
+    return: void
+- w_byte: 
+    arguments: 
+    - char: c
+    - struct dump_arg *: arg
+    storage: static
+    desc: w_byte
+    return: void
+- w_bytes: 
+    arguments: 
+    - char *: s
+    - int: n
+    - struct dump_arg *: arg
+    storage: static
+    desc: w_bytes
+    return: void
+- w_short: 
+    arguments: 
+    - int: x
+    - struct dump_arg *: arg
+    storage: static
+    desc: w_short
+    return: void
+- w_long: 
+    arguments: 
+    - long int: x
+    - struct dump_arg *: arg
+    storage: static
+    desc: w_long
+    return: void
+- save_mantissa: 
+    arguments: 
+    - double: d
+    - char *: buf
+    storage: static
+    desc: save_mantissa
+    return: int
+- load_mantissa: 
+    arguments: 
+    - double: d
+    - const char *: buf
+    - int: len
+    storage: static
+    desc: load_mantissa
+    return: double
+- w_float: 
+    arguments: 
+    - double: d
+    - struct dump_arg *: arg
+    storage: static
+    desc: w_float
+    return: void
+- w_symbol: 
+    arguments: 
+    - ID: id
+    - struct dump_arg *: arg
+    storage: static
+    desc: w_symbol
+    return: void
+- w_unique: 
+    arguments: 
+    - char *: s
+    - struct dump_arg *: arg
+    storage: static
+    desc: w_unique
+    return: void
+- hash_each: 
+    arguments: 
+    - VALUE: key
+    - VALUE: value
+    - struct dump_call_arg *: arg
+    storage: static
+    desc: hash_each
+    return: int
+- w_extended: 
+    arguments: 
+    - VALUE: klass
+    - struct dump_arg *: arg
+    - int: check
+    storage: static
+    desc: w_extended
+    return: void
+- w_class: 
+    arguments: 
+    - int: type
+    - VALUE: obj
+    - struct dump_arg *: arg
+    - int: check
+    storage: static
+    desc: w_class
+    return: void
+- w_uclass: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: base_klass
+    - struct dump_arg *: arg
+    storage: static
+    desc: w_uclass
+    return: void
+- w_obj_each: 
+    arguments: 
+    - ID: id
+    - VALUE: value
+    - struct dump_call_arg *: arg
+    storage: static
+    desc: w_obj_each
+    return: int
+- w_ivar: 
+    arguments: 
+    - st_table *: tbl
+    - struct dump_call_arg *: arg
+    storage: static
+    desc: w_ivar
+    return: void
+- w_object: 
+    arguments: 
+    - VALUE: obj
+    - struct dump_arg *: arg
+    - int: limit
+    storage: static
+    desc: w_object
+    return: void
+- dump: 
+    arguments: 
+    - struct dump_call_arg *: arg
+    storage: static
+    desc: dump
+    return: VALUE
+- dump_ensure: 
+    arguments: 
+    - struct dump_arg *: arg
+    storage: static
+    desc: dump_ensure
+    return: VALUE
+- marshal_dump: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: marshal_dump
+    return: VALUE
+- check_load_arg: 
+    arguments: 
+    - struct load_arg *: arg
+    - ID: sym
+    storage: static
+    desc: check_load_arg
+    return: void
+- mark_load_arg: 
+    arguments: 
+    - void *: ptr
+    storage: static
+    desc: mark_load_arg
+    return: void
+- r_byte: 
+    arguments: 
+    - struct load_arg *: arg
+    storage: static
+    desc: r_byte
+    return: int
+- long_toobig: 
+    arguments: 
+    - int: size
+    storage: static
+    desc: long_toobig
+    return: void
+- r_long: 
+    arguments: 
+    - struct load_arg *: arg
+    storage: static
+    desc: r_long
+    return: long int
+- r_bytes0: 
+    arguments: 
+    - long int: len
+    - struct load_arg *: arg
+    storage: static
+    desc: r_bytes0
+    return: VALUE
+- r_symlink: 
+    arguments: 
+    - struct load_arg *: arg
+    storage: static
+    desc: r_symlink
+    return: ID
+- r_symreal: 
+    arguments: 
+    - struct load_arg *: arg
+    storage: static
+    desc: r_symreal
+    return: ID
+- r_symbol: 
+    arguments: 
+    - struct load_arg *: arg
+    storage: static
+    desc: r_symbol
+    return: ID
+- r_unique: 
+    arguments: 
+    - struct load_arg *: arg
+    storage: static
+    desc: r_unique
+    return: char *
+- r_string: 
+    arguments: 
+    - struct load_arg *: arg
+    storage: static
+    desc: r_string
+    return: VALUE
+- r_entry: 
+    arguments: 
+    - VALUE: v
+    - struct load_arg *: arg
+    storage: static
+    desc: r_entry
+    return: VALUE
+- r_ivar: 
+    arguments: 
+    - VALUE: obj
+    - struct load_arg *: arg
+    storage: static
+    desc: r_ivar
+    return: void
+- path2class: 
+    arguments: 
+    - char *: path
+    storage: static
+    desc: path2class
+    return: VALUE
+- path2module: 
+    arguments: 
+    - char *: path
+    storage: static
+    desc: path2module
+    return: VALUE
+- r_object0: 
+    arguments: 
+    - struct load_arg *: arg
+    - VALUE: proc
+    - int *: ivp
+    - VALUE: extmod
+    storage: static
+    desc: r_object0
+    return: VALUE
+- r_object: 
+    arguments: 
+    - struct load_arg *: arg
+    storage: static
+    desc: r_object
+    return: VALUE
+- load: 
+    arguments: 
+    - struct load_arg *: arg
+    storage: static
+    desc: load
+    return: VALUE
+- load_ensure: 
+    arguments: 
+    - struct load_arg *: arg
+    storage: static
+    desc: load_ensure
+    return: VALUE
+- marshal_load: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: marshal_load
+    return: VALUE
+- Init_marshal: 
+    arguments: []
+
+    storage: ""
+    desc: Init_marshal
+    return: void
+- rb_marshal_dump: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: port
+    storage: ""
+    desc: rb_marshal_dump
+    return: VALUE
+- rb_marshal_load: 
+    arguments: 
+    - VALUE: port
+    storage: ""
+    desc: rb_marshal_load
+    return: VALUE

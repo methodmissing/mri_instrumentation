@@ -1,0 +1,1045 @@
+--- 
+- str_mod_check: 
+    arguments: 
+    - VALUE: s
+    - char *: p
+    - long int: len
+    storage: static
+    desc: str_mod_check
+    return: void
+- str_frozen_check: 
+    arguments: 
+    - VALUE: s
+    storage: static
+    desc: str_frozen_check
+    return: void
+- str_alloc: 
+    arguments: 
+    - VALUE: klass
+    storage: static
+    desc: str_alloc
+    return: VALUE
+- str_new: 
+    arguments: 
+    - VALUE: klass
+    - const char *: ptr
+    - long int: len
+    storage: static
+    desc: str_new
+    return: VALUE
+- rb_str_new: 
+    arguments: 
+    - const char *: ptr
+    - long int: len
+    storage: ""
+    desc: rb_str_new
+    return: VALUE
+- rb_str_new2: 
+    arguments: 
+    - const char *: ptr
+    storage: ""
+    desc: rb_str_new2
+    return: VALUE
+- rb_tainted_str_new: 
+    arguments: 
+    - const char *: ptr
+    - long int: len
+    storage: ""
+    desc: rb_tainted_str_new
+    return: VALUE
+- rb_tainted_str_new2: 
+    arguments: 
+    - const char *: ptr
+    storage: ""
+    desc: rb_tainted_str_new2
+    return: VALUE
+- str_new3: 
+    arguments: 
+    - VALUE: klass
+    - VALUE: str
+    storage: static
+    desc: str_new3
+    return: VALUE
+- rb_str_new3: 
+    arguments: 
+    - VALUE: str
+    storage: ""
+    desc: rb_str_new3
+    return: VALUE
+- str_new4: 
+    arguments: 
+    - VALUE: klass
+    - VALUE: str
+    storage: static
+    desc: str_new4
+    return: VALUE
+- rb_str_new4: 
+    arguments: 
+    - VALUE: orig
+    storage: ""
+    desc: rb_str_new4
+    return: VALUE
+- rb_str_new5: 
+    arguments: 
+    - VALUE: obj
+    - const char *: ptr
+    - long int: len
+    storage: ""
+    desc: rb_str_new5
+    return: VALUE
+- rb_str_buf_new: 
+    arguments: 
+    - long int: capa
+    storage: ""
+    desc: rb_str_buf_new
+    return: VALUE
+- rb_str_buf_new2: 
+    arguments: 
+    - const char *: ptr
+    storage: ""
+    desc: rb_str_buf_new2
+    return: VALUE
+- rb_str_to_str: 
+    arguments: 
+    - VALUE: str
+    storage: ""
+    desc: rb_str_to_str
+    return: VALUE
+- rb_str_shared_replace: 
+    arguments: 
+    - VALUE: str
+    - VALUE: str2
+    storage: static
+    desc: rb_str_shared_replace
+    return: void
+- rb_obj_as_string: 
+    arguments: 
+    - VALUE: obj
+    storage: ""
+    desc: rb_obj_as_string
+    return: VALUE
+- rb_str_dup: 
+    arguments: 
+    - VALUE: str
+    storage: ""
+    desc: rb_str_dup
+    return: VALUE
+- rb_str_init: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: str
+    storage: static
+    desc: rb_str_init
+    return: VALUE
+- rb_str_length: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_length
+    return: VALUE
+- rb_str_empty: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_empty
+    return: VALUE
+- rb_str_plus: 
+    arguments: 
+    - VALUE: str1
+    - VALUE: str2
+    storage: ""
+    desc: rb_str_plus
+    return: VALUE
+- rb_str_times: 
+    arguments: 
+    - VALUE: str
+    - VALUE: times
+    storage: ""
+    desc: rb_str_times
+    return: VALUE
+- rb_str_format_m: 
+    arguments: 
+    - VALUE: str
+    - VALUE: arg
+    storage: static
+    desc: rb_str_format_m
+    return: VALUE
+- str_independent: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: str_independent
+    return: int
+- str_make_independent: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: str_make_independent
+    return: void
+- rb_str_modify: 
+    arguments: 
+    - VALUE: str
+    storage: ""
+    desc: rb_str_modify
+    return: void
+- rb_str_associate: 
+    arguments: 
+    - VALUE: str
+    - VALUE: add
+    storage: ""
+    desc: rb_str_associate
+    return: void
+- rb_str_associated: 
+    arguments: 
+    - VALUE: str
+    storage: ""
+    desc: rb_str_associated
+    return: VALUE
+- rb_str_s_alloc: 
+    arguments: 
+    - VALUE: klass
+    storage: static
+    desc: rb_str_s_alloc
+    return: VALUE
+- rb_string_value: 
+    arguments: 
+    - volatile VALUE *: ptr
+    storage: ""
+    desc: rb_string_value
+    return: VALUE
+- rb_string_value_ptr: 
+    arguments: 
+    - volatile VALUE *: ptr
+    storage: ""
+    desc: rb_string_value_ptr
+    return: char *
+- rb_string_value_cstr: 
+    arguments: 
+    - volatile VALUE *: ptr
+    storage: ""
+    desc: rb_string_value_cstr
+    return: char *
+- rb_check_string_type: 
+    arguments: 
+    - VALUE: str
+    storage: ""
+    desc: rb_check_string_type
+    return: VALUE
+- rb_str_substr: 
+    arguments: 
+    - VALUE: str
+    - long int: beg
+    - long int: len
+    storage: ""
+    desc: rb_str_substr
+    return: VALUE
+- rb_str_freeze: 
+    arguments: 
+    - VALUE: str
+    storage: ""
+    desc: rb_str_freeze
+    return: VALUE
+- rb_str_dup_frozen: 
+    arguments: 
+    - VALUE: str
+    storage: ""
+    desc: rb_str_dup_frozen
+    return: VALUE
+- rb_str_locktmp: 
+    arguments: 
+    - VALUE: str
+    storage: ""
+    desc: rb_str_locktmp
+    return: VALUE
+- rb_str_unlocktmp: 
+    arguments: 
+    - VALUE: str
+    storage: ""
+    desc: rb_str_unlocktmp
+    return: VALUE
+- rb_str_resize: 
+    arguments: 
+    - VALUE: str
+    - long int: len
+    storage: ""
+    desc: rb_str_resize
+    return: VALUE
+- str_buf_cat: 
+    arguments: 
+    - VALUE: str
+    - const char *: ptr
+    - long int: len
+    storage: static
+    desc: str_buf_cat
+    return: VALUE
+- rb_str_buf_cat: 
+    arguments: 
+    - VALUE: str
+    - const char *: ptr
+    - long int: len
+    storage: ""
+    desc: rb_str_buf_cat
+    return: VALUE
+- rb_str_buf_cat2: 
+    arguments: 
+    - VALUE: str
+    - const char *: ptr
+    storage: ""
+    desc: rb_str_buf_cat2
+    return: VALUE
+- rb_str_cat: 
+    arguments: 
+    - VALUE: str
+    - const char *: ptr
+    - long int: len
+    storage: ""
+    desc: rb_str_cat
+    return: VALUE
+- rb_str_cat2: 
+    arguments: 
+    - VALUE: str
+    - const char *: ptr
+    storage: ""
+    desc: rb_str_cat2
+    return: VALUE
+- rb_str_buf_append: 
+    arguments: 
+    - VALUE: str
+    - VALUE: str2
+    storage: ""
+    desc: rb_str_buf_append
+    return: VALUE
+- rb_str_append: 
+    arguments: 
+    - VALUE: str
+    - VALUE: str2
+    storage: ""
+    desc: rb_str_append
+    return: VALUE
+- rb_str_concat: 
+    arguments: 
+    - VALUE: str1
+    - VALUE: str2
+    storage: ""
+    desc: rb_str_concat
+    return: VALUE
+- rb_str_hash: 
+    arguments: 
+    - VALUE: str
+    storage: ""
+    desc: rb_str_hash
+    return: int
+- rb_str_hash_m: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_hash_m
+    return: VALUE
+- rb_str_cmp: 
+    arguments: 
+    - VALUE: str1
+    - VALUE: str2
+    storage: ""
+    desc: rb_str_cmp
+    return: int
+- rb_str_equal: 
+    arguments: 
+    - VALUE: str1
+    - VALUE: str2
+    storage: static
+    desc: rb_str_equal
+    return: VALUE
+- rb_str_eql: 
+    arguments: 
+    - VALUE: str1
+    - VALUE: str2
+    storage: static
+    desc: rb_str_eql
+    return: VALUE
+- rb_str_cmp_m: 
+    arguments: 
+    - VALUE: str1
+    - VALUE: str2
+    storage: static
+    desc: rb_str_cmp_m
+    return: VALUE
+- rb_str_casecmp: 
+    arguments: 
+    - VALUE: str1
+    - VALUE: str2
+    storage: static
+    desc: rb_str_casecmp
+    return: VALUE
+- rb_str_index: 
+    arguments: 
+    - VALUE: str
+    - VALUE: sub
+    - long int: offset
+    storage: static
+    desc: rb_str_index
+    return: long int
+- rb_str_index_m: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: str
+    storage: static
+    desc: rb_str_index_m
+    return: VALUE
+- rb_str_rindex: 
+    arguments: 
+    - VALUE: str
+    - VALUE: sub
+    - long int: pos
+    storage: static
+    desc: rb_str_rindex
+    return: long int
+- rb_str_rindex_m: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: str
+    storage: static
+    desc: rb_str_rindex_m
+    return: VALUE
+- rb_str_match: 
+    arguments: 
+    - VALUE: x
+    - VALUE: y
+    storage: static
+    desc: rb_str_match
+    return: VALUE
+- rb_str_match_m: 
+    arguments: 
+    - VALUE: str
+    - VALUE: re
+    storage: static
+    desc: rb_str_match_m
+    return: VALUE
+- succ_char: 
+    arguments: 
+    - char *: s
+    storage: static
+    desc: succ_char
+    return: char
+- rb_str_succ: 
+    arguments: 
+    - VALUE: orig
+    storage: static
+    desc: rb_str_succ
+    return: VALUE
+- rb_str_succ_bang: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_succ_bang
+    return: VALUE
+- rb_str_upto: 
+    arguments: 
+    - VALUE: beg
+    - VALUE: end
+    - int: excl
+    storage: ""
+    desc: rb_str_upto
+    return: VALUE
+- rb_str_upto_m: 
+    arguments: 
+    - VALUE: beg
+    - VALUE: end
+    storage: static
+    desc: rb_str_upto_m
+    return: VALUE
+- rb_str_subpat: 
+    arguments: 
+    - VALUE: str
+    - VALUE: re
+    - int: nth
+    storage: static
+    desc: rb_str_subpat
+    return: VALUE
+- rb_str_aref: 
+    arguments: 
+    - VALUE: str
+    - VALUE: indx
+    storage: static
+    desc: rb_str_aref
+    return: VALUE
+- rb_str_aref_m: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: str
+    storage: static
+    desc: rb_str_aref_m
+    return: VALUE
+- rb_str_splice: 
+    arguments: 
+    - VALUE: str
+    - long int: beg
+    - long int: len
+    - VALUE: val
+    storage: static
+    desc: rb_str_splice
+    return: void
+- rb_str_update: 
+    arguments: 
+    - VALUE: str
+    - long int: beg
+    - long int: len
+    - VALUE: val
+    storage: ""
+    desc: rb_str_update
+    return: void
+- rb_str_subpat_set: 
+    arguments: 
+    - VALUE: str
+    - VALUE: re
+    - int: nth
+    - VALUE: val
+    storage: static
+    desc: rb_str_subpat_set
+    return: void
+- rb_str_aset: 
+    arguments: 
+    - VALUE: str
+    - VALUE: indx
+    - VALUE: val
+    storage: static
+    desc: rb_str_aset
+    return: VALUE
+- rb_str_aset_m: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: str
+    storage: static
+    desc: rb_str_aset_m
+    return: VALUE
+- rb_str_insert: 
+    arguments: 
+    - VALUE: str
+    - VALUE: idx
+    - VALUE: str2
+    storage: static
+    desc: rb_str_insert
+    return: VALUE
+- rb_str_slice_bang: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: str
+    storage: static
+    desc: rb_str_slice_bang
+    return: VALUE
+- get_pat: 
+    arguments: 
+    - VALUE: pat
+    - int: quote
+    storage: static
+    desc: get_pat
+    return: VALUE
+- rb_str_sub_bang: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: str
+    storage: static
+    desc: rb_str_sub_bang
+    return: VALUE
+- rb_str_sub: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: str
+    storage: static
+    desc: rb_str_sub
+    return: VALUE
+- str_gsub: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: str
+    - int: bang
+    storage: static
+    desc: str_gsub
+    return: VALUE
+- rb_str_gsub_bang: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: str
+    storage: static
+    desc: rb_str_gsub_bang
+    return: VALUE
+- rb_str_gsub: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: str
+    storage: static
+    desc: rb_str_gsub
+    return: VALUE
+- rb_str_replace: 
+    arguments: 
+    - VALUE: str
+    - VALUE: str2
+    storage: static
+    desc: rb_str_replace
+    return: VALUE
+- uscore_get: 
+    arguments: []
+
+    storage: static
+    desc: uscore_get
+    return: VALUE
+- rb_f_sub_bang: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_f_sub_bang
+    return: VALUE
+- rb_f_sub: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_f_sub
+    return: VALUE
+- rb_f_gsub_bang: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_f_gsub_bang
+    return: VALUE
+- rb_f_gsub: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_f_gsub
+    return: VALUE
+- rb_str_reverse_bang: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_reverse_bang
+    return: VALUE
+- rb_str_reverse: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_reverse
+    return: VALUE
+- rb_str_include: 
+    arguments: 
+    - VALUE: str
+    - VALUE: arg
+    storage: static
+    desc: rb_str_include
+    return: VALUE
+- rb_str_to_i: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: str
+    storage: static
+    desc: rb_str_to_i
+    return: VALUE
+- rb_str_to_f: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_to_f
+    return: VALUE
+- rb_str_to_s: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_to_s
+    return: VALUE
+- rb_str_inspect: 
+    arguments: 
+    - VALUE: str
+    storage: ""
+    desc: rb_str_inspect
+    return: VALUE
+- rb_str_dump: 
+    arguments: 
+    - VALUE: str
+    storage: ""
+    desc: rb_str_dump
+    return: VALUE
+- rb_str_upcase_bang: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_upcase_bang
+    return: VALUE
+- rb_str_upcase: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_upcase
+    return: VALUE
+- rb_str_downcase_bang: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_downcase_bang
+    return: VALUE
+- rb_str_downcase: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_downcase
+    return: VALUE
+- rb_str_capitalize_bang: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_capitalize_bang
+    return: VALUE
+- rb_str_capitalize: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_capitalize
+    return: VALUE
+- rb_str_swapcase_bang: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_swapcase_bang
+    return: VALUE
+- rb_str_swapcase: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_swapcase
+    return: VALUE
+- trnext: 
+    arguments: 
+    - struct tr *: t
+    storage: static
+    desc: trnext
+    return: int
+- tr_trans: 
+    arguments: 
+    - VALUE: str
+    - VALUE: src
+    - VALUE: repl
+    - int: sflag
+    storage: static
+    desc: tr_trans
+    return: VALUE
+- rb_str_tr_bang: 
+    arguments: 
+    - VALUE: str
+    - VALUE: src
+    - VALUE: repl
+    storage: static
+    desc: rb_str_tr_bang
+    return: VALUE
+- rb_str_tr: 
+    arguments: 
+    - VALUE: str
+    - VALUE: src
+    - VALUE: repl
+    storage: static
+    desc: rb_str_tr
+    return: VALUE
+- tr_setup_table: 
+    arguments: 
+    - VALUE: str
+    - char [256]: table
+    - int: init
+    storage: static
+    desc: tr_setup_table
+    return: void
+- rb_str_delete_bang: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: str
+    storage: static
+    desc: rb_str_delete_bang
+    return: VALUE
+- rb_str_delete: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: str
+    storage: static
+    desc: rb_str_delete
+    return: VALUE
+- rb_str_squeeze_bang: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: str
+    storage: static
+    desc: rb_str_squeeze_bang
+    return: VALUE
+- rb_str_squeeze: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: str
+    storage: static
+    desc: rb_str_squeeze
+    return: VALUE
+- rb_str_tr_s_bang: 
+    arguments: 
+    - VALUE: str
+    - VALUE: src
+    - VALUE: repl
+    storage: static
+    desc: rb_str_tr_s_bang
+    return: VALUE
+- rb_str_tr_s: 
+    arguments: 
+    - VALUE: str
+    - VALUE: src
+    - VALUE: repl
+    storage: static
+    desc: rb_str_tr_s
+    return: VALUE
+- rb_str_count: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: str
+    storage: static
+    desc: rb_str_count
+    return: VALUE
+- rb_str_split_m: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: str
+    storage: static
+    desc: rb_str_split_m
+    return: VALUE
+- rb_str_split: 
+    arguments: 
+    - VALUE: str
+    - const char *: sep0
+    storage: ""
+    desc: rb_str_split
+    return: VALUE
+- rb_f_split: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_f_split
+    return: VALUE
+- rb_str_each_line: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: str
+    storage: static
+    desc: rb_str_each_line
+    return: VALUE
+- rb_str_each_byte: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_each_byte
+    return: VALUE
+- rb_str_chop_bang: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_chop_bang
+    return: VALUE
+- rb_str_chop: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_chop
+    return: VALUE
+- rb_f_chop_bang: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_f_chop_bang
+    return: VALUE
+- rb_f_chop: 
+    arguments: []
+
+    storage: static
+    desc: rb_f_chop
+    return: VALUE
+- rb_str_chomp_bang: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: str
+    storage: static
+    desc: rb_str_chomp_bang
+    return: VALUE
+- rb_str_chomp: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: str
+    storage: static
+    desc: rb_str_chomp
+    return: VALUE
+- rb_f_chomp_bang: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_f_chomp_bang
+    return: VALUE
+- rb_f_chomp: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: static
+    desc: rb_f_chomp
+    return: VALUE
+- rb_str_lstrip_bang: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_lstrip_bang
+    return: VALUE
+- rb_str_lstrip: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_lstrip
+    return: VALUE
+- rb_str_rstrip_bang: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_rstrip_bang
+    return: VALUE
+- rb_str_rstrip: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_rstrip
+    return: VALUE
+- rb_str_strip_bang: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_strip_bang
+    return: VALUE
+- rb_str_strip: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_strip
+    return: VALUE
+- scan_once: 
+    arguments: 
+    - VALUE: str
+    - VALUE: pat
+    - long int *: start
+    storage: static
+    desc: scan_once
+    return: VALUE
+- rb_str_scan: 
+    arguments: 
+    - VALUE: str
+    - VALUE: pat
+    storage: static
+    desc: rb_str_scan
+    return: VALUE
+- rb_f_scan: 
+    arguments: 
+    - VALUE: self
+    - VALUE: pat
+    storage: static
+    desc: rb_f_scan
+    return: VALUE
+- rb_str_hex: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_hex
+    return: VALUE
+- rb_str_oct: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: rb_str_oct
+    return: VALUE
+- rb_str_crypt: 
+    arguments: 
+    - VALUE: str
+    - VALUE: salt
+    storage: static
+    desc: rb_str_crypt
+    return: VALUE
+- rb_str_intern: 
+    arguments: 
+    - VALUE: s
+    storage: ""
+    desc: rb_str_intern
+    return: VALUE
+- rb_str_sum: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: str
+    storage: static
+    desc: rb_str_sum
+    return: VALUE
+- rb_str_justify: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: str
+    - char: jflag
+    storage: static
+    desc: rb_str_justify
+    return: VALUE
+- rb_str_ljust: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: str
+    storage: static
+    desc: rb_str_ljust
+    return: VALUE
+- rb_str_rjust: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: str
+    storage: static
+    desc: rb_str_rjust
+    return: VALUE
+- rb_str_center: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: str
+    storage: static
+    desc: rb_str_center
+    return: VALUE
+- rb_str_setter: 
+    arguments: 
+    - VALUE: val
+    - ID: id
+    - VALUE *: var
+    storage: ""
+    desc: rb_str_setter
+    return: void
+- Init_String: 
+    arguments: []
+
+    storage: ""
+    desc: Init_String
+    return: void

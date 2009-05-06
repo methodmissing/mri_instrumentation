@@ -1,0 +1,78 @@
+--- 
+- swapd: 
+    arguments: 
+    - const double: d
+    storage: static
+    desc: swapd
+    return: double
+- num2i32: 
+    arguments: 
+    - VALUE: x
+    storage: static
+    desc: num2i32
+    return: unsigned long int
+- pack_pack: 
+    arguments: 
+    - VALUE: ary
+    - VALUE: fmt
+    storage: static
+    desc: pack_pack
+    return: VALUE
+- encodes: 
+    arguments: 
+    - VALUE: str
+    - char *: s
+    - long int: len
+    - int: type
+    storage: static
+    desc: encodes
+    return: void
+- qpencode: 
+    arguments: 
+    - VALUE: str
+    - VALUE: from
+    - long int: len
+    storage: static
+    desc: qpencode
+    return: void
+- hex2num: 
+    arguments: 
+    - char: c
+    storage: static
+    desc: hex2num
+    return: int
+- infected_str_new: 
+    arguments: 
+    - const char *: ptr
+    - long int: len
+    - VALUE: str
+    storage: static
+    desc: infected_str_new
+    return: VALUE
+- pack_unpack: 
+    arguments: 
+    - VALUE: str
+    - VALUE: fmt
+    storage: static
+    desc: pack_unpack
+    return: VALUE
+- uv_to_utf8: 
+    arguments: 
+    - char *: buf
+    - unsigned long int: uv
+    storage: static
+    desc: uv_to_utf8
+    return: int
+- utf8_to_uv: 
+    arguments: 
+    - char *: p
+    - long int *: lenp
+    storage: static
+    desc: utf8_to_uv
+    return: unsigned long int
+- Init_pack: 
+    arguments: []
+
+    storage: ""
+    desc: Init_pack
+    return: void

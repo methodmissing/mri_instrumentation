@@ -1,0 +1,704 @@
+--- 
+- yyerror: 
+    arguments: 
+    - const char *: msg
+    storage: static
+    desc: yyerror
+    return: int
+- yycompile: 
+    arguments: 
+    - char *: f
+    - int: line
+    storage: static
+    desc: yycompile
+    return: NODE *
+- lex_get_str: 
+    arguments: 
+    - VALUE: s
+    storage: static
+    desc: lex_get_str
+    return: VALUE
+- lex_getline: 
+    arguments: []
+
+    storage: static
+    desc: lex_getline
+    return: VALUE
+- rb_compile_string: 
+    arguments: 
+    - const char *: f
+    - VALUE: s
+    - int: line
+    storage: ""
+    desc: rb_compile_string
+    return: NODE *
+- rb_compile_cstr: 
+    arguments: 
+    - const char *: f
+    - const char *: s
+    - int: len
+    - int: line
+    storage: ""
+    desc: rb_compile_cstr
+    return: NODE *
+- rb_compile_file: 
+    arguments: 
+    - const char *: f
+    - VALUE: file
+    - int: start
+    storage: ""
+    desc: rb_compile_file
+    return: NODE *
+- nextc: 
+    arguments: []
+
+    storage: static
+    desc: nextc
+    return: int
+- pushback: 
+    arguments: 
+    - int: c
+    storage: static
+    desc: pushback
+    return: void
+- newtok: 
+    arguments: []
+
+    storage: static
+    desc: newtok
+    return: char *
+- tokadd: 
+    arguments: 
+    - char: c
+    storage: static
+    desc: tokadd
+    return: void
+- read_escape: 
+    arguments: []
+
+    storage: static
+    desc: read_escape
+    return: int
+- tokadd_escape: 
+    arguments: 
+    - int: term
+    storage: static
+    desc: tokadd_escape
+    return: int
+- regx_options: 
+    arguments: []
+
+    storage: static
+    desc: regx_options
+    return: int
+- dispose_string: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: dispose_string
+    return: void
+- tokadd_string: 
+    arguments: 
+    - int: func
+    - int: term
+    - int: paren
+    - int *: nest
+    storage: static
+    desc: tokadd_string
+    return: int
+- parse_string: 
+    arguments: 
+    - NODE *: quote
+    storage: static
+    desc: parse_string
+    return: int
+- heredoc_identifier: 
+    arguments: []
+
+    storage: static
+    desc: heredoc_identifier
+    return: int
+- heredoc_restore: 
+    arguments: 
+    - NODE *: here
+    storage: static
+    desc: heredoc_restore
+    return: void
+- whole_match_p: 
+    arguments: 
+    - char *: eos
+    - int: len
+    - int: indent
+    storage: static
+    desc: whole_match_p
+    return: int
+- here_document: 
+    arguments: 
+    - NODE *: here
+    storage: static
+    desc: here_document
+    return: int
+- hash: 
+    arguments: 
+    - const char *: str
+    - unsigned int: len
+    storage: static
+    desc: hash
+    return: unsigned int
+- rb_reserved_word: 
+    arguments: 
+    - const char *: str
+    - unsigned int: len
+    storage: ""
+    desc: rb_reserved_word
+    return: struct kwtable *
+- arg_ambiguous: 
+    arguments: []
+
+    storage: static
+    desc: arg_ambiguous
+    return: void
+- yylex: 
+    arguments: []
+
+    storage: static
+    desc: yylex
+    return: int
+- rb_node_newnode: 
+    arguments: 
+    - enum node_type: type
+    - VALUE: a0
+    - VALUE: a1
+    - VALUE: a2
+    storage: ""
+    desc: rb_node_newnode
+    return: NODE *
+- nodetype: 
+    arguments: 
+    - NODE *: node
+    storage: static
+    desc: nodetype
+    return: enum node_type
+- nodeline: 
+    arguments: 
+    - NODE *: node
+    storage: static
+    desc: nodeline
+    return: int
+- newline_node: 
+    arguments: 
+    - NODE *: node
+    storage: static
+    desc: newline_node
+    return: NODE *
+- fixpos: 
+    arguments: 
+    - NODE *: node
+    - NODE *: orig
+    storage: static
+    desc: fixpos
+    return: void
+- parser_warning: 
+    arguments: 
+    - NODE *: node
+    - const char *: mesg
+    storage: static
+    desc: parser_warning
+    return: void
+- parser_warn: 
+    arguments: 
+    - NODE *: node
+    - const char *: mesg
+    storage: static
+    desc: parser_warn
+    return: void
+- block_append: 
+    arguments: 
+    - NODE *: head
+    - NODE *: tail
+    storage: static
+    desc: block_append
+    return: NODE *
+- list_append: 
+    arguments: 
+    - NODE *: list
+    - NODE *: item
+    storage: static
+    desc: list_append
+    return: NODE *
+- list_concat: 
+    arguments: 
+    - NODE *: head
+    - NODE *: tail
+    storage: static
+    desc: list_concat
+    return: NODE *
+- literal_concat: 
+    arguments: 
+    - NODE *: head
+    - NODE *: tail
+    storage: static
+    desc: literal_concat
+    return: NODE *
+- evstr2dstr: 
+    arguments: 
+    - NODE *: node
+    storage: static
+    desc: evstr2dstr
+    return: NODE *
+- new_evstr: 
+    arguments: 
+    - NODE *: node
+    storage: static
+    desc: new_evstr
+    return: NODE *
+- call_op: 
+    arguments: 
+    - NODE *: recv
+    - ID: id
+    - int: narg
+    - NODE *: arg1
+    storage: static
+    desc: call_op
+    return: NODE *
+- match_gen: 
+    arguments: 
+    - NODE *: node1
+    - NODE *: node2
+    storage: static
+    desc: match_gen
+    return: NODE *
+- gettable: 
+    arguments: 
+    - ID: id
+    storage: static
+    desc: gettable
+    return: NODE *
+- assignable: 
+    arguments: 
+    - ID: id
+    - NODE *: val
+    storage: static
+    desc: assignable
+    return: NODE *
+- aryset: 
+    arguments: 
+    - NODE *: recv
+    - NODE *: idx
+    storage: static
+    desc: aryset
+    return: NODE *
+- rb_id_attrset: 
+    arguments: 
+    - ID: id
+    storage: ""
+    desc: rb_id_attrset
+    return: ID
+- attrset: 
+    arguments: 
+    - NODE *: recv
+    - ID: id
+    storage: static
+    desc: attrset
+    return: NODE *
+- rb_backref_error: 
+    arguments: 
+    - NODE *: node
+    storage: static
+    desc: rb_backref_error
+    return: void
+- arg_concat: 
+    arguments: 
+    - NODE *: node1
+    - NODE *: node2
+    storage: static
+    desc: arg_concat
+    return: NODE *
+- arg_add: 
+    arguments: 
+    - NODE *: node1
+    - NODE *: node2
+    storage: static
+    desc: arg_add
+    return: NODE *
+- node_assign: 
+    arguments: 
+    - NODE *: lhs
+    - NODE *: rhs
+    storage: static
+    desc: node_assign
+    return: NODE *
+- value_expr0: 
+    arguments: 
+    - NODE *: node
+    storage: static
+    desc: value_expr0
+    return: int
+- void_expr0: 
+    arguments: 
+    - NODE *: node
+    storage: static
+    desc: void_expr0
+    return: void
+- void_stmts: 
+    arguments: 
+    - NODE *: node
+    storage: static
+    desc: void_stmts
+    return: void
+- remove_begin: 
+    arguments: 
+    - NODE *: node
+    storage: static
+    desc: remove_begin
+    return: NODE *
+- assign_in_cond: 
+    arguments: 
+    - NODE *: node
+    storage: static
+    desc: assign_in_cond
+    return: int
+- e_option_supplied: 
+    arguments: []
+
+    storage: static
+    desc: e_option_supplied
+    return: int
+- warn_unless_e_option: 
+    arguments: 
+    - NODE *: node
+    - const char *: str
+    storage: static
+    desc: warn_unless_e_option
+    return: void
+- warning_unless_e_option: 
+    arguments: 
+    - NODE *: node
+    - const char *: str
+    storage: static
+    desc: warning_unless_e_option
+    return: void
+- fixup_nodes: 
+    arguments: 
+    - NODE **: rootnode
+    storage: static
+    desc: fixup_nodes
+    return: void
+- range_op: 
+    arguments: 
+    - NODE *: node
+    storage: static
+    desc: range_op
+    return: NODE *
+- literal_node: 
+    arguments: 
+    - NODE *: node
+    storage: static
+    desc: literal_node
+    return: int
+- cond0: 
+    arguments: 
+    - NODE *: node
+    storage: static
+    desc: cond0
+    return: NODE *
+- cond: 
+    arguments: 
+    - NODE *: node
+    storage: static
+    desc: cond
+    return: NODE *
+- logop: 
+    arguments: 
+    - enum node_type: type
+    - NODE *: left
+    - NODE *: right
+    storage: static
+    desc: logop
+    return: NODE *
+- cond_negative: 
+    arguments: 
+    - NODE **: nodep
+    storage: static
+    desc: cond_negative
+    return: int
+- no_blockarg: 
+    arguments: 
+    - NODE *: node
+    storage: static
+    desc: no_blockarg
+    return: void
+- ret_args: 
+    arguments: 
+    - NODE *: node
+    storage: static
+    desc: ret_args
+    return: NODE *
+- new_yield: 
+    arguments: 
+    - NODE *: node
+    storage: static
+    desc: new_yield
+    return: NODE *
+- negate_lit: 
+    arguments: 
+    - NODE *: node
+    storage: static
+    desc: negate_lit
+    return: NODE *
+- arg_blk_pass: 
+    arguments: 
+    - NODE *: node1
+    - NODE *: node2
+    storage: static
+    desc: arg_blk_pass
+    return: NODE *
+- arg_prepend: 
+    arguments: 
+    - NODE *: node1
+    - NODE *: node2
+    storage: static
+    desc: arg_prepend
+    return: NODE *
+- new_call: 
+    arguments: 
+    - NODE *: r
+    - ID: m
+    - NODE *: a
+    storage: static
+    desc: new_call
+    return: NODE *
+- new_fcall: 
+    arguments: 
+    - ID: m
+    - NODE *: a
+    storage: static
+    desc: new_fcall
+    return: NODE *
+- new_super: 
+    arguments: 
+    - NODE *: a
+    storage: static
+    desc: new_super
+    return: NODE *
+- local_push: 
+    arguments: 
+    - int: top
+    storage: static
+    desc: local_push
+    return: void
+- local_pop: 
+    arguments: []
+
+    storage: static
+    desc: local_pop
+    return: void
+- local_tbl: 
+    arguments: []
+
+    storage: static
+    desc: local_tbl
+    return: ID *
+- local_append: 
+    arguments: 
+    - ID: id
+    storage: static
+    desc: local_append
+    return: int
+- local_cnt: 
+    arguments: 
+    - ID: id
+    storage: static
+    desc: local_cnt
+    return: int
+- local_id: 
+    arguments: 
+    - ID: id
+    storage: static
+    desc: local_id
+    return: int
+- top_local_init: 
+    arguments: []
+
+    storage: static
+    desc: top_local_init
+    return: void
+- top_local_setup: 
+    arguments: []
+
+    storage: static
+    desc: top_local_setup
+    return: void
+- dyna_var_lookup: 
+    arguments: 
+    - ID: id
+    storage: static
+    desc: dyna_var_lookup
+    return: VALUE
+- dyna_push: 
+    arguments: []
+
+    storage: static
+    desc: dyna_push
+    return: struct RVarmap *
+- dyna_pop: 
+    arguments: 
+    - struct RVarmap *: vars
+    storage: static
+    desc: dyna_pop
+    return: void
+- dyna_in_block: 
+    arguments: []
+
+    storage: static
+    desc: dyna_in_block
+    return: int
+- dyna_init: 
+    arguments: 
+    - NODE *: node
+    - struct RVarmap *: pre
+    storage: static
+    desc: dyna_init
+    return: NODE *
+- ruby_parser_stack_on_heap: 
+    arguments: []
+
+    storage: ""
+    desc: ruby_parser_stack_on_heap
+    return: int
+- rb_gc_mark_parser: 
+    arguments: []
+
+    storage: ""
+    desc: rb_gc_mark_parser
+    return: void
+- rb_parser_append_print: 
+    arguments: []
+
+    storage: ""
+    desc: rb_parser_append_print
+    return: void
+- rb_parser_while_loop: 
+    arguments: 
+    - int: chop
+    - int: split
+    storage: ""
+    desc: rb_parser_while_loop
+    return: void
+- Init_sym: 
+    arguments: []
+
+    storage: ""
+    desc: Init_sym
+    return: void
+- internal_id: 
+    arguments: []
+
+    storage: static
+    desc: internal_id
+    return: ID
+- is_special_global_name: 
+    arguments: 
+    - const char *: m
+    storage: static
+    desc: is_special_global_name
+    return: int
+- rb_symname_p: 
+    arguments: 
+    - const char *: name
+    storage: ""
+    desc: rb_symname_p
+    return: int
+- rb_sym_interned_p: 
+    arguments: 
+    - VALUE: str
+    storage: ""
+    desc: rb_sym_interned_p
+    return: int
+- rb_intern: 
+    arguments: 
+    - const char *: name
+    storage: ""
+    desc: rb_intern
+    return: ID
+- rb_id2name: 
+    arguments: 
+    - ID: id
+    storage: ""
+    desc: rb_id2name
+    return: char *
+- symbols_i: 
+    arguments: 
+    - char *: key
+    - ID: value
+    - VALUE: ary
+    storage: static
+    desc: symbols_i
+    return: int
+- rb_sym_all_symbols: 
+    arguments: []
+
+    storage: ""
+    desc: rb_sym_all_symbols
+    return: VALUE
+- rb_is_const_id: 
+    arguments: 
+    - ID: id
+    storage: ""
+    desc: rb_is_const_id
+    return: int
+- rb_is_class_id: 
+    arguments: 
+    - ID: id
+    storage: ""
+    desc: rb_is_class_id
+    return: int
+- rb_is_instance_id: 
+    arguments: 
+    - ID: id
+    storage: ""
+    desc: rb_is_instance_id
+    return: int
+- rb_is_local_id: 
+    arguments: 
+    - ID: id
+    storage: ""
+    desc: rb_is_local_id
+    return: int
+- rb_is_junk_id: 
+    arguments: 
+    - ID: id
+    storage: ""
+    desc: rb_is_junk_id
+    return: int
+- special_local_set: 
+    arguments: 
+    - char: c
+    - VALUE: val
+    storage: static
+    desc: special_local_set
+    return: void
+- rb_backref_get: 
+    arguments: []
+
+    storage: ""
+    desc: rb_backref_get
+    return: VALUE
+- rb_backref_set: 
+    arguments: 
+    - VALUE: val
+    storage: ""
+    desc: rb_backref_set
+    return: void
+- rb_lastline_get: 
+    arguments: []
+
+    storage: ""
+    desc: rb_lastline_get
+    return: VALUE
+- rb_lastline_set: 
+    arguments: 
+    - VALUE: val
+    storage: ""
+    desc: rb_lastline_set
+    return: void

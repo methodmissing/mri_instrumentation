@@ -1,0 +1,15 @@
+--- 
+- objcdummyfunction: 
+    arguments: []
+
+    storage: static
+    desc: objcdummyfunction
+    return: void
+- main: 
+    arguments: 
+    - int: argc
+    - char **: argv
+    - char **: envp
+    storage: ""
+    desc: main
+    return: int

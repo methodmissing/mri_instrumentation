@@ -25,8 +25,12 @@ module Mri
         
         def probes!( mri_source )
           FILES.each do |file|
-            Mri::Instrumentation::Parser.new( File.join( mri_source, file ) ).probes!
+            probe!( mri_source, file )
           end  
+        end
+        
+        def probe!( mri_source, file = '' )
+          Mri::Instrumentation::Parser.new( File.join( mri_source, file ) ).probes!
         end
         
       end  

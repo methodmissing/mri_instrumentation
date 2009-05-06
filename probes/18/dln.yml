@@ -1,0 +1,42 @@
+--- 
+- init_funcname_len: 
+    arguments: 
+    - char **: buf
+    - const char *: file
+    storage: static
+    desc: init_funcname_len
+    return: int
+- dln_strerror: 
+    arguments: []
+
+    storage: static
+    desc: dln_strerror
+    return: const char *
+- dln_load: 
+    arguments: 
+    - const char *: file
+    storage: ""
+    desc: dln_load
+    return: void *
+- dln_find_exe: 
+    arguments: 
+    - const char *: fname
+    - const char *: path
+    storage: ""
+    desc: dln_find_exe
+    return: char *
+- dln_find_file: 
+    arguments: 
+    - const char *: fname
+    - const char *: path
+    storage: ""
+    desc: dln_find_file
+    return: char *
+- dln_find_1: 
+    arguments: 
+    - char *: fname
+    - char *: path
+    - int: exe_flag
+    storage: static
+    desc: dln_find_1
+    return: char *

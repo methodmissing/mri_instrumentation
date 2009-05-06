@@ -1,0 +1,681 @@
+--- 
+- rb_equal: 
+    arguments: 
+    - VALUE: obj1
+    - VALUE: obj2
+    storage: ""
+    desc: rb_equal
+    return: VALUE
+- rb_eql: 
+    arguments: 
+    - VALUE: obj1
+    - VALUE: obj2
+    storage: ""
+    desc: rb_eql
+    return: int
+- rb_obj_equal: 
+    arguments: 
+    - VALUE: obj1
+    - VALUE: obj2
+    storage: static
+    desc: rb_obj_equal
+    return: VALUE
+- rb_obj_id_obsolete: 
+    arguments: 
+    - VALUE: obj
+    storage: ""
+    desc: rb_obj_id_obsolete
+    return: VALUE
+- rb_class_real: 
+    arguments: 
+    - VALUE: cl
+    storage: ""
+    desc: rb_class_real
+    return: VALUE
+- rb_obj_type: 
+    arguments: 
+    - VALUE: obj
+    storage: ""
+    desc: rb_obj_type
+    return: VALUE
+- rb_obj_class: 
+    arguments: 
+    - VALUE: obj
+    storage: ""
+    desc: rb_obj_class
+    return: VALUE
+- init_copy: 
+    arguments: 
+    - VALUE: dest
+    - VALUE: obj
+    storage: static
+    desc: init_copy
+    return: void
+- rb_obj_clone: 
+    arguments: 
+    - VALUE: obj
+    storage: ""
+    desc: rb_obj_clone
+    return: VALUE
+- rb_obj_dup: 
+    arguments: 
+    - VALUE: obj
+    storage: ""
+    desc: rb_obj_dup
+    return: VALUE
+- rb_obj_init_copy: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: orig
+    storage: ""
+    desc: rb_obj_init_copy
+    return: VALUE
+- rb_any_to_a: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_any_to_a
+    return: VALUE
+- rb_any_to_s: 
+    arguments: 
+    - VALUE: obj
+    storage: ""
+    desc: rb_any_to_s
+    return: VALUE
+- rb_inspect: 
+    arguments: 
+    - VALUE: obj
+    storage: ""
+    desc: rb_inspect
+    return: VALUE
+- inspect_i: 
+    arguments: 
+    - ID: id
+    - VALUE: value
+    - VALUE: str
+    storage: static
+    desc: inspect_i
+    return: int
+- inspect_obj: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: str
+    storage: static
+    desc: inspect_obj
+    return: VALUE
+- rb_obj_inspect: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_obj_inspect
+    return: VALUE
+- rb_obj_is_instance_of: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: c
+    storage: ""
+    desc: rb_obj_is_instance_of
+    return: VALUE
+- rb_obj_is_kind_of: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: c
+    storage: ""
+    desc: rb_obj_is_kind_of
+    return: VALUE
+- rb_obj_dummy: 
+    arguments: []
+
+    storage: static
+    desc: rb_obj_dummy
+    return: VALUE
+- rb_obj_tainted: 
+    arguments: 
+    - VALUE: obj
+    storage: ""
+    desc: rb_obj_tainted
+    return: VALUE
+- rb_obj_taint: 
+    arguments: 
+    - VALUE: obj
+    storage: ""
+    desc: rb_obj_taint
+    return: VALUE
+- rb_obj_untaint: 
+    arguments: 
+    - VALUE: obj
+    storage: ""
+    desc: rb_obj_untaint
+    return: VALUE
+- rb_obj_infect: 
+    arguments: 
+    - VALUE: obj1
+    - VALUE: obj2
+    storage: ""
+    desc: rb_obj_infect
+    return: void
+- rb_obj_freeze: 
+    arguments: 
+    - VALUE: obj
+    storage: ""
+    desc: rb_obj_freeze
+    return: VALUE
+- rb_obj_frozen_p: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_obj_frozen_p
+    return: VALUE
+- nil_to_i: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: nil_to_i
+    return: VALUE
+- nil_to_f: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: nil_to_f
+    return: VALUE
+- nil_to_s: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: nil_to_s
+    return: VALUE
+- nil_to_a: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: nil_to_a
+    return: VALUE
+- nil_inspect: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: nil_inspect
+    return: VALUE
+- main_to_s: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: main_to_s
+    return: VALUE
+- true_to_s: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: true_to_s
+    return: VALUE
+- true_and: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: obj2
+    storage: static
+    desc: true_and
+    return: VALUE
+- true_or: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: obj2
+    storage: static
+    desc: true_or
+    return: VALUE
+- true_xor: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: obj2
+    storage: static
+    desc: true_xor
+    return: VALUE
+- false_to_s: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: false_to_s
+    return: VALUE
+- false_and: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: obj2
+    storage: static
+    desc: false_and
+    return: VALUE
+- false_or: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: obj2
+    storage: static
+    desc: false_or
+    return: VALUE
+- false_xor: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: obj2
+    storage: static
+    desc: false_xor
+    return: VALUE
+- rb_true: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_true
+    return: VALUE
+- rb_false: 
+    arguments: 
+    - VALUE: obj
+    storage: static
+    desc: rb_false
+    return: VALUE
+- rb_obj_pattern_match: 
+    arguments: 
+    - VALUE: obj1
+    - VALUE: obj2
+    storage: static
+    desc: rb_obj_pattern_match
+    return: VALUE
+- sym_to_i: 
+    arguments: 
+    - VALUE: sym
+    storage: static
+    desc: sym_to_i
+    return: VALUE
+- sym_to_int: 
+    arguments: 
+    - VALUE: sym
+    storage: static
+    desc: sym_to_int
+    return: VALUE
+- sym_inspect: 
+    arguments: 
+    - VALUE: sym
+    storage: static
+    desc: sym_inspect
+    return: VALUE
+- sym_to_s: 
+    arguments: 
+    - VALUE: sym
+    storage: static
+    desc: sym_to_s
+    return: VALUE
+- sym_to_sym: 
+    arguments: 
+    - VALUE: sym
+    storage: static
+    desc: sym_to_sym
+    return: VALUE
+- rb_mod_to_s: 
+    arguments: 
+    - VALUE: klass
+    storage: static
+    desc: rb_mod_to_s
+    return: VALUE
+- rb_mod_freeze: 
+    arguments: 
+    - VALUE: mod
+    storage: static
+    desc: rb_mod_freeze
+    return: VALUE
+- rb_mod_eqq: 
+    arguments: 
+    - VALUE: mod
+    - VALUE: arg
+    storage: static
+    desc: rb_mod_eqq
+    return: VALUE
+- rb_class_inherited_p: 
+    arguments: 
+    - VALUE: mod
+    - VALUE: arg
+    storage: ""
+    desc: rb_class_inherited_p
+    return: VALUE
+- rb_mod_lt: 
+    arguments: 
+    - VALUE: mod
+    - VALUE: arg
+    storage: static
+    desc: rb_mod_lt
+    return: VALUE
+- rb_mod_ge: 
+    arguments: 
+    - VALUE: mod
+    - VALUE: arg
+    storage: static
+    desc: rb_mod_ge
+    return: VALUE
+- rb_mod_gt: 
+    arguments: 
+    - VALUE: mod
+    - VALUE: arg
+    storage: static
+    desc: rb_mod_gt
+    return: VALUE
+- rb_mod_cmp: 
+    arguments: 
+    - VALUE: mod
+    - VALUE: arg
+    storage: static
+    desc: rb_mod_cmp
+    return: VALUE
+- rb_module_s_alloc: 
+    arguments: 
+    - VALUE: klass
+    storage: static
+    desc: rb_module_s_alloc
+    return: VALUE
+- rb_class_s_alloc: 
+    arguments: 
+    - VALUE: klass
+    storage: static
+    desc: rb_class_s_alloc
+    return: VALUE
+- rb_mod_initialize: 
+    arguments: 
+    - VALUE: module
+    storage: static
+    desc: rb_mod_initialize
+    return: VALUE
+- rb_class_initialize: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: klass
+    storage: static
+    desc: rb_class_initialize
+    return: VALUE
+- rb_obj_alloc: 
+    arguments: 
+    - VALUE: klass
+    storage: ""
+    desc: rb_obj_alloc
+    return: VALUE
+- rb_class_allocate_instance: 
+    arguments: 
+    - VALUE: klass
+    storage: static
+    desc: rb_class_allocate_instance
+    return: VALUE
+- rb_class_new_instance: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: klass
+    storage: ""
+    desc: rb_class_new_instance
+    return: VALUE
+- rb_class_superclass: 
+    arguments: 
+    - VALUE: klass
+    storage: static
+    desc: rb_class_superclass
+    return: VALUE
+- str_to_id: 
+    arguments: 
+    - VALUE: str
+    storage: static
+    desc: str_to_id
+    return: ID
+- rb_to_id: 
+    arguments: 
+    - VALUE: name
+    storage: ""
+    desc: rb_to_id
+    return: ID
+- rb_mod_attr: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: klass
+    storage: static
+    desc: rb_mod_attr
+    return: VALUE
+- rb_mod_attr_reader: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: klass
+    storage: static
+    desc: rb_mod_attr_reader
+    return: VALUE
+- rb_mod_attr_writer: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: klass
+    storage: static
+    desc: rb_mod_attr_writer
+    return: VALUE
+- rb_mod_attr_accessor: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: klass
+    storage: static
+    desc: rb_mod_attr_accessor
+    return: VALUE
+- rb_mod_const_get: 
+    arguments: 
+    - VALUE: mod
+    - VALUE: name
+    storage: static
+    desc: rb_mod_const_get
+    return: VALUE
+- rb_mod_const_set: 
+    arguments: 
+    - VALUE: mod
+    - VALUE: name
+    - VALUE: value
+    storage: static
+    desc: rb_mod_const_set
+    return: VALUE
+- rb_mod_const_defined: 
+    arguments: 
+    - VALUE: mod
+    - VALUE: name
+    storage: static
+    desc: rb_mod_const_defined
+    return: VALUE
+- rb_obj_methods: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: obj
+    storage: static
+    desc: rb_obj_methods
+    return: VALUE
+- rb_obj_protected_methods: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: obj
+    storage: static
+    desc: rb_obj_protected_methods
+    return: VALUE
+- rb_obj_private_methods: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: obj
+    storage: static
+    desc: rb_obj_private_methods
+    return: VALUE
+- rb_obj_public_methods: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: obj
+    storage: static
+    desc: rb_obj_public_methods
+    return: VALUE
+- rb_obj_ivar_get: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: iv
+    storage: static
+    desc: rb_obj_ivar_get
+    return: VALUE
+- rb_obj_ivar_set: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: iv
+    - VALUE: val
+    storage: static
+    desc: rb_obj_ivar_set
+    return: VALUE
+- rb_obj_ivar_defined: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: iv
+    storage: static
+    desc: rb_obj_ivar_defined
+    return: VALUE
+- rb_mod_cvar_get: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: iv
+    storage: static
+    desc: rb_mod_cvar_get
+    return: VALUE
+- rb_mod_cvar_set: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: iv
+    - VALUE: val
+    storage: static
+    desc: rb_mod_cvar_set
+    return: VALUE
+- rb_mod_cvar_defined: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: iv
+    storage: static
+    desc: rb_mod_cvar_defined
+    return: VALUE
+- convert_type: 
+    arguments: 
+    - VALUE: val
+    - const char *: tname
+    - const char *: method
+    - int: raise
+    storage: static
+    desc: convert_type
+    return: VALUE
+- rb_convert_type: 
+    arguments: 
+    - VALUE: val
+    - int: type
+    - const char *: tname
+    - const char *: method
+    storage: ""
+    desc: rb_convert_type
+    return: VALUE
+- rb_check_convert_type: 
+    arguments: 
+    - VALUE: val
+    - int: type
+    - const char *: tname
+    - const char *: method
+    storage: ""
+    desc: rb_check_convert_type
+    return: VALUE
+- rb_to_integer: 
+    arguments: 
+    - VALUE: val
+    - const char *: method
+    storage: static
+    desc: rb_to_integer
+    return: VALUE
+- rb_to_int: 
+    arguments: 
+    - VALUE: val
+    storage: ""
+    desc: rb_to_int
+    return: VALUE
+- rb_Integer: 
+    arguments: 
+    - VALUE: val
+    storage: ""
+    desc: rb_Integer
+    return: VALUE
+- rb_f_integer: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: arg
+    storage: static
+    desc: rb_f_integer
+    return: VALUE
+- rb_cstr_to_dbl: 
+    arguments: 
+    - const char *: p
+    - int: badcheck
+    storage: ""
+    desc: rb_cstr_to_dbl
+    return: double
+- rb_str_to_dbl: 
+    arguments: 
+    - VALUE: str
+    - int: badcheck
+    storage: ""
+    desc: rb_str_to_dbl
+    return: double
+- rb_Float: 
+    arguments: 
+    - VALUE: val
+    storage: ""
+    desc: rb_Float
+    return: VALUE
+- rb_f_float: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: arg
+    storage: static
+    desc: rb_f_float
+    return: VALUE
+- rb_num2dbl: 
+    arguments: 
+    - VALUE: val
+    storage: ""
+    desc: rb_num2dbl
+    return: double
+- rb_str2cstr: 
+    arguments: 
+    - VALUE: str
+    - long int *: len
+    storage: ""
+    desc: rb_str2cstr
+    return: char *
+- rb_String: 
+    arguments: 
+    - VALUE: val
+    storage: ""
+    desc: rb_String
+    return: VALUE
+- rb_f_string: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: arg
+    storage: static
+    desc: rb_f_string
+    return: VALUE
+- rb_f_array: 
+    arguments: 
+    - VALUE: obj
+    - VALUE: arg
+    storage: static
+    desc: rb_f_array
+    return: VALUE
+- boot_defclass: 
+    arguments: 
+    - char *: name
+    - VALUE: super
+    storage: static
+    desc: boot_defclass
+    return: VALUE
+- Init_Object: 
+    arguments: []
+
+    storage: ""
+    desc: Init_Object
+    return: void

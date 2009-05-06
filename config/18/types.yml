@@ -6,6 +6,7 @@
 - 'pointer'     
 - 'hdr'
 - 'C_block'
+- 'USTR'
 - 'sFILE'
 - 'stack_node'
 - 'U'

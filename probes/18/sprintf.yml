@@ -1,0 +1,40 @@
+--- 
+- remove_sign_bits: 
+    arguments: 
+    - char *: str
+    - int: base
+    storage: static
+    desc: remove_sign_bits
+    return: char *
+- sign_bits: 
+    arguments: 
+    - int: base
+    - const char *: p
+    storage: static
+    desc: sign_bits
+    return: char
+- rb_f_sprintf: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    storage: ""
+    desc: rb_f_sprintf
+    return: VALUE
+- rb_str_format: 
+    arguments: 
+    - int: argc
+    - VALUE *: argv
+    - VALUE: fmt
+    storage: ""
+    desc: rb_str_format
+    return: VALUE
+- fmt_setup: 
+    arguments: 
+    - char *: buf
+    - int: c
+    - int: flags
+    - int: width
+    - int: prec
+    storage: static
+    desc: fmt_setup
+    return: void

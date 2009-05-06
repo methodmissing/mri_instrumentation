@@ -1,0 +1,327 @@
+--- 
+- init_syntax_once: 
+    arguments: []
+
+    storage: static
+    desc: init_syntax_once
+    return: void
+- ruby_re_set_casetable: 
+    arguments: 
+    - const char *: table
+    storage: ""
+    desc: ruby_re_set_casetable
+    return: void
+- re_set_syntax: 
+    arguments: 
+    - long int: syntax
+    storage: ""
+    desc: re_set_syntax
+    return: long int
+- utf8_firstbyte: 
+    arguments: 
+    - unsigned long int: c
+    storage: static
+    desc: utf8_firstbyte
+    return: unsigned int
+- print_mbc: 
+    arguments: 
+    - unsigned int: c
+    storage: static
+    desc: print_mbc
+    return: void
+- set_list_bits: 
+    arguments: 
+    - unsigned long int: c1
+    - unsigned long int: c2
+    - unsigned char *: b
+    storage: static
+    desc: set_list_bits
+    return: void
+- is_in_list_sbc: 
+    arguments: 
+    - unsigned long int: c
+    - const unsigned char *: b
+    storage: static
+    desc: is_in_list_sbc
+    return: int
+- is_in_list_mbc: 
+    arguments: 
+    - unsigned long int: c
+    - const unsigned char *: b
+    storage: static
+    desc: is_in_list_mbc
+    return: int
+- is_in_list: 
+    arguments: 
+    - unsigned long int: c
+    - const unsigned char *: b
+    storage: static
+    desc: is_in_list
+    return: int
+- print_partial_compiled_pattern: 
+    arguments: 
+    - unsigned char *: start
+    - unsigned char *: end
+    storage: static
+    desc: print_partial_compiled_pattern
+    return: void
+- print_compiled_pattern: 
+    arguments: 
+    - struct re_pattern_buffer *: bufp
+    storage: static
+    desc: print_compiled_pattern
+    return: void
+- calculate_must_string: 
+    arguments: 
+    - char *: start
+    - char *: end
+    storage: static
+    desc: calculate_must_string
+    return: char *
+- read_backslash: 
+    arguments: 
+    - int: c
+    storage: static
+    desc: read_backslash
+    return: unsigned int
+- read_special: 
+    arguments: 
+    - const char *: p
+    - const char *: pend
+    - const char **: pp
+    storage: static
+    desc: read_special
+    return: unsigned int
+- ruby_re_compile_pattern: 
+    arguments: 
+    - const char *: pattern
+    - int: size
+    - struct re_pattern_buffer *: bufp
+    storage: ""
+    desc: ruby_re_compile_pattern
+    return: char *
+- ruby_re_free_pattern: 
+    arguments: 
+    - struct re_pattern_buffer *: bufp
+    storage: ""
+    desc: ruby_re_free_pattern
+    return: void
+- store_jump: 
+    arguments: 
+    - char *: from
+    - int: opcode
+    - char *: to
+    storage: static
+    desc: store_jump
+    return: void
+- insert_jump: 
+    arguments: 
+    - int: op
+    - char *: from
+    - char *: to
+    - char *: current_end
+    storage: static
+    desc: insert_jump
+    return: void
+- store_jump_n: 
+    arguments: 
+    - char *: from
+    - int: opcode
+    - char *: to
+    - unsigned int: n
+    storage: static
+    desc: store_jump_n
+    return: void
+- insert_jump_n: 
+    arguments: 
+    - int: op
+    - char *: from
+    - char *: to
+    - char *: current_end
+    - unsigned int: n
+    storage: static
+    desc: insert_jump_n
+    return: void
+- insert_op: 
+    arguments: 
+    - int: op
+    - char *: there
+    - char *: current_end
+    storage: static
+    desc: insert_op
+    return: void
+- insert_op_2: 
+    arguments: 
+    - int: op
+    - char *: there
+    - char *: current_end
+    - int: num_1
+    - int: num_2
+    storage: static
+    desc: insert_op_2
+    return: void
+- slow_match: 
+    arguments: 
+    - const unsigned char *: little
+    - const unsigned char *: lend
+    - const unsigned char *: big
+    - const unsigned char *: bend
+    - const unsigned char *: translate
+    storage: static
+    desc: slow_match
+    return: int
+- slow_search: 
+    arguments: 
+    - const unsigned char *: little
+    - int: llen
+    - const unsigned char *: big
+    - int: blen
+    - const char *: translate
+    storage: static
+    desc: slow_search
+    return: int
+- bm_init_skip: 
+    arguments: 
+    - int *: skip
+    - unsigned char *: pat
+    - int: m
+    - const unsigned char *: translate
+    storage: static
+    desc: bm_init_skip
+    return: void
+- bm_search: 
+    arguments: 
+    - const unsigned char *: little
+    - int: llen
+    - const unsigned char *: big
+    - int: blen
+    - int *: skip
+    - const unsigned char *: translate
+    storage: static
+    desc: bm_search
+    return: int
+- re_compile_fastmap0: 
+    arguments: 
+    - struct re_pattern_buffer *: bufp
+    storage: static
+    desc: re_compile_fastmap0
+    return: int
+- ruby_re_compile_fastmap: 
+    arguments: 
+    - struct re_pattern_buffer *: bufp
+    storage: ""
+    desc: ruby_re_compile_fastmap
+    return: void
+- re_mbc_startpos: 
+    arguments: 
+    - const char *: string
+    - int: size
+    - int: startpos
+    - int: range
+    storage: ""
+    desc: re_mbc_startpos
+    return: int
+- ruby_re_adjust_startpos: 
+    arguments: 
+    - struct re_pattern_buffer *: bufp
+    - const char *: string
+    - int: size
+    - int: startpos
+    - int: range
+    storage: ""
+    desc: ruby_re_adjust_startpos
+    return: int
+- ruby_re_search: 
+    arguments: 
+    - struct re_pattern_buffer *: bufp
+    - const char *: string
+    - int: size
+    - int: startpos
+    - int: range
+    - struct re_registers *: regs
+    storage: ""
+    desc: ruby_re_search
+    return: int
+- init_regs: 
+    arguments: 
+    - struct re_registers *: regs
+    - unsigned int: num_regs
+    storage: static
+    desc: init_regs
+    return: void
+- ruby_re_match: 
+    arguments: 
+    - struct re_pattern_buffer *: bufp
+    - const char *: string_arg
+    - int: size
+    - int: pos
+    - struct re_registers *: regs
+    storage: ""
+    desc: ruby_re_match
+    return: int
+- re_match_exec: 
+    arguments: 
+    - struct re_pattern_buffer *: bufp
+    - const char *: string_arg
+    - int: size
+    - int: pos
+    - int: beg
+    - struct re_registers *: regs
+    storage: static
+    desc: re_match_exec
+    return: int
+- memcmp_translate: 
+    arguments: 
+    - unsigned char *: s1
+    - unsigned char *: s2
+    - int: len
+    storage: static
+    desc: memcmp_translate
+    return: int
+- ruby_re_copy_registers: 
+    arguments: 
+    - struct re_registers *: regs1
+    - struct re_registers *: regs2
+    storage: ""
+    desc: ruby_re_copy_registers
+    return: void
+- ruby_re_free_registers: 
+    arguments: 
+    - struct re_registers *: regs
+    storage: ""
+    desc: ruby_re_free_registers
+    return: void
+- ruby_re_mbcinit: 
+    arguments: 
+    - int: mbctype
+    storage: ""
+    desc: ruby_re_mbcinit
+    return: void
+- asc_startpos: 
+    arguments: 
+    - const char *: string
+    - unsigned int: pos
+    storage: static
+    desc: asc_startpos
+    return: unsigned int
+- euc_startpos: 
+    arguments: 
+    - const char *: string
+    - unsigned int: pos
+    storage: static
+    desc: euc_startpos
+    return: unsigned int
+- sjis_startpos: 
+    arguments: 
+    - const char *: string
+    - unsigned int: pos
+    storage: static
+    desc: sjis_startpos
+    return: unsigned int
+- utf8_startpos: 
+    arguments: 
+    - const char *: string
+    - unsigned int: pos
+    storage: static
+    desc: utf8_startpos
+    return: unsigned int
