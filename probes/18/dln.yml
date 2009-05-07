@@ -1,11 +1,4 @@
 --- 
-- init_funcname_len: 
-    arguments: 
-    - char **: buf
-    - const char *: file
-    storage: static
-    desc: init_funcname_len
-    return: int
 - dln_strerror: 
     arguments: []
 

@@ -15,13 +15,6 @@
     storage: static
     desc: err_snprintf
     return: void
-- err_print: 
-    arguments: 
-    - const char *: fmt
-    - va_list: args
-    storage: static
-    desc: err_print
-    return: void
 - rb_compile_error: 
     arguments: 
     - const char *: fmt

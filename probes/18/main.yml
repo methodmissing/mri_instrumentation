@@ -1,10 +1,4 @@
 --- 
-- objcdummyfunction: 
-    arguments: []
-
-    storage: static
-    desc: objcdummyfunction
-    return: void
 - main: 
     arguments: 
     - int: argc
